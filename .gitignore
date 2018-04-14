@@ -1,0 +1,4 @@
+*.pdf
+*.dll
+Mercure/packages
+Mercure/.nuget
