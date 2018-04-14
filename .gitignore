@@ -1,5 +1,10 @@
 *.pdf
 *.dll
+*.exe
+
 Mercure/packages
 Mercure/.nuget
-*.exe
+
+Mercure/Mercure/bin
+Mercure/Mercure/obj
+
