@@ -5,6 +5,8 @@ Mercure/packages
 Mercure/.nuget
 Mercure/Mercure/bin/*
 Mercure/Mercure/obj/*
+Mercure/Mercure/bin
+Mercure/Mercure/obj
 bin/*
 obj/*
 
