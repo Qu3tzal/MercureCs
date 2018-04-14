@@ -384,10 +384,23 @@
             }
             else
             {
-                /*if (DB.Update_Article(Description, Reference, Marque, Famille, SousFamille, PrixHT))
+                int Familly_Id = DB.Get_Or_Create_Familly(Famille);
+                int Sub_Familly_Id = DB.Get_Or_Create_Sub_Familly(Familly_Id, SousFamille);
+                int Brand_Id = DB.Get_Or_Create_Brand(Marque);
+
+                if (Familly_Id == -1)
+                    Print_To_Log("Error on Familly_Id");
+
+                if (Sub_Familly_Id == -1)
+                    Print_To_Log("Error on Sub_Familly_Id");
+
+                if (Brand_Id == -1)
+                    Print_To_Log("Error on Brand_Id");
+
+                if (DB.Update_Article(Description, Reference, Brand_Id, Familly_Id, Sub_Familly_Id, PrixHT))
                     return 2;
                 else
-                    */return 0;
+                    return 0;
             }
         }
 

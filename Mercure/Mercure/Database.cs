@@ -326,46 +326,154 @@ namespace Mercure
 
 
         /** Udpates. */
-        public void Update_Familly(int Familly_ID, string Familly_Name)
+        public bool Update_Familly(int Familly_ID, string Familly_Name)
         {
+            System.Data.SQLite.SQLiteCommand cmd = SQL_Connection.CreateCommand();
+            cmd = SQL_Connection.CreateCommand();
+            cmd.CommandText = "UPDATE Familles SET Nom = ? WHERE RefFamille = ?";
 
+            System.Data.SQLite.SQLiteParameter Name_Parameter = new System.Data.SQLite.SQLiteParameter();
+            System.Data.SQLite.SQLiteParameter Id_Parameter = new System.Data.SQLite.SQLiteParameter();
+
+            Name_Parameter.Value = Familly_Name;
+            Id_Parameter.Value = Familly_ID;
+
+            cmd.Parameters.Add(Name_Parameter);
+            cmd.Parameters.Add(Id_Parameter);
+
+            int Nb = cmd.ExecuteNonQuery();
+
+            return Nb == 1;
         }
 
-        public void Update_Sub_Familly(int Sub_Familly_ID, int Familly_ID, string Sub_Familly_Name)
+        public bool Update_Sub_Familly(int Sub_Familly_ID, int Familly_ID, string Sub_Familly_Name)
         {
-
+            return false;
         }
 
-        public void Update_Brand(int Brand_ID, string Brand_Name)
+        public bool Update_Brand(int Brand_ID, string Brand_Name)
         {
+            System.Data.SQLite.SQLiteCommand cmd = SQL_Connection.CreateCommand();
+            cmd = SQL_Connection.CreateCommand();
+            cmd.CommandText = "UPDATE Marque SET Nom = ? WHERE RefMarque = ?";
 
+            System.Data.SQLite.SQLiteParameter Name_Parameter = new System.Data.SQLite.SQLiteParameter();
+            System.Data.SQLite.SQLiteParameter Id_Parameter = new System.Data.SQLite.SQLiteParameter();
+
+            Name_Parameter.Value = Brand_Name;
+            Id_Parameter.Value = Brand_ID;
+
+            cmd.Parameters.Add(Name_Parameter);
+            cmd.Parameters.Add(Id_Parameter);
+
+            int Nb = cmd.ExecuteNonQuery();
+
+            return Nb == 1;
         }
 
-        public void Update_Article(string Description,string Reference,int Marque, int Famille,int SousFamille,float PrixHT)
+        public bool Update_Article(string Description, string Reference, int Marque, int Famille, int SousFamille, float PrixHT)
         {
+            int Quantite = Count_Articles_Id(Reference);
 
+            if (Quantite == -1) return false;
+
+            System.Data.SQLite.SQLiteCommand cmd = SQL_Connection.CreateCommand();
+            cmd = SQL_Connection.CreateCommand();
+            cmd.CommandText = "UPDATE Articles SET Description = ?, RefSousFamille = ?, RefMarque = ?, PrixHT = ?, Quantite = ? WHERE RefArticle = ?";
+
+            
+            System.Data.SQLite.SQLiteParameter Description_Parameter = new System.Data.SQLite.SQLiteParameter();
+            System.Data.SQLite.SQLiteParameter Sub_Fammilly_Id_Parameter = new System.Data.SQLite.SQLiteParameter();
+            System.Data.SQLite.SQLiteParameter Brand_Id_Parameter = new System.Data.SQLite.SQLiteParameter();
+            System.Data.SQLite.SQLiteParameter Price_Parameter = new System.Data.SQLite.SQLiteParameter();
+            System.Data.SQLite.SQLiteParameter Quantity_Parameter = new System.Data.SQLite.SQLiteParameter();
+            System.Data.SQLite.SQLiteParameter Id_Parameter = new System.Data.SQLite.SQLiteParameter();
+            
+           
+            Description_Parameter.Value = Description;
+            Sub_Fammilly_Id_Parameter.Value = SousFamille;
+            Brand_Id_Parameter.Value = Marque;
+            Price_Parameter.Value = PrixHT;
+            Quantity_Parameter.Value = Quantite;
+            Id_Parameter.Value = Reference;
+
+            
+            cmd.Parameters.Add(Description_Parameter);
+            cmd.Parameters.Add(Sub_Fammilly_Id_Parameter);
+            cmd.Parameters.Add(Brand_Id_Parameter);
+            cmd.Parameters.Add(Price_Parameter);
+            cmd.Parameters.Add(Quantity_Parameter);
+            cmd.Parameters.Add(Id_Parameter);
+
+            int Nb = cmd.ExecuteNonQuery();
+
+            return Nb == 1;
         }
 
 
         /** Removals. */
-        public void Delete_Familly(int Familly_ID)
+        public bool Delete_Familly(int Familly_ID)
         {
+            System.Data.SQLite.SQLiteCommand cmd = SQL_Connection.CreateCommand();
+            cmd = SQL_Connection.CreateCommand();
+            cmd.CommandText = "DELETE FROM Familles WHERE RefFamille = ?";
 
+            System.Data.SQLite.SQLiteParameter Id_Parameter = new System.Data.SQLite.SQLiteParameter();
+
+            Id_Parameter.Value = Familly_ID;
+
+            cmd.Parameters.Add(Id_Parameter);
+
+            int Nb = cmd.ExecuteNonQuery();
+
+            return Nb == 1;
         }
 
-        public void Delete_Sub_Familly(int Sub_Familly_ID)
+        public bool Delete_Sub_Familly(int Sub_Familly_ID)
         {
+            System.Data.SQLite.SQLiteCommand cmd = SQL_Connection.CreateCommand();
+            cmd = SQL_Connection.CreateCommand();
+            cmd.CommandText = "DELETE FROM SousFamilles WHERE RefSousFamille = ?";
+            System.Data.SQLite.SQLiteParameter Id_Parameter = new System.Data.SQLite.SQLiteParameter();
 
+            Id_Parameter.Value = Sub_Familly_ID;
+
+            cmd.Parameters.Add(Id_Parameter);
+
+            int Nb = cmd.ExecuteNonQuery();
+
+            return Nb == 1;
         }
 
-        public void Delete_Brand(int Brand_ID)
+        public bool Delete_Brand(int Brand_ID)
         {
+            System.Data.SQLite.SQLiteCommand cmd = SQL_Connection.CreateCommand();
+            cmd = SQL_Connection.CreateCommand();
+            cmd.CommandText = "DELETE FROM Marques WHERE RefMarque = ?";
+            System.Data.SQLite.SQLiteParameter Id_Parameter = new System.Data.SQLite.SQLiteParameter();
 
+            Id_Parameter.Value = Brand_ID;
+
+            cmd.Parameters.Add(Id_Parameter);
+
+            int Nb = cmd.ExecuteNonQuery();
+
+            return Nb == 1;
         }
 
-        public void Delete_Article(string Article_ID)
+        public bool Delete_Article(string Article_ID)
         {
+            System.Data.SQLite.SQLiteCommand cmd = SQL_Connection.CreateCommand();
+            cmd.CommandText = "DELETE FROM Articles WHERE RefArticle = ?";
+            System.Data.SQLite.SQLiteParameter Id_Parameter = new System.Data.SQLite.SQLiteParameter();
 
+            Id_Parameter.Value = Article_ID;
+
+            cmd.Parameters.Add(Id_Parameter);
+
+            int Nb = cmd.ExecuteNonQuery();
+
+            return Nb == 1;
         }
     }
 }
