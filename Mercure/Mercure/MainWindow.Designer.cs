@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using System.Collections.Generic;
 namespace Mercure
 {
     partial class MainWindow
@@ -36,12 +37,6 @@ namespace Mercure
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.Status_Label = new System.Windows.Forms.ToolStripStatusLabel();
             this.listView1 = new System.Windows.Forms.ListView();
-            this.RefArticle = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Description = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.SousFamille = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Marque = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.PrixHT = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Quantite = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -90,14 +85,9 @@ namespace Mercure
             // 
             // listView1
             // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.RefArticle,
-            this.Description,
-            this.SousFamille,
-            this.Marque,
-            this.PrixHT,
-            this.Quantite});
             this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listView1.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listView1.FullRowSelect = true;
             this.listView1.GridLines = true;
             this.listView1.Location = new System.Drawing.Point(0, 24);
             this.listView1.Name = "listView1";
@@ -106,35 +96,6 @@ namespace Mercure
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
             this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
-            // 
-            // RefArticle
-            // 
-            this.RefArticle.Text = "Ref Article";
-            this.RefArticle.Width = 61;
-            // 
-            // Description
-            // 
-            this.Description.Text = "Description";
-            this.Description.Width = 65;
-            // 
-            // SousFamille
-            // 
-            this.SousFamille.Text = "Sous Famille";
-            this.SousFamille.Width = 71;
-            // 
-            // Marque
-            // 
-            this.Marque.Text = "Marque";
-            this.Marque.Width = 48;
-            // 
-            // PrixHT
-            // 
-            this.PrixHT.Text = "PrixHT";
-            this.PrixHT.Width = 44;
-            // 
-            // Quantite
-            // 
-            this.Quantite.Text = "Quantité";
             // 
             // MainWindow
             // 
@@ -148,7 +109,7 @@ namespace Mercure
             this.Name = "MainWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Application du feu de dieu";
-            this.Load += new System.EventHandler(this.MainWindow_Load);
+            this.Load += new System.EventHandler(this.InitList);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
@@ -162,7 +123,7 @@ namespace Mercure
 
         private void Select_XML_File_Menu_Item_Click(object sender, System.EventArgs e)
         {
-           DataIntegrationForm Dif = new DataIntegrationForm();
+           DataIntegrationForm Dif = new DataIntegrationForm(this);
            Dif.ShowDialog();
         }
 
@@ -173,7 +134,7 @@ namespace Mercure
         private ToolStripMenuItem Data_Integration_Menu_Item;
         private ListView listView1;
 
-        public void initListView(object sender, System.EventArgs e)
+        public void InitList(object sender, System.EventArgs e)
         {
             listView1.Columns.Add("RefArticle", -2, HorizontalAlignment.Left);
             listView1.Columns.Add("Description", -2, HorizontalAlignment.Left);
@@ -181,14 +142,33 @@ namespace Mercure
             listView1.Columns.Add("Marque", -2, HorizontalAlignment.Left);
             listView1.Columns.Add("Prix HT", -2, HorizontalAlignment.Left);
             listView1.Columns.Add("Quantité", -2, HorizontalAlignment.Left);
+
+            listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+            listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
         }
 
-        private ColumnHeader RefArticle;
-        private ColumnHeader Description;
-        private ColumnHeader SousFamille;
-        private ColumnHeader Marque;
-        private ColumnHeader PrixHT;
-        private ColumnHeader Quantite;
+        public void loadArticles()
+        {
+            this.listView1.Clear();
+
+            listView1.Columns.Add("RefArticle", -2, HorizontalAlignment.Left);
+            listView1.Columns.Add("Description", -2, HorizontalAlignment.Left);
+            listView1.Columns.Add("Sous Famille", -2, HorizontalAlignment.Left);
+            listView1.Columns.Add("Marque", -2, HorizontalAlignment.Left);
+            listView1.Columns.Add("Prix HT", -2, HorizontalAlignment.Left);
+            listView1.Columns.Add("Quantité", -2, HorizontalAlignment.Left);
+
+            List<Models.Article> Articles = Database.GetInstance().getArticles();
+
+            foreach(Models.Article A in Articles)
+            {
+                String[] Row = {A.Ref_Article, A.Description, A.Sub_Familly_Name, A.Brand_Name, "" + A.Price_HT, "" + A.Quantity};
+                ListViewItem Item = new ListViewItem(Row);
+                this.listView1.Items.Add(Item);
+            }
+            listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+            listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+        }
 
     }
 }

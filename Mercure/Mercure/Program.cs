@@ -13,9 +13,11 @@ namespace Mercure
         [STAThread]
         static void Main()
         {
+            
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainWindow());
+            //System.Console.WriteLine(Database.GetInstance().getArticles().Count);
         }
     }
 }
