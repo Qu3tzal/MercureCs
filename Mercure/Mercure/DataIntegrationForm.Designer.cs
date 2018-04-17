@@ -76,10 +76,12 @@
             this.File_Name_Input.AllowDrop = true;
             this.File_Name_Input.Location = new System.Drawing.Point(3, 3);
             this.File_Name_Input.Name = "File_Name_Input";
+            this.File_Name_Input.ReadOnly = true;
             this.File_Name_Input.Size = new System.Drawing.Size(405, 20);
             this.File_Name_Input.TabIndex = 2;
             this.File_Name_Input.Text = "Glissez déposez ici";
             this.File_Name_Input.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.File_Name_Input.TextChanged += new System.EventHandler(this.File_Name_Input_TextChanged);
             this.File_Name_Input.DragDrop += new System.Windows.Forms.DragEventHandler(this.File_Path_DragDrop);
             this.File_Name_Input.DragEnter += new System.Windows.Forms.DragEventHandler(this.File_Path_DragEnter);
             // 
@@ -151,7 +153,6 @@
             this.label1.Size = new System.Drawing.Size(21, 22);
             this.label1.TabIndex = 1;
             this.label1.Text = "0%";
-            //this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // flowLayoutPanel5
             // 
