@@ -63,9 +63,39 @@ namespace Mercure.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap database__pencil {
+            get {
+                object obj = ResourceManager.GetObject("database--pencil", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap database__plus {
+            get {
+                object obj = ResourceManager.GetObject("database--plus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap database_import {
             get {
                 object obj = ResourceManager.GetObject("database-import", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap script_import {
+            get {
+                object obj = ResourceManager.GetObject("script-import", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

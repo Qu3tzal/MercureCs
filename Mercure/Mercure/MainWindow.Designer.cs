@@ -31,6 +31,7 @@ namespace Mercure
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.File_Menu_Item = new System.Windows.Forms.ToolStripMenuItem();
             this.Data_Integration_Menu_Item = new System.Windows.Forms.ToolStripMenuItem();
@@ -106,6 +107,7 @@ namespace Mercure
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

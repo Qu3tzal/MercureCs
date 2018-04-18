@@ -31,15 +31,15 @@
             this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.label1 = new System.Windows.Forms.Label();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
-            this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.button1 = new System.Windows.Forms.Button();
             this.File_Name_Input = new System.Windows.Forms.TextBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.button1 = new System.Windows.Forms.Button();
             this.flowLayoutPanel5.SuspendLayout();
             this.flowLayoutPanel4.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
@@ -53,7 +53,7 @@
             this.flowLayoutPanel5.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.flowLayoutPanel5.Controls.Add(this.textBox1);
             this.flowLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel5.Location = new System.Drawing.Point(3, 108);
+            this.flowLayoutPanel5.Location = new System.Drawing.Point(601, 3);
             this.flowLayoutPanel5.Name = "flowLayoutPanel5";
             this.flowLayoutPanel5.Size = new System.Drawing.Size(593, 145);
             this.flowLayoutPanel5.TabIndex = 8;
@@ -79,10 +79,21 @@
             this.flowLayoutPanel4.Controls.Add(this.progressBar1);
             this.flowLayoutPanel4.Controls.Add(this.label1);
             this.flowLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel4.Location = new System.Drawing.Point(3, 73);
+            this.flowLayoutPanel4.Location = new System.Drawing.Point(3, 77);
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
-            this.flowLayoutPanel4.Size = new System.Drawing.Size(593, 29);
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(592, 29);
             this.flowLayoutPanel4.TabIndex = 6;
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.progressBar1.Location = new System.Drawing.Point(3, 3);
+            this.progressBar1.MarqueeAnimationSpeed = 1;
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(559, 23);
+            this.progressBar1.Step = 1;
+            this.progressBar1.TabIndex = 0;
             // 
             // label1
             // 
@@ -96,17 +107,6 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "0%";
             // 
-            // progressBar1
-            // 
-            this.progressBar1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.progressBar1.Location = new System.Drawing.Point(3, 3);
-            this.progressBar1.MarqueeAnimationSpeed = 1;
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(559, 23);
-            this.progressBar1.Step = 1;
-            this.progressBar1.TabIndex = 0;
-            // 
             // flowLayoutPanel3
             // 
             this.flowLayoutPanel3.AutoSize = true;
@@ -114,35 +114,41 @@
             this.flowLayoutPanel3.Controls.Add(this.button3);
             this.flowLayoutPanel3.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(3, 38);
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(3, 39);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(593, 29);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(592, 32);
             this.flowLayoutPanel3.TabIndex = 5;
+            // 
+            // button2
+            // 
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.button2.Image = global::Mercure.Properties.Resources.database__plus;
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(3, 3);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(307, 26);
+            this.button2.TabIndex = 0;
+            this.button2.Text = "Nouvelle intégration, purge des données actuelles.";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.New_Data_Integration);
             // 
             // button3
             // 
             this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.button3.AutoEllipsis = true;
             this.button3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button3.Location = new System.Drawing.Point(265, 3);
+            this.button3.Image = global::Mercure.Properties.Resources.database__pencil;
+            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button3.Location = new System.Drawing.Point(316, 3);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(321, 23);
+            this.button3.Size = new System.Drawing.Size(270, 26);
             this.button3.TabIndex = 1;
             this.button3.Text = "Mise à jour.";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.Update_Data_Integration);
-            // 
-            // button2
-            // 
-            this.button2.AutoSize = true;
-            this.button2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button2.Location = new System.Drawing.Point(3, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(256, 23);
-            this.button2.TabIndex = 0;
-            this.button2.Text = "Nouvelle intégration, purge des données actuelles.";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.New_Data_Integration);
             // 
             // flowLayoutPanel2
             // 
@@ -153,35 +159,20 @@
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(593, 29);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(592, 30);
             this.flowLayoutPanel2.TabIndex = 4;
-            // 
-            // button1
-            // 
-            this.button1.AllowDrop = true;
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button1.Location = new System.Drawing.Point(414, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(172, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Sélectionner un fichier XML";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.File_Select_Click);
             // 
             // File_Name_Input
             // 
             this.File_Name_Input.AccessibleDescription = "";
             this.File_Name_Input.AllowDrop = true;
-            this.File_Name_Input.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.File_Name_Input.Location = new System.Drawing.Point(3, 3);
+            this.File_Name_Input.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.File_Name_Input.Location = new System.Drawing.Point(3, 5);
             this.File_Name_Input.Name = "File_Name_Input";
             this.File_Name_Input.ReadOnly = true;
             this.File_Name_Input.Size = new System.Drawing.Size(405, 20);
             this.File_Name_Input.TabIndex = 2;
-            this.File_Name_Input.Text = "Glissez déposez votre fichier ici";
+            this.File_Name_Input.Text = "Glissez-déposez votre fichier ici";
             this.File_Name_Input.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.File_Name_Input.TextChanged += new System.EventHandler(this.File_Name_Input_TextChanged);
             this.File_Name_Input.DragDrop += new System.Windows.Forms.DragEventHandler(this.File_Path_DragDrop);
@@ -202,6 +193,22 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(601, 256);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
+            // button1
+            // 
+            this.button1.AllowDrop = true;
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.button1.Image = global::Mercure.Properties.Resources.script_import;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(414, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(172, 24);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Sélectionner un fichier XML";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.File_Select_Click);
+            // 
             // DataIntegrationForm
             // 
             this.AllowDrop = true;
@@ -221,7 +228,6 @@
             this.flowLayoutPanel4.ResumeLayout(false);
             this.flowLayoutPanel4.PerformLayout();
             this.flowLayoutPanel3.ResumeLayout(false);
-            this.flowLayoutPanel3.PerformLayout();
             this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel2.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
