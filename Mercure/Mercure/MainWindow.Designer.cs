@@ -156,12 +156,12 @@ namespace Mercure
             {
                 Width += listView1.Columns[i].Width;
             }
-
-            int LastWidth = this.Width;
+        
             this.Width = Width + 40;
             this.Height = (int)(this.Width * (9 / 16.0f));
 
-            this.Location = new System.Drawing.Point(this.Left - (this.Width - LastWidth) / 2, this.Top);
+            this.CenterToScreen();
+
         }
 
         public void loadArticles()
@@ -191,11 +191,10 @@ namespace Mercure
             {
                 Width += listView1.Columns[i].Width;
             }
-            int LastWidth = this.Width;
             this.Width = Width + 40;
             this.Height = (int)(this.Width * (9 / 16.0f));
 
-            this.Location = new System.Drawing.Point(this.Left - (this.Width - LastWidth) / 2, this.Top);
+            this.CenterToScreen();
         }
 
     }

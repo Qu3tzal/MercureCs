@@ -11,10 +11,10 @@ namespace Mercure
 {
     public partial class DataIntegrationForm : Form
     {
-        private MainWindow M;
+        private MainWindow Parent;
         public DataIntegrationForm(MainWindow M)
         {
-            this.M = M;
+            this.Parent = M;
             InitializeComponent();
         }
 

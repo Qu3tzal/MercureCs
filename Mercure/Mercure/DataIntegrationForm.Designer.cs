@@ -39,8 +39,8 @@
             this.button3 = new System.Windows.Forms.Button();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.File_Name_Input = new System.Windows.Forms.TextBox();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.button1 = new System.Windows.Forms.Button();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
             this.flowLayoutPanel5.SuspendLayout();
             this.flowLayoutPanel4.SuspendLayout();
@@ -180,22 +180,6 @@
             this.File_Name_Input.DragDrop += new System.Windows.Forms.DragEventHandler(this.File_Path_DragDrop);
             this.File_Name_Input.DragEnter += new System.Windows.Forms.DragEventHandler(this.File_Path_DragEnter);
             // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.AllowDrop = true;
-            this.flowLayoutPanel1.AutoSize = true;
-            this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel2);
-            this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel3);
-            this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel4);
-            this.flowLayoutPanel1.Controls.Add(this.label2);
-            this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel5);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(601, 291);
-            this.flowLayoutPanel1.TabIndex = 0;
-            // 
             // button1
             // 
             this.button1.AllowDrop = true;
@@ -211,6 +195,22 @@
             this.button1.Text = "Sélectionner un fichier XML";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.File_Select_Click);
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.AllowDrop = true;
+            this.flowLayoutPanel1.AutoSize = true;
+            this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel2);
+            this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel3);
+            this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel4);
+            this.flowLayoutPanel1.Controls.Add(this.label2);
+            this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel5);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(601, 291);
+            this.flowLayoutPanel1.TabIndex = 0;
             // 
             // label2
             // 
@@ -235,6 +235,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DataIntegrationForm";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Intégration de données";
             this.Load += new System.EventHandler(this.DataIntegrationForm_Load);
             this.flowLayoutPanel5.ResumeLayout(false);
@@ -332,7 +333,7 @@
 
             // Finish progress.
             Update_Progress_Bar(100);
-            M.loadArticles();
+            Parent.loadArticles();
         }
 
         private void Update_Data_Integration(object sender, System.EventArgs e)
@@ -399,6 +400,7 @@
 
             // Finish progress.
             Update_Progress_Bar(100);
+            Parent.loadArticles();
         }
 
         private bool Load_Article(string Description, string Reference, string Marque, string Famille, string SousFamille, float PrixHT)
