@@ -23,7 +23,11 @@ namespace Mercure
         /// <param name="Article"></param>
         public void Open_Modify_Article(Models.Article Article)
         {
-            Console.WriteLine("Modify Article : " + Article.Ref_Article);
+            AddArticleForm Aaf = new AddArticleForm(Article);
+            Aaf.ShowDialog();
+
+            // Refresh the view.
+            Load_Articles();
         }
 
         /// <summary>
@@ -168,7 +172,7 @@ namespace Mercure
         /// <param name="e"></param>
         private void On_Create_Article_Event(object sender, EventArgs e)
         {
-            AddArticleForm Aaf = new AddArticleForm();
+            AddArticleForm Aaf = new AddArticleForm(null);
             Aaf.ShowDialog();
 
             // Refresh the view.

@@ -27,7 +27,9 @@ namespace Mercure
 
         private void Auto_Fill()
         {
-
+            this.Ref_Text_Box.Text = Article.Ref_Article;
+            this.Description_Text_Box.Text = Article.Description;
+            this.numericUpDown1.Value = Article.Quantity;
         }
 
         private void Load_Brand()
@@ -36,6 +38,8 @@ namespace Mercure
             foreach (string S in Brands)
             {
                 this.Brand_Combo_Box.Items.Add(S);
+                if(Article != null && Article.Brand_Name.Equals(S))
+                    this.Brand_Combo_Box.SelectedItem = S;
             }
         }
 
@@ -45,6 +49,8 @@ namespace Mercure
             foreach(string S in Sub_Famillies)
             {
                 this.SubFamily_Combo_Box.Items.Add(S);
+                if (Article != null && Article.Sub_Familly_Name.Equals(S))
+                    this.SubFamily_Combo_Box.SelectedItem = S;
             }
         }
 
