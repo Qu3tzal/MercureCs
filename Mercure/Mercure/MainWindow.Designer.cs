@@ -148,6 +148,18 @@ namespace Mercure
 
             listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
             listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+
+            int Width = 0;
+            for (int i = 0; i < listView1.Columns.Count; i++)
+            {
+                Width += listView1.Columns[i].Width;
+            }
+
+            int LastWidth = this.Width;
+            this.Width = Width + 40;
+            this.Height = (int)(this.Width * (9 / 16.0f));
+
+            this.Location = new System.Drawing.Point(this.Left - (this.Width - LastWidth) / 2, this.Top);
         }
 
         public void loadArticles()
@@ -163,14 +175,25 @@ namespace Mercure
 
             List<Models.Article> Articles = Database.GetInstance().getArticles();
 
-            foreach(Models.Article A in Articles)
+            foreach (Models.Article A in Articles)
             {
-                String[] Row = {A.Ref_Article, A.Description, A.Sub_Familly_Name, A.Brand_Name, "" + A.Price_HT, "" + A.Quantity};
+                String[] Row = { A.Ref_Article, A.Description, A.Sub_Familly_Name, A.Brand_Name, "" + A.Price_HT, "" + A.Quantity };
                 ListViewItem Item = new ListViewItem(Row);
                 this.listView1.Items.Add(Item);
             }
             listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
             listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+
+            int Width = 0;
+            for (int i = 0; i < listView1.Columns.Count; i++)
+            {
+                Width += listView1.Columns[i].Width;
+            }
+            int LastWidth = this.Width;
+            this.Width = Width + 40;
+            this.Height = (int)(this.Width * (9 / 16.0f));
+
+            this.Location = new System.Drawing.Point(this.Left - (this.Width - LastWidth) / 2, this.Top);
         }
 
     }
