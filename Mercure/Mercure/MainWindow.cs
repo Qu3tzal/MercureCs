@@ -150,7 +150,11 @@ namespace Mercure
         /// <param name="e"></param>
         private void On_Create_Article_Event(object sender, EventArgs e)
         {
-            Console.WriteLine("Create article");
+            AddArticleForm Aaf = new AddArticleForm();
+            Aaf.ShowDialog();
+
+            // Refresh the view.
+            Load_Articles();
         }
 
         /// <summary>

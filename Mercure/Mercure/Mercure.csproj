@@ -67,6 +67,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddArticleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddArticleForm.Designer.cs">
+      <DependentUpon>AddArticleForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Database.cs" />
     <Compile Include="DataIntegrationForm.cs">
       <SubType>Form</SubType>
@@ -83,6 +89,9 @@
     <Compile Include="Models\Article.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AddArticleForm.resx">
+      <DependentUpon>AddArticleForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DataIntegrationForm.resx">
       <DependentUpon>DataIntegrationForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -122,6 +131,11 @@
     <None Include="res\icons-shadowless\box--minus.png" />
     <None Include="res\icons-shadowless\box--pencil.png" />
     <None Include="res\icons-shadowless\box--plus.png" />
+    <None Include="res\icons-shadowless\cross.png" />
+    <None Include="res\icons-shadowless\sitemap-application-blue.png" />
+    <None Include="res\icons-shadowless\tag--pencil.png" />
+    <None Include="res\icons-shadowless\tick.png" />
+    <None Include="res\icons-shadowless\store--plus.png" />
     <Content Include="res\Mercure.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
