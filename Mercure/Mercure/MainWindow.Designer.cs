@@ -35,14 +35,14 @@ namespace Mercure
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.File_Menu_Item = new System.Windows.Forms.ToolStripMenuItem();
+            this.Data_Integration_Menu_Item = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.Status_Label = new System.Windows.Forms.ToolStripStatusLabel();
             this.listView1 = new System.Windows.Forms.ListView();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.ajouterUnArticleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modifierLarticleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.supprimerLarticleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ajouterUnArticleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.Data_Integration_Menu_Item = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
@@ -66,6 +66,14 @@ namespace Mercure
             this.File_Menu_Item.Name = "File_Menu_Item";
             this.File_Menu_Item.Size = new System.Drawing.Size(54, 20);
             this.File_Menu_Item.Text = "Fichier";
+            // 
+            // Data_Integration_Menu_Item
+            // 
+            this.Data_Integration_Menu_Item.Image = global::Mercure.Properties.Resources.database_import;
+            this.Data_Integration_Menu_Item.Name = "Data_Integration_Menu_Item";
+            this.Data_Integration_Menu_Item.Size = new System.Drawing.Size(180, 22);
+            this.Data_Integration_Menu_Item.Text = "Intégrer les données";
+            this.Data_Integration_Menu_Item.Click += new System.EventHandler(this.Select_XML_File_Menu_Item_Click);
             // 
             // statusStrip1
             // 
@@ -111,6 +119,14 @@ namespace Mercure
             this.contextMenuStrip1.Size = new System.Drawing.Size(171, 70);
             this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.On_Open_Menu_Strip);
             // 
+            // ajouterUnArticleToolStripMenuItem
+            // 
+            this.ajouterUnArticleToolStripMenuItem.Image = global::Mercure.Properties.Resources.box__plus;
+            this.ajouterUnArticleToolStripMenuItem.Name = "ajouterUnArticleToolStripMenuItem";
+            this.ajouterUnArticleToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.ajouterUnArticleToolStripMenuItem.Text = "Ajouter un article";
+            this.ajouterUnArticleToolStripMenuItem.Click += new System.EventHandler(this.On_Create_Article_Event);
+            // 
             // modifierLarticleToolStripMenuItem
             // 
             this.modifierLarticleToolStripMenuItem.Image = global::Mercure.Properties.Resources.box__pencil;
@@ -126,22 +142,6 @@ namespace Mercure
             this.supprimerLarticleToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.supprimerLarticleToolStripMenuItem.Text = "Supprimer l\'article";
             this.supprimerLarticleToolStripMenuItem.Click += new System.EventHandler(this.On_Delete_Article_Event);
-            // 
-            // ajouterUnArticleToolStripMenuItem
-            // 
-            this.ajouterUnArticleToolStripMenuItem.Image = global::Mercure.Properties.Resources.box__plus;
-            this.ajouterUnArticleToolStripMenuItem.Name = "ajouterUnArticleToolStripMenuItem";
-            this.ajouterUnArticleToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
-            this.ajouterUnArticleToolStripMenuItem.Text = "Ajouter un article";
-            this.ajouterUnArticleToolStripMenuItem.Click += new System.EventHandler(this.On_Create_Article_Event);
-            // 
-            // Data_Integration_Menu_Item
-            // 
-            this.Data_Integration_Menu_Item.Image = global::Mercure.Properties.Resources.database_import;
-            this.Data_Integration_Menu_Item.Name = "Data_Integration_Menu_Item";
-            this.Data_Integration_Menu_Item.Size = new System.Drawing.Size(180, 22);
-            this.Data_Integration_Menu_Item.Text = "Intégrer les données";
-            this.Data_Integration_Menu_Item.Click += new System.EventHandler(this.Select_XML_File_Menu_Item_Click);
             // 
             // MainWindow
             // 

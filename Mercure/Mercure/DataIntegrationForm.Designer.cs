@@ -192,6 +192,7 @@
             this.button1.Size = new System.Drawing.Size(172, 24);
             this.button1.TabIndex = 1;
             this.button1.Text = "Sélectionner un fichier XML";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.File_Select_Click);
             // 
