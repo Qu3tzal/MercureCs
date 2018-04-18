@@ -61,6 +61,14 @@ namespace Mercure
             this.ajouterUneMarqueToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.ajouterUneFamilleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ajouterUneSousfamilleToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.modifierUnArticleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.supprimerUnArticleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.modifierUneMarqueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.supprimerUneMarqueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.modifierUneFamilleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.supprimerUneFamilleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.modifierUneSousfamilleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.supprimerUneSousfamilleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
@@ -99,7 +107,9 @@ namespace Mercure
             // articlesToolStripMenuItem
             // 
             this.articlesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ajouterUnArticleToolStripMenuItem1});
+            this.ajouterUnArticleToolStripMenuItem1,
+            this.modifierUnArticleToolStripMenuItem,
+            this.supprimerUnArticleToolStripMenuItem});
             this.articlesToolStripMenuItem.Name = "articlesToolStripMenuItem";
             this.articlesToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
             this.articlesToolStripMenuItem.Text = "Articles";
@@ -107,7 +117,9 @@ namespace Mercure
             // marquesToolStripMenuItem
             // 
             this.marquesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ajouterUneMarqueToolStripMenuItem1});
+            this.ajouterUneMarqueToolStripMenuItem1,
+            this.modifierUneMarqueToolStripMenuItem,
+            this.supprimerUneMarqueToolStripMenuItem});
             this.marquesToolStripMenuItem.Name = "marquesToolStripMenuItem";
             this.marquesToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
             this.marquesToolStripMenuItem.Text = "Marques";
@@ -115,7 +127,9 @@ namespace Mercure
             // famillesToolStripMenuItem
             // 
             this.famillesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ajouterUneFamilleToolStripMenuItem});
+            this.ajouterUneFamilleToolStripMenuItem,
+            this.modifierUneFamilleToolStripMenuItem,
+            this.supprimerUneFamilleToolStripMenuItem});
             this.famillesToolStripMenuItem.Name = "famillesToolStripMenuItem";
             this.famillesToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
             this.famillesToolStripMenuItem.Text = "Familles";
@@ -123,7 +137,9 @@ namespace Mercure
             // sousfamillesToolStripMenuItem
             // 
             this.sousfamillesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ajouterUneSousfamilleToolStripMenuItem1});
+            this.ajouterUneSousfamilleToolStripMenuItem1,
+            this.modifierUneSousfamilleToolStripMenuItem,
+            this.supprimerUneSousfamilleToolStripMenuItem});
             this.sousfamillesToolStripMenuItem.Name = "sousfamillesToolStripMenuItem";
             this.sousfamillesToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
             this.sousfamillesToolStripMenuItem.Text = "Sous-familles";
@@ -274,29 +290,83 @@ namespace Mercure
             // 
             this.ajouterUnArticleToolStripMenuItem1.Image = global::Mercure.Properties.Resources.box__plus;
             this.ajouterUnArticleToolStripMenuItem1.Name = "ajouterUnArticleToolStripMenuItem1";
-            this.ajouterUnArticleToolStripMenuItem1.Size = new System.Drawing.Size(165, 22);
+            this.ajouterUnArticleToolStripMenuItem1.Size = new System.Drawing.Size(181, 22);
             this.ajouterUnArticleToolStripMenuItem1.Text = "Ajouter un article";
             // 
             // ajouterUneMarqueToolStripMenuItem1
             // 
             this.ajouterUneMarqueToolStripMenuItem1.Image = global::Mercure.Properties.Resources.store__plus;
             this.ajouterUneMarqueToolStripMenuItem1.Name = "ajouterUneMarqueToolStripMenuItem1";
-            this.ajouterUneMarqueToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.ajouterUneMarqueToolStripMenuItem1.Size = new System.Drawing.Size(196, 22);
             this.ajouterUneMarqueToolStripMenuItem1.Text = "Ajouter une marque";
             // 
             // ajouterUneFamilleToolStripMenuItem
             // 
             this.ajouterUneFamilleToolStripMenuItem.Image = global::Mercure.Properties.Resources.tag__plus;
             this.ajouterUneFamilleToolStripMenuItem.Name = "ajouterUneFamilleToolStripMenuItem";
-            this.ajouterUneFamilleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ajouterUneFamilleToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
             this.ajouterUneFamilleToolStripMenuItem.Text = "Ajouter une famille";
             // 
             // ajouterUneSousfamilleToolStripMenuItem1
             // 
             this.ajouterUneSousfamilleToolStripMenuItem1.Image = global::Mercure.Properties.Resources.sitemap_application_blue;
             this.ajouterUneSousfamilleToolStripMenuItem1.Name = "ajouterUneSousfamilleToolStripMenuItem1";
-            this.ajouterUneSousfamilleToolStripMenuItem1.Size = new System.Drawing.Size(204, 22);
+            this.ajouterUneSousfamilleToolStripMenuItem1.Size = new System.Drawing.Size(220, 22);
             this.ajouterUneSousfamilleToolStripMenuItem1.Text = "Ajouter une sous-famille";
+            // 
+            // modifierUnArticleToolStripMenuItem
+            // 
+            this.modifierUnArticleToolStripMenuItem.Image = global::Mercure.Properties.Resources.box__pencil;
+            this.modifierUnArticleToolStripMenuItem.Name = "modifierUnArticleToolStripMenuItem";
+            this.modifierUnArticleToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.modifierUnArticleToolStripMenuItem.Text = "Modifier un article";
+            // 
+            // supprimerUnArticleToolStripMenuItem
+            // 
+            this.supprimerUnArticleToolStripMenuItem.Image = global::Mercure.Properties.Resources.box__minus;
+            this.supprimerUnArticleToolStripMenuItem.Name = "supprimerUnArticleToolStripMenuItem";
+            this.supprimerUnArticleToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.supprimerUnArticleToolStripMenuItem.Text = "Supprimer un article";
+            // 
+            // modifierUneMarqueToolStripMenuItem
+            // 
+            this.modifierUneMarqueToolStripMenuItem.Image = global::Mercure.Properties.Resources.store__pencil;
+            this.modifierUneMarqueToolStripMenuItem.Name = "modifierUneMarqueToolStripMenuItem";
+            this.modifierUneMarqueToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.modifierUneMarqueToolStripMenuItem.Text = "Modifier une marque";
+            // 
+            // supprimerUneMarqueToolStripMenuItem
+            // 
+            this.supprimerUneMarqueToolStripMenuItem.Image = global::Mercure.Properties.Resources.store__minus;
+            this.supprimerUneMarqueToolStripMenuItem.Name = "supprimerUneMarqueToolStripMenuItem";
+            this.supprimerUneMarqueToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.supprimerUneMarqueToolStripMenuItem.Text = "Supprimer une marque";
+            // 
+            // modifierUneFamilleToolStripMenuItem
+            // 
+            this.modifierUneFamilleToolStripMenuItem.Image = global::Mercure.Properties.Resources.tag__pencil;
+            this.modifierUneFamilleToolStripMenuItem.Name = "modifierUneFamilleToolStripMenuItem";
+            this.modifierUneFamilleToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.modifierUneFamilleToolStripMenuItem.Text = "Modifier une famille";
+            // 
+            // supprimerUneFamilleToolStripMenuItem
+            // 
+            this.supprimerUneFamilleToolStripMenuItem.Image = global::Mercure.Properties.Resources.tag__minus;
+            this.supprimerUneFamilleToolStripMenuItem.Name = "supprimerUneFamilleToolStripMenuItem";
+            this.supprimerUneFamilleToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.supprimerUneFamilleToolStripMenuItem.Text = "Supprimer une famille";
+            // 
+            // modifierUneSousfamilleToolStripMenuItem
+            // 
+            this.modifierUneSousfamilleToolStripMenuItem.Name = "modifierUneSousfamilleToolStripMenuItem";
+            this.modifierUneSousfamilleToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
+            this.modifierUneSousfamilleToolStripMenuItem.Text = "Modifier une sous-famille";
+            // 
+            // supprimerUneSousfamilleToolStripMenuItem
+            // 
+            this.supprimerUneSousfamilleToolStripMenuItem.Name = "supprimerUneSousfamilleToolStripMenuItem";
+            this.supprimerUneSousfamilleToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
+            this.supprimerUneSousfamilleToolStripMenuItem.Text = "Supprimer une sous-famille";
             // 
             // MainWindow
             // 
@@ -353,6 +423,14 @@ namespace Mercure
         private ToolStripMenuItem ajouterUneMarqueToolStripMenuItem1;
         private ToolStripMenuItem ajouterUneFamilleToolStripMenuItem;
         private ToolStripMenuItem ajouterUneSousfamilleToolStripMenuItem1;
+        private ToolStripMenuItem modifierUnArticleToolStripMenuItem;
+        private ToolStripMenuItem supprimerUnArticleToolStripMenuItem;
+        private ToolStripMenuItem modifierUneMarqueToolStripMenuItem;
+        private ToolStripMenuItem supprimerUneMarqueToolStripMenuItem;
+        private ToolStripMenuItem modifierUneFamilleToolStripMenuItem;
+        private ToolStripMenuItem supprimerUneFamilleToolStripMenuItem;
+        private ToolStripMenuItem modifierUneSousfamilleToolStripMenuItem;
+        private ToolStripMenuItem supprimerUneSousfamilleToolStripMenuItem;
     }
 }
 
