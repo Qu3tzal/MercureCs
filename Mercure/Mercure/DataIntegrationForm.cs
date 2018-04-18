@@ -11,10 +11,10 @@ namespace Mercure
 {
     public partial class DataIntegrationForm : Form
     {
-        private MainWindow Parent;
+        private MainWindow Parent_Form;
         public DataIntegrationForm(MainWindow M)
         {
-            this.Parent = M;
+            this.Parent_Form = M;
             InitializeComponent();
         }
 
@@ -119,7 +119,7 @@ namespace Mercure
 
             // Finish progress.
             Update_Progress_Bar(100);
-            Parent.Load_Articles();
+            Parent_Form.Load_Articles();
         }
 
         private void Update_Data_Integration(object sender, System.EventArgs e)
@@ -186,7 +186,7 @@ namespace Mercure
 
             // Finish progress.
             Update_Progress_Bar(100);
-            Parent.Load_Articles();
+            Parent_Form.Load_Articles();
         }
 
         private bool Load_Article(string Description, string Reference, string Marque, string Famille, string SousFamille, float PrixHT)
