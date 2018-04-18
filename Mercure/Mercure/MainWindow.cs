@@ -39,6 +39,22 @@ namespace Mercure
         private void On_Column_Clicked(object sender, ColumnClickEventArgs e)
         {
             this.listView1.ListViewItemSorter = new ListViewItemComparer(e.Column);
+            if (e.Column == 2 || e.Column == 3 || e.Column == 5)
+            {
+                string current = "";
+                for (int i = 0; i < listView1.Items.Count; i++)
+                {
+                    if (!current.Equals(listView1.Items[i].SubItems[e.Column].Text))
+                    {
+                        listView1.Groups.Add(new ListViewGroup(listView1.Items[i].SubItems[e.Column].Text, HorizontalAlignment.Left));
+                        current = listView1.Items[i].SubItems[e.Column].Text;
+                    }
+
+                    listView1.Groups[listView1.Groups.Count - 1].Items.Add(listView1.Items[i]);
+                }
+            }
+            else
+                listView1.Groups.Clear();
         }
 
 
