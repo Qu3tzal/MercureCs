@@ -85,7 +85,7 @@ namespace Mercure
         private void On_Key_Pressed(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.F5)
-                loadArticles();
+                Load_Articles();
             else if (e.KeyCode == Keys.Enter)
             {
                 Models.Article Article = getSelectedArticle();
@@ -115,7 +115,7 @@ namespace Mercure
                 {
                     Res = MessageBox.Show(this, "Suppression réussi !", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     if (Res == DialogResult.OK)
-                        loadArticles();
+                        Load_Articles();
                 }
                 else
                 {
@@ -195,11 +195,11 @@ namespace Mercure
         /// <param name="e"></param>
         public void On_Load_Event(object sender, System.EventArgs e)
         {
-            InitList();
-            loadArticles();          
+            Init_List();
+            Load_Articles();          
         }
 
-        private void InitList()
+        private void Init_List()
         {
             listView1.Columns.Add("RefArticle", -2, HorizontalAlignment.Left);
             listView1.Columns.Add("Description", -2, HorizontalAlignment.Left);
@@ -226,7 +226,7 @@ namespace Mercure
         /// <summary>
         /// Loads article from DB and show them in the list view
         /// </summary>
-        public void loadArticles()
+        public void Load_Articles()
         {
 
             List<Models.Article> Articles = Database.GetInstance().getArticles();

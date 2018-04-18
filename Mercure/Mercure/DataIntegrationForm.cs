@@ -119,7 +119,7 @@ namespace Mercure
 
             // Finish progress.
             Update_Progress_Bar(100);
-            Parent.loadArticles();
+            Parent.Load_Articles();
         }
 
         private void Update_Data_Integration(object sender, System.EventArgs e)
@@ -186,7 +186,7 @@ namespace Mercure
 
             // Finish progress.
             Update_Progress_Bar(100);
-            Parent.loadArticles();
+            Parent.Load_Articles();
         }
 
         private bool Load_Article(string Description, string Reference, string Marque, string Famille, string SousFamille, float PrixHT)
