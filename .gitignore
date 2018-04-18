@@ -11,3 +11,7 @@ bin/*
 obj/*
 
 Mercure/.vs/Mercure/v15/.suo
+Mercure/.vs/Mercure/v15/Server/sqlite3/storage.ide-wal
+Mercure/.vs/Mercure/v15/Server/sqlite3/storage.ide
+Mercure/.vs/Mercure/v15/Server/sqlite3/db.lock
+Mercure/.vs/Mercure/v15/Server/sqlite3/storage.ide-shm
