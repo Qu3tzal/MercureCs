@@ -31,6 +31,7 @@ namespace Mercure
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.File_Menu_Item = new System.Windows.Forms.ToolStripMenuItem();
@@ -38,8 +39,13 @@ namespace Mercure
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.Status_Label = new System.Windows.Forms.ToolStripStatusLabel();
             this.listView1 = new System.Windows.Forms.ListView();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.ajouterUnArticleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.modifierLarticleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.supprimerLarticleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -87,6 +93,7 @@ namespace Mercure
             // 
             // listView1
             // 
+            this.listView1.ContextMenuStrip = this.contextMenuStrip1;
             this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listView1.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listView1.FullRowSelect = true;
@@ -99,8 +106,39 @@ namespace Mercure
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
             this.listView1.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.On_Column_Clicked);
-            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             this.listView1.DoubleClick += new System.EventHandler(this.On_Clicked_Item);
+            this.listView1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.On_Key_Pressed);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ajouterUnArticleToolStripMenuItem,
+            this.modifierLarticleToolStripMenuItem,
+            this.supprimerLarticleToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(171, 92);
+            this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.On_Open_Menu_Strip);
+            // 
+            // ajouterUnArticleToolStripMenuItem
+            // 
+            this.ajouterUnArticleToolStripMenuItem.Name = "ajouterUnArticleToolStripMenuItem";
+            this.ajouterUnArticleToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.ajouterUnArticleToolStripMenuItem.Text = "Ajouter un Article";
+            this.ajouterUnArticleToolStripMenuItem.Click += new System.EventHandler(this.On_Create_Article_Event);
+            // 
+            // modifierLarticleToolStripMenuItem
+            // 
+            this.modifierLarticleToolStripMenuItem.Name = "modifierLarticleToolStripMenuItem";
+            this.modifierLarticleToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.modifierLarticleToolStripMenuItem.Text = "Modifier l\'article";
+            this.modifierLarticleToolStripMenuItem.Click += new System.EventHandler(this.On_Modify_Article_Event);
+            // 
+            // supprimerLarticleToolStripMenuItem
+            // 
+            this.supprimerLarticleToolStripMenuItem.Name = "supprimerLarticleToolStripMenuItem";
+            this.supprimerLarticleToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.supprimerLarticleToolStripMenuItem.Text = "Supprimer l\'article";
+            this.supprimerLarticleToolStripMenuItem.Click += new System.EventHandler(this.On_Delete_Article_Event);
             // 
             // MainWindow
             // 
@@ -115,23 +153,18 @@ namespace Mercure
             this.Name = "MainWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Mercure - Logiciel de gestion de fournitures de bureau";
-            this.Load += new System.EventHandler(this.InitList);
+            this.Load += new System.EventHandler(this.On_Load_Event);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private void Select_XML_File_Menu_Item_Click(object sender, System.EventArgs e)
-        {
-           DataIntegrationForm Dif = new DataIntegrationForm(this);
-           Dif.ShowDialog();
-        }
 
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.StatusStrip statusStrip1;
@@ -140,63 +173,10 @@ namespace Mercure
         private ToolStripMenuItem Data_Integration_Menu_Item;
         private ListView listView1;
 
-        public void InitList(object sender, System.EventArgs e)
-        {
-            listView1.Columns.Add("RefArticle", -2, HorizontalAlignment.Left);
-            listView1.Columns.Add("Description", -2, HorizontalAlignment.Left);
-            listView1.Columns.Add("Sous Famille", -2, HorizontalAlignment.Left);
-            listView1.Columns.Add("Marque", -2, HorizontalAlignment.Left);
-            listView1.Columns.Add("Prix HT", -2, HorizontalAlignment.Left);
-            listView1.Columns.Add("Quantité", -2, HorizontalAlignment.Left);
-
-            listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
-            listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
-
-            int Width = 0;
-            for (int i = 0; i < listView1.Columns.Count; i++)
-            {
-                Width += listView1.Columns[i].Width;
-            }
-        
-            this.Width = Width + 40;
-            this.Height = (int)(this.Width * (9 / 16.0f));
-
-            this.CenterToScreen();
-
-        }
-
-        public void loadArticles()
-        {
-            this.listView1.Clear();
-
-            listView1.Columns.Add("RefArticle", -2, HorizontalAlignment.Left);
-            listView1.Columns.Add("Description", -2, HorizontalAlignment.Left);
-            listView1.Columns.Add("Sous Famille", -2, HorizontalAlignment.Left);
-            listView1.Columns.Add("Marque", -2, HorizontalAlignment.Left);
-            listView1.Columns.Add("Prix HT", -2, HorizontalAlignment.Left);
-            listView1.Columns.Add("Quantité", -2, HorizontalAlignment.Left);
-
-            List<Models.Article> Articles = Database.GetInstance().getArticles();
-
-            foreach (Models.Article A in Articles)
-            {
-                String[] Row = { A.Ref_Article, A.Description, A.Sub_Familly_Name, A.Brand_Name, "" + A.Price_HT, "" + A.Quantity };
-                ListViewItem Item = new ListViewItem(Row);
-                this.listView1.Items.Add(Item);
-            }
-            listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
-            listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
-
-            int Width = 0;
-            for (int i = 0; i < listView1.Columns.Count; i++)
-            {
-                Width += listView1.Columns[i].Width;
-            }
-            this.Width = Width + 40;
-            this.Height = (int)(this.Width * (9 / 16.0f));
-
-            this.CenterToScreen();
-        }
+        private ContextMenuStrip contextMenuStrip1;
+        private ToolStripMenuItem ajouterUnArticleToolStripMenuItem;
+        private ToolStripMenuItem modifierLarticleToolStripMenuItem;
+        private ToolStripMenuItem supprimerLarticleToolStripMenuItem;
 
     }
 }

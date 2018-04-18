@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -16,26 +17,20 @@ namespace Mercure
             InitializeComponent();
         }
 
-        private void yoToolStripMenuItem_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Open the modify Article form
+        /// </summary>
+        /// <param name="Article"></param>
+        public void Open_Modify_Article(Models.Article Article)
         {
-
+            Console.WriteLine("Modify Article : " + Article.Ref_Article);
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void MainWindow_Load(object sender, EventArgs e)
-        {
-
-        }
-
+        /// <summary>
+        /// Orders the columns and create item groups
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void On_Column_Clicked(object sender, ColumnClickEventArgs e)
         {
             this.listView1.ListViewItemSorter = new ListViewItemComparer(e.Column);
@@ -57,6 +52,10 @@ namespace Mercure
                 listView1.Groups.Clear();
         }
 
+        /// <summary>
+        /// Returns the selected item in the listView
+        /// </summary>
+        /// <returns></returns>
         public Models.Article getSelectedArticle()
         {
             Models.Article Article = new Models.Article();
@@ -68,20 +67,206 @@ namespace Mercure
             return A;
         }
 
+        /// <summary>
+        /// Executes de modify function when we double click in an Article
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void On_Clicked_Item(object sender, EventArgs e)
         {
-            Console.WriteLine(getSelectedArticle().Description);
+            Open_Modify_Article(getSelectedArticle());
+        }
+
+        /// <summary>
+        /// Checks the key pressed and execute the corresponding action
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void On_Key_Pressed(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F5)
+                loadArticles();
+            else if (e.KeyCode == Keys.Enter)
+            {
+                Models.Article Article = getSelectedArticle();
+                    if (Article != null)
+                Open_Modify_Article(getSelectedArticle());
+            }                
+            else if (e.KeyCode == Keys.Delete)
+            {
+                Models.Article Article = getSelectedArticle();
+                if (Article != null)
+                    On_Delete_Article(getSelectedArticle());
+            }
+                
+        }
+
+        /// <summary>
+        /// Executes the article erasement
+        /// </summary>
+        /// <param name="Article"></param>
+        private void On_Delete_Article(Models.Article Article)
+        {
+            Console.WriteLine("Delete Article : " + Article.Ref_Article);
+        }
+
+        /// <summary>
+        /// Hides or shows items in function of if an article is selected or not
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void On_Open_Menu_Strip(object sender, CancelEventArgs e)
+        {
+            if (getSelectedArticle() == null)
+            {
+                contextMenuStrip1.Items[1].Visible = false;
+                contextMenuStrip1.Items[2].Visible = false;
+            }
+            else
+            {
+                contextMenuStrip1.Items[1].Visible = true;
+                contextMenuStrip1.Items[2].Visible = true;
+            }
+        }
+
+        /// <summary>
+        /// Executed when we click on the create article button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void On_Create_Article_Event(object sender, EventArgs e)
+        {
+            Console.WriteLine("Create article");
+        }
+
+        /// <summary>
+        /// Executed when we click on the modify article button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void On_Modify_Article_Event(object sender, EventArgs e)
+        {
+            Models.Article Article = getSelectedArticle();
+            if (Article != null)
+                Open_Modify_Article(getSelectedArticle());
+        }
+
+        /// <summary>
+        /// Executed when we click on the delete article button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void On_Delete_Article_Event(object sender, EventArgs e)
+        {
+            Models.Article Article = getSelectedArticle();
+            if(Article != null)
+                On_Delete_Article(getSelectedArticle());
+        }
+
+        /// <summary>
+        /// Executed when we click on the select XML file button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Select_XML_File_Menu_Item_Click(object sender, System.EventArgs e)
+        {
+            DataIntegrationForm Dif = new DataIntegrationForm(this);
+            Dif.ShowDialog();
+        }
+
+        /// <summary>
+        /// Calls load articles
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void On_Load_Event(object sender, System.EventArgs e)
+        {
+            InitList();
+            loadArticles();          
+        }
+
+        private void InitList()
+        {
+            listView1.Columns.Add("RefArticle", -2, HorizontalAlignment.Left);
+            listView1.Columns.Add("Description", -2, HorizontalAlignment.Left);
+            listView1.Columns.Add("Sous Famille", -2, HorizontalAlignment.Left);
+            listView1.Columns.Add("Marque", -2, HorizontalAlignment.Left);
+            listView1.Columns.Add("Prix HT", -2, HorizontalAlignment.Left);
+            listView1.Columns.Add("Quantité", -2, HorizontalAlignment.Left);
+
+            listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+            listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+
+            int Width = 0;
+            for (int i = 0; i < listView1.Columns.Count; i++)
+            {
+                Width += listView1.Columns[i].Width;
+            }
+
+            this.Width = Width + 25;
+            this.Height = (int)(this.Width * (9 / 16.0f));
+
+            this.CenterToScreen();
+
+        }
+
+        /// <summary>
+        /// Loads article from DB and show them in the list view
+        /// </summary>
+        public void loadArticles()
+        {
+
+            List<Models.Article> Articles = Database.GetInstance().getArticles();
+            if (Articles.Count == 0) 
+            {
+                return;
+            }
+
+            this.listView1.Clear();
+            this.listView1.Groups.Clear();
+
+            listView1.Columns.Add("RefArticle", -2, HorizontalAlignment.Left);
+            listView1.Columns.Add("Description", -2, HorizontalAlignment.Left);
+            listView1.Columns.Add("Sous Famille", -2, HorizontalAlignment.Left);
+            listView1.Columns.Add("Marque", -2, HorizontalAlignment.Left);
+            listView1.Columns.Add("Prix HT", -2, HorizontalAlignment.Left);
+            listView1.Columns.Add("Quantité", -2, HorizontalAlignment.Left);           
+            foreach (Models.Article A in Articles)
+            {
+                String[] Row = { A.Ref_Article, A.Description, A.Sub_Familly_Name, A.Brand_Name, "" + A.Price_HT, "" + A.Quantity };
+                ListViewItem Item = new ListViewItem(Row);
+                this.listView1.Items.Add(Item);
+            }
+            listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+            listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+
+            int Width = 0;
+            for (int i = 0; i < listView1.Columns.Count; i++)
+            {
+                Width += listView1.Columns[i].Width;
+            }
+            this.Width = Width + 37;
+            this.Height = (int)(this.Width * (9 / 16.0f));
+
+            this.CenterToScreen();
         }
 
 
     }
 
+    /// <summary>
+    /// The comparer class for the list View tri
+    /// </summary>
     class ListViewItemComparer : IComparer
     {
         private int Col;
         private static bool ascendent = true;
         private static int lastSortedCol;
         
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="column"></param>
         public ListViewItemComparer(int column)
         {
             
@@ -94,6 +279,12 @@ namespace Mercure
             Col = column;
         }
 
+        /// <summary>
+        /// Compare string and numbers in asc or desc
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <returns></returns>
         public int Compare(object x, object y)
         {
             int result = 0;
