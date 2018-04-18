@@ -57,6 +57,22 @@ namespace Mercure
                 listView1.Groups.Clear();
         }
 
+        public Models.Article getSelectedArticle()
+        {
+            Models.Article Article = new Models.Article();
+
+            if (listView1.SelectedItems.Count == 0) return null;
+            
+            ListViewItem Item = listView1.SelectedItems[0];
+            Models.Article A =  Database.GetInstance().getArticle(Item.SubItems[0].Text);
+            return A;
+        }
+
+        private void On_Clicked_Item(object sender, EventArgs e)
+        {
+            Console.WriteLine(getSelectedArticle().Description);
+        }
+
 
     }
 

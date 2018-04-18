@@ -357,6 +357,42 @@ namespace Mercure
             return Articles;
         }
 
+        public Models.Article getArticle(string refArticle)
+        {
+            Models.Article Article = new Models.Article();
+            System.Data.SQLite.SQLiteCommand cmd = SQL_Connection.CreateCommand();
+            cmd.CommandText = "SELECT RefArticle, Description, SousFamilles.Nom as SousFamille, m.Nom as Marque, PrixHT, Quantite FROM Articles natural join SousFamilles inner join Marques m on m.RefMarque = Articles.refMarque WHERE RefArticle = ?";
+
+            System.Data.SQLite.SQLiteParameter Id_Parameter = new System.Data.SQLite.SQLiteParameter();
+            Id_Parameter.Value = refArticle;
+            cmd.Parameters.Add(Id_Parameter);
+
+            System.Data.SQLite.SQLiteDataReader Articles_Reader = cmd.ExecuteReader();
+
+            int Article_Index = Articles_Reader.GetOrdinal("RefArticle");
+            int Description_Index = Articles_Reader.GetOrdinal("Description");
+            int Sub_Familly_Index = Articles_Reader.GetOrdinal("SousFamille");
+            int Brand_Index = Articles_Reader.GetOrdinal("Marque");
+            int Price_Index = Articles_Reader.GetOrdinal("PrixHT");
+            int Quantity_Index = Articles_Reader.GetOrdinal("Quantite");
+
+            if(Articles_Reader.Read())
+            {
+                Models.Article A = new Models.Article();
+
+
+                Article.Ref_Article = Articles_Reader.GetString(Article_Index);
+                Article.Description = Articles_Reader.GetString(Description_Index);
+                Article.Sub_Familly_Name = Articles_Reader.GetString(Sub_Familly_Index);
+                Article.Brand_Name = Articles_Reader.GetString(Brand_Index);
+                Article.Price_HT = Articles_Reader.GetFloat(Price_Index);
+                Article.Quantity = Articles_Reader.GetInt32(Quantity_Index);
+
+            }
+
+            return Article;
+        }
+
         /** Udpates. */
         public bool Update_Familly(int Familly_ID, string Familly_Name)
         {

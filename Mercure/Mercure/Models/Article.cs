@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Mercure.Models
 {
-    class Article
+    public class Article
     {
         public string Ref_Article { get; set; }
         public string Description { get; set; }
