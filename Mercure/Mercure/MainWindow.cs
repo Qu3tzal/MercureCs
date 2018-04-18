@@ -107,7 +107,19 @@ namespace Mercure
         /// <param name="Article"></param>
         private void On_Delete_Article(Models.Article Article)
         {
-            Console.WriteLine("Delete Article : " + Article.Ref_Article);
+            DialogResult Res = MessageBox.Show(this, "Etes vous sûr de vouloir supprimer l'article : " + Article.Ref_Article + " ?", "Supprimer", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (Res == DialogResult.Yes)
+            {
+                bool success = Database.GetInstance().Delete_Article(Article.Ref_Article);
+                if (success)
+                {
+                    Res = MessageBox.Show(this, "Suppression réussi !", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    Res = MessageBox.Show(this, "Erreur lors de la supression", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
         /// <summary>
