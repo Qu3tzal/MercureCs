@@ -114,6 +114,8 @@ namespace Mercure
                 if (success)
                 {
                     Res = MessageBox.Show(this, "Suppression réussi !", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (Res == DialogResult.OK)
+                        loadArticles();
                 }
                 else
                 {
@@ -208,7 +210,6 @@ namespace Mercure
 
             listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
             listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
-
             int Width = 0;
             for (int i = 0; i < listView1.Columns.Count; i++)
             {
@@ -242,15 +243,18 @@ namespace Mercure
             listView1.Columns.Add("Sous Famille", -2, HorizontalAlignment.Left);
             listView1.Columns.Add("Marque", -2, HorizontalAlignment.Left);
             listView1.Columns.Add("Prix HT", -2, HorizontalAlignment.Left);
-            listView1.Columns.Add("Quantité", -2, HorizontalAlignment.Left);           
+            listView1.Columns.Add("Quantité", -2, HorizontalAlignment.Left);
+            
             foreach (Models.Article A in Articles)
             {
                 String[] Row = { A.Ref_Article, A.Description, A.Sub_Familly_Name, A.Brand_Name, "" + A.Price_HT, "" + A.Quantity };
                 ListViewItem Item = new ListViewItem(Row);
                 this.listView1.Items.Add(Item);
             }
+
             listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
             listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+            listView1.Columns[5].Width = 80;
 
             int Width = 0;
             for (int i = 0; i < listView1.Columns.Count; i++)
