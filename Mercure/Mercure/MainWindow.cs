@@ -250,15 +250,14 @@ namespace Mercure
         /// </summary>
         public void Load_Articles()
         {
+            this.listView1.Clear();
+            this.listView1.Groups.Clear();
 
             List<Models.Article> Articles = Database.GetInstance().getArticles();
             if (Articles.Count == 0) 
             {
                 return;
             }
-
-            this.listView1.Clear();
-            this.listView1.Groups.Clear();
 
             listView1.Columns.Add("RefArticle", -2, HorizontalAlignment.Left);
             listView1.Columns.Add("Description", -2, HorizontalAlignment.Left);
@@ -292,6 +291,13 @@ namespace Mercure
         private void quitterToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void nettoyerLaBaseDeDonnéeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine("Nettoyage en cours");
+            Database.GetInstance().Clear_Database();
+            Load_Articles();
         }
     }
 

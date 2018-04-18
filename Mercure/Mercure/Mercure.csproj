@@ -150,6 +150,7 @@
     <None Include="res\icons-shadowless\control-power.png" />
     <None Include="res\icons-shadowless\tag--minus.png" />
     <None Include="res\icons-shadowless\tag--plus.png" />
+    <None Include="res\icons-shadowless\database--minus.png" />
     <Content Include="res\Mercure.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
