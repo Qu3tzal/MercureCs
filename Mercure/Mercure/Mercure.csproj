@@ -73,6 +73,12 @@
     <Compile Include="AddArticleForm.Designer.cs">
       <DependentUpon>AddArticleForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddBrandForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddBrandForm.Designer.cs">
+      <DependentUpon>AddBrandForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Database.cs" />
     <Compile Include="DataIntegrationForm.cs">
       <SubType>Form</SubType>
@@ -91,6 +97,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AddArticleForm.resx">
       <DependentUpon>AddArticleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddBrandForm.resx">
+      <DependentUpon>AddBrandForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DataIntegrationForm.resx">
       <DependentUpon>DataIntegrationForm.cs</DependentUpon>
@@ -136,6 +145,9 @@
     <None Include="res\icons-shadowless\tag--pencil.png" />
     <None Include="res\icons-shadowless\tick.png" />
     <None Include="res\icons-shadowless\store--plus.png" />
+    <None Include="res\icons-shadowless\store--minus.png" />
+    <None Include="res\icons-shadowless\store--pencil.png" />
+    <None Include="res\icons-shadowless\control-power.png" />
     <Content Include="res\Mercure.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
