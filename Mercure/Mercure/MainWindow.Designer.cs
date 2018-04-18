@@ -62,6 +62,7 @@ namespace Mercure
             // 
             // Data_Integration_Menu_Item
             // 
+            this.Data_Integration_Menu_Item.Image = global::Mercure.Properties.Resources.database_import;
             this.Data_Integration_Menu_Item.Name = "Data_Integration_Menu_Item";
             this.Data_Integration_Menu_Item.Size = new System.Drawing.Size(180, 22);
             this.Data_Integration_Menu_Item.Text = "Intégrer les données";
