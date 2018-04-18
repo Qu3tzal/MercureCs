@@ -321,6 +321,7 @@
 
             // Finish progress.
             Update_Progress_Bar(100);
+            M.loadArticles();
         }
 
         private void Update_Data_Integration(object sender, System.EventArgs e)

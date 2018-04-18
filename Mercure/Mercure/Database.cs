@@ -324,6 +324,38 @@ namespace Mercure
             }
         }
 
+        public List<Models.Article> getArticles()
+        {
+            List<Models.Article> Articles = new List<Models.Article>();
+            System.Data.SQLite.SQLiteCommand cmd = SQL_Connection.CreateCommand();
+            cmd.CommandText = "SELECT RefArticle, Description, SousFamilles.Nom as SousFamille, m.Nom as Marque, PrixHT, Quantite FROM Articles natural join SousFamilles inner join Marques m on m.RefMarque = Articles.refMarque";
+
+            System.Data.SQLite.SQLiteDataReader Articles_Reader = cmd.ExecuteReader();
+            
+            int Article_Index = Articles_Reader.GetOrdinal("RefArticle");
+            int Description_Index = Articles_Reader.GetOrdinal("Description");
+            int Sub_Familly_Index = Articles_Reader.GetOrdinal("SousFamille");
+            int Brand_Index = Articles_Reader.GetOrdinal("Marque");
+            int Price_Index = Articles_Reader.GetOrdinal("PrixHT");
+            int Quantity_Index = Articles_Reader.GetOrdinal("Quantite");
+           
+            while (Articles_Reader.Read())
+            {
+                Models.Article A = new Models.Article();
+
+                
+                A.Ref_Article = Articles_Reader.GetString(Article_Index);  
+                A.Description = Articles_Reader.GetString(Description_Index);               
+                A.Sub_Familly_Name = Articles_Reader.GetString(Sub_Familly_Index);
+                A.Brand_Name = Articles_Reader.GetString(Brand_Index);               
+                A.Price_HT = Articles_Reader.GetFloat(Price_Index);              
+                A.Quantity = Articles_Reader.GetInt32(Quantity_Index);
+
+                Articles.Add(A);
+            }
+
+            return Articles;
+        }
 
         /** Udpates. */
         public bool Update_Familly(int Familly_ID, string Familly_Name)
