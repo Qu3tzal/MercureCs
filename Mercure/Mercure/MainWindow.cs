@@ -133,13 +133,31 @@ namespace Mercure
         {
             if (getSelectedArticle() == null)
             {
+                // Modify/delete article.
                 contextMenuStrip1.Items[1].Visible = false;
                 contextMenuStrip1.Items[2].Visible = false;
+
+                // Modify/delete brand.
+                contextMenuStrip1.Items[5].Visible = false;
+                contextMenuStrip1.Items[6].Visible = false;
+
+                // Modify/delete sub-family.
+                contextMenuStrip1.Items[9].Visible = false;
+                contextMenuStrip1.Items[10].Visible = false;
             }
             else
             {
+                // Modify/delete article.
                 contextMenuStrip1.Items[1].Visible = true;
                 contextMenuStrip1.Items[2].Visible = true;
+
+                // Modify/delete brand.
+                contextMenuStrip1.Items[5].Visible = true;
+                contextMenuStrip1.Items[6].Visible = true;
+
+                // Modify/delete sub-family.
+                contextMenuStrip1.Items[9].Visible = true;
+                contextMenuStrip1.Items[10].Visible = true;
             }
         }
 
@@ -232,15 +250,14 @@ namespace Mercure
         /// </summary>
         public void Load_Articles()
         {
+            this.listView1.Clear();
+            this.listView1.Groups.Clear();
 
             List<Models.Article> Articles = Database.GetInstance().getArticles();
             if (Articles.Count == 0) 
             {
                 return;
             }
-
-            this.listView1.Clear();
-            this.listView1.Groups.Clear();
 
             listView1.Columns.Add("RefArticle", -2, HorizontalAlignment.Left);
             listView1.Columns.Add("Description", -2, HorizontalAlignment.Left);
@@ -271,7 +288,17 @@ namespace Mercure
             this.CenterToScreen();
         }
 
+        private void quitterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
 
+        private void nettoyerLaBaseDeDonnéeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine("Nettoyage en cours");
+            Database.GetInstance().Clear_Database();
+            Load_Articles();
+        }
     }
 
     /// <summary>
