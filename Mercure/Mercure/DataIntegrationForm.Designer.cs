@@ -41,6 +41,7 @@
             this.File_Name_Input = new System.Windows.Forms.TextBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.button1 = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.flowLayoutPanel5.SuspendLayout();
             this.flowLayoutPanel4.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
@@ -54,9 +55,9 @@
             this.flowLayoutPanel5.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.flowLayoutPanel5.Controls.Add(this.textBox1);
             this.flowLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel5.Location = new System.Drawing.Point(601, 3);
+            this.flowLayoutPanel5.Location = new System.Drawing.Point(3, 125);
             this.flowLayoutPanel5.Name = "flowLayoutPanel5";
-            this.flowLayoutPanel5.Size = new System.Drawing.Size(593, 145);
+            this.flowLayoutPanel5.Size = new System.Drawing.Size(593, 138);
             this.flowLayoutPanel5.TabIndex = 8;
             // 
             // textBox1
@@ -70,7 +71,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
             this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBox1.Size = new System.Drawing.Size(587, 139);
+            this.textBox1.Size = new System.Drawing.Size(587, 132);
             this.textBox1.TabIndex = 7;
             this.textBox1.WordWrap = false;
             // 
@@ -82,7 +83,7 @@
             this.flowLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel4.Location = new System.Drawing.Point(3, 77);
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
-            this.flowLayoutPanel4.Size = new System.Drawing.Size(592, 29);
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(593, 29);
             this.flowLayoutPanel4.TabIndex = 6;
             // 
             // progressBar1
@@ -117,7 +118,7 @@
             this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel3.Location = new System.Drawing.Point(3, 39);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(592, 32);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(593, 32);
             this.flowLayoutPanel3.TabIndex = 5;
             // 
             // button2
@@ -160,7 +161,7 @@
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(592, 30);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(593, 30);
             this.flowLayoutPanel2.TabIndex = 4;
             // 
             // File_Name_Input
@@ -186,12 +187,13 @@
             this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel2);
             this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel3);
             this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel4);
+            this.flowLayoutPanel1.Controls.Add(this.label2);
             this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel5);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(601, 256);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(601, 291);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // button1
@@ -210,6 +212,16 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.File_Select_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(3, 109);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(36, 13);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Logs :";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
             // DataIntegrationForm
             // 
             this.AllowDrop = true;
@@ -217,7 +229,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(601, 256);
+            this.ClientSize = new System.Drawing.Size(601, 291);
             this.Controls.Add(this.flowLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -454,5 +466,6 @@
         private System.Windows.Forms.TextBox File_Name_Input;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Label label2;
     }
 }
