@@ -324,6 +324,54 @@ namespace Mercure
             }
         }
 
+        public List<string> getBrands()
+        {
+            List<string> Brands = new List<string>();
+            System.Data.SQLite.SQLiteCommand cmd = SQL_Connection.CreateCommand();
+            cmd.CommandText = "SELECT Nom FROM Marques";
+
+            System.Data.SQLite.SQLiteDataReader Brands_Reader = cmd.ExecuteReader();
+
+            while (Brands_Reader.Read())
+            {
+                Brands.Add(Brands_Reader.GetString(0));
+            }
+
+            return Brands;
+        }
+
+        public List<string> getFamillies()
+        {
+            List<string> Famillies = new List<string>();
+            System.Data.SQLite.SQLiteCommand cmd = SQL_Connection.CreateCommand();
+            cmd.CommandText = "SELECT Nom FROM Familles";
+
+            System.Data.SQLite.SQLiteDataReader Famillies_Reader = cmd.ExecuteReader();
+
+            while (Famillies_Reader.Read())
+            {
+                Famillies.Add(Famillies_Reader.GetString(0));
+            }
+
+            return Famillies;
+        }
+
+        public List<string> getSubFamillies()
+        {
+            List<string> SubFamillies = new List<string>();
+            System.Data.SQLite.SQLiteCommand cmd = SQL_Connection.CreateCommand();
+            cmd.CommandText = "SELECT Nom FROM SousFamilles";
+
+            System.Data.SQLite.SQLiteDataReader SubFamillies_Reader = cmd.ExecuteReader();
+
+            while (SubFamillies_Reader.Read())
+            {
+                SubFamillies.Add(SubFamillies_Reader.GetString(0));
+            }
+
+            return SubFamillies;
+        }
+
         public List<Models.Article> getArticles()
         {
             List<Models.Article> Articles = new List<Models.Article>();
