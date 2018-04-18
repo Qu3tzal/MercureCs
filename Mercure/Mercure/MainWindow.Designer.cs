@@ -111,7 +111,7 @@ namespace Mercure
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Application du feu de dieu";
+            this.Text = "Mercure - Logiciel de gestion de fournitures de bureau";
             this.Load += new System.EventHandler(this.InitList);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
