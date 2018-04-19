@@ -101,9 +101,11 @@
             this.Select_Family_Radio_Button.TabStop = true;
             this.Select_Family_Radio_Button.Text = "Sélectionner une famille existante :";
             this.Select_Family_Radio_Button.UseVisualStyleBackColor = true;
+            this.Select_Family_Radio_Button.CheckedChanged += new System.EventHandler(this.On_Checked);
             // 
             // Select_Family_Combo_Box
             // 
+            this.Select_Family_Combo_Box.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Select_Family_Combo_Box.FormattingEnabled = true;
             this.Select_Family_Combo_Box.Location = new System.Drawing.Point(3, 26);
             this.Select_Family_Combo_Box.Name = "Select_Family_Combo_Box";
@@ -120,6 +122,7 @@
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "Créer une nouvelle famille :";
             this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton1.CheckedChanged += new System.EventHandler(this.On_Checked);
             // 
             // New_Family_Name
             // 
@@ -188,6 +191,7 @@
             this.Cancel_Button.Text = "Annuler";
             this.Cancel_Button.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.Cancel_Button.UseVisualStyleBackColor = true;
+            this.Cancel_Button.Click += new System.EventHandler(this.Cancel_Button_Click);
             // 
             // Add_SubFamily
             // 
@@ -200,6 +204,7 @@
             this.Add_SubFamily.Text = "Ajouter";
             this.Add_SubFamily.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.Add_SubFamily.UseVisualStyleBackColor = true;
+            this.Add_SubFamily.Click += new System.EventHandler(this.Add_SubFamily_Click);
             // 
             // AddSubFamilyForm
             // 

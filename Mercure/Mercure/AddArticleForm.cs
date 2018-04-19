@@ -39,24 +39,24 @@ namespace Mercure
         private void Load_Brand()
         {
             this.Brand_Combo_Box.Items.Clear();
-            List<string> Brands = Database.GetInstance().Get_Brands();
-            foreach (string S in Brands)
+            List<Models.Brand> Brands = Database.GetInstance().Get_Brands();
+            foreach (Models.Brand S in Brands)
             {
-                this.Brand_Combo_Box.Items.Add(S);
-                if(Article != null && Article.Brand_Name.Equals(S))
-                    this.Brand_Combo_Box.SelectedItem = S;
+                this.Brand_Combo_Box.Items.Add(S.Name);
+                if(Article != null && Article.Brand_Name.Equals(S.Name))
+                    this.Brand_Combo_Box.SelectedItem = S.Name;
             }
         }
 
         private void Load_Sub_Familly()
         {
             this.SubFamily_Combo_Box.Items.Clear();
-            List<string> Sub_Famillies = Database.GetInstance().Get_Sub_Families();
-            foreach(string S in Sub_Famillies)
+            List<Models.SubFamily> Sub_Famillies = Database.GetInstance().Get_Sub_Families();
+            foreach (Models.SubFamily S in Sub_Famillies)
             {
-                this.SubFamily_Combo_Box.Items.Add(S);
-                if (Article != null && Article.Sub_Familly_Name.Equals(S))
-                    this.SubFamily_Combo_Box.SelectedItem = S;
+                this.SubFamily_Combo_Box.Items.Add(S.Name);
+                if (Article != null && Article.Sub_Familly_Name.Equals(S.Name))
+                    this.SubFamily_Combo_Box.SelectedItem = S.Name;
             }
         }
 
@@ -124,7 +124,7 @@ namespace Mercure
 
         private void Create_SubFamily_Button_Click(object sender, EventArgs e)
         {
-            AddSubFamilyForm Form = new AddSubFamilyForm();
+            AddSubFamilyForm Form = new AddSubFamilyForm(null);
             DialogResult Result = Form.ShowDialog();
 
             if (Result == DialogResult.OK)

@@ -123,6 +123,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "ListSubFamily";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Liste des sous-familles";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

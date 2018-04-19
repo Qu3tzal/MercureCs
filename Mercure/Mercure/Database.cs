@@ -351,7 +351,7 @@ namespace Mercure
             while (Brands_Reader.Read())
             {
                 Models.Brand b = new Models.Brand();
-                b.Id = int.Parse(Brands_Reader.GetString(0));
+                b.Id = Brands_Reader.GetInt32(0);
                 b.Name = Brands_Reader.GetString(1);
                 Brands.Add(b);
             }
@@ -370,7 +370,7 @@ namespace Mercure
             while (Famillies_Reader.Read())
             {
                 Models.Family f = new Models.Family();
-                f.Id = int.Parse(Famillies_Reader.GetString(0));
+                f.Id = Famillies_Reader.GetInt32(0);
                 f.Name = Famillies_Reader.GetString(1);
                 Famillies.Add(f);
             }
@@ -389,8 +389,8 @@ namespace Mercure
             while (SubFamillies_Reader.Read())
             {
                 Models.SubFamily sf = new Models.SubFamily();
-                sf.Id = int.Parse(SubFamillies_Reader.GetString(0));
-                sf.Family_Id = int.Parse(SubFamillies_Reader.GetString(1));
+                sf.Id = SubFamillies_Reader.GetInt32(0);
+                sf.Family_Id = SubFamillies_Reader.GetInt32(1);
                 sf.Name = SubFamillies_Reader.GetString(2);
                 SubFamillies.Add(sf);
             }
@@ -465,6 +465,51 @@ namespace Mercure
             }
 
             return Article;
+        }
+
+        public Models.SubFamily Get_Sub_Family(string SubFamilly)
+        {
+            Models.SubFamily SubFamily = new Models.SubFamily();
+
+            System.Data.SQLite.SQLiteCommand cmd = SQL_Connection.CreateCommand();
+            cmd.CommandText = "SELECT * FROM SousFamilles WHERE Nom = ?";
+
+            System.Data.SQLite.SQLiteParameter Name_Parameter = new System.Data.SQLite.SQLiteParameter();
+            Name_Parameter.Value = SubFamilly;
+            cmd.Parameters.Add(Name_Parameter);
+
+            System.Data.SQLite.SQLiteDataReader Familly_Reader = cmd.ExecuteReader();
+
+            if (Familly_Reader.Read())
+            {
+                SubFamily.Id = Familly_Reader.GetInt32(0);
+                SubFamily.Family_Id = Familly_Reader.GetInt32(1);
+                SubFamily.Name = Familly_Reader.GetString(2);
+            }
+
+            return SubFamily;
+        }
+
+        public Models.Family Get_Family_With_Id(int Id)
+        {
+            Models.Family Familly = new Models.Family();
+
+            System.Data.SQLite.SQLiteCommand cmd = SQL_Connection.CreateCommand();
+            cmd.CommandText = "SELECT * FROM Familles WHERE Id = ?";
+
+            System.Data.SQLite.SQLiteParameter Id_Parameter = new System.Data.SQLite.SQLiteParameter();
+            Id_Parameter.Value = Id;
+            cmd.Parameters.Add(Id_Parameter);
+
+            System.Data.SQLite.SQLiteDataReader Familly_Reader = cmd.ExecuteReader();
+
+            if (Familly_Reader.Read())
+            {
+                Familly.Id = Familly_Reader.GetInt32(0);
+                Familly.Name = Familly_Reader.GetString(1);
+            }
+
+            return Familly;
         }
 
         /** Udpates. */
