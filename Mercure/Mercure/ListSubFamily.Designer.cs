@@ -88,10 +88,12 @@
             // 
             this.SubFamily_List_View.Dock = System.Windows.Forms.DockStyle.Fill;
             this.SubFamily_List_View.Location = new System.Drawing.Point(0, 24);
+            this.SubFamily_List_View.MultiSelect = false;
             this.SubFamily_List_View.Name = "SubFamily_List_View";
             this.SubFamily_List_View.Size = new System.Drawing.Size(800, 426);
             this.SubFamily_List_View.TabIndex = 1;
             this.SubFamily_List_View.UseCompatibleStateImageBehavior = false;
+            this.SubFamily_List_View.View = System.Windows.Forms.View.Details;
             // 
             // contextMenuStrip1
             // 

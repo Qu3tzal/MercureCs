@@ -47,10 +47,12 @@
             // 
             this.Family_List_View.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Family_List_View.Location = new System.Drawing.Point(0, 24);
+            this.Family_List_View.MultiSelect = false;
             this.Family_List_View.Name = "Family_List_View";
             this.Family_List_View.Size = new System.Drawing.Size(800, 426);
             this.Family_List_View.TabIndex = 0;
             this.Family_List_View.UseCompatibleStateImageBehavior = false;
+            this.Family_List_View.View = System.Windows.Forms.View.Details;
             // 
             // menuStrip1
             // 

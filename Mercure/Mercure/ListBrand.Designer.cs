@@ -47,10 +47,12 @@
             // 
             this.Brand_List_View.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Brand_List_View.Location = new System.Drawing.Point(0, 24);
+            this.Brand_List_View.MultiSelect = false;
             this.Brand_List_View.Name = "Brand_List_View";
             this.Brand_List_View.Size = new System.Drawing.Size(800, 426);
             this.Brand_List_View.TabIndex = 0;
             this.Brand_List_View.UseCompatibleStateImageBehavior = false;
+            this.Brand_List_View.View = System.Windows.Forms.View.Details;
             // 
             // menuStrip1
             // 
