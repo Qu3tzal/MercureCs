@@ -165,14 +165,31 @@ namespace Mercure
         /// <param name="Brand"></param>
         private void Delete_Brand(Models.Brand Brand)
         {
-            // Detect if connected to an article
-            // Only load the affected row
-            Database db = Database.GetInstance();
-            if (db.Brand_Has_Articles_Associated(Brand.Id))
-                return;
+            DialogResult Res = MessageBox.Show(this, "Etes vous sûr de vouloir supprimer la sous famille : " + Brand.Name + " ?", "Supprimer", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
 
-            db.Delete_Brand(Brand.Id);
-            Load_Brands();
+            if (Res == DialogResult.Yes)
+            {
+                // Todo detect if connected to an article
+                // Only load the affected row
+                Database db = Database.GetInstance();
+                if (db.Brand_Has_Articles_Associated(Brand.Id))
+                {
+                    Res = MessageBox.Show(this, "Erreur la marque est lié à un article", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                bool Sucess = db.Delete_Brand(Brand.Id); ;
+                if (Sucess)
+                {
+                    Res = MessageBox.Show(this, "Suppression réussie !", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Load_Brands();
+                }
+                else
+                {
+                    Res = MessageBox.Show(this, "Erreur lors de la suppression", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+            }
         }
 
         /// <summary>

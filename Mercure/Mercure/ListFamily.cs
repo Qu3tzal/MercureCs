@@ -164,14 +164,33 @@ namespace Mercure
         /// <param name="Family"></param>
         private void Delete_Family(Models.Family Family)
         {
+            DialogResult Res = MessageBox.Show(this, "Etes vous sûr de vouloir supprimer la famille : " + Family.Name + " ?", "Supprimer", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
             // Todo detect if connected to an article
             // Only load the affected row
-            Database db = Database.GetInstance();
-            if (db.Family_Has_Articles_Associated(Family.Id))
-                return;
+            if (Res == DialogResult.Yes)
+            {
+                // Todo detect if connected to an article
+                // Only load the affected row
+                Database db = Database.GetInstance();
+                if (db.Family_Has_Articles_Associated(Family.Id))
+                {
+                    Res = MessageBox.Show(this, "Erreur la famille est lié à un article", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
 
-            db.Delete_Familly(Family.Id);
-            Load_Families();
+                bool Sucess = db.Delete_Familly(Family.Id);
+                if (Sucess)
+                {
+                    Res = MessageBox.Show(this, "Suppression réussie !", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Load_Families();
+                }
+                else
+                {
+                    Res = MessageBox.Show(this, "Erreur lors de la suppression", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+            }
+         
         }
 
         /// <summary>

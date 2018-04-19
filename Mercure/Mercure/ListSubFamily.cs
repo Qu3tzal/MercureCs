@@ -166,14 +166,32 @@ namespace Mercure
         /// <param name="SubFamily"></param>
         private void Delete_SubFamily(Models.SubFamily SubFamily)
         {
-            // Todo detect if connected to an article
-            // Only load the affected row
-            Database db = Database.GetInstance();
-            if (db.SubFamily_Has_Articles_Associated(SubFamily.Id))
-                return;
+            DialogResult Res = MessageBox.Show(this, "Etes vous sûr de vouloir supprimer la sous famille : " + SubFamily.Name + " ?", "Supprimer", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
 
-            db.Delete_Sub_Familly(SubFamily.Id);
-            Load_SubFamilies();
+            if (Res == DialogResult.Yes)
+            {
+                // Todo detect if connected to an article
+                // Only load the affected row
+                Database db = Database.GetInstance();
+                if (db.SubFamily_Has_Articles_Associated(SubFamily.Id))
+                {
+                    Res = MessageBox.Show(this, "Erreur la Sous famille est lié à un article", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                   
+                bool Sucess = db.Delete_Sub_Familly(SubFamily.Id);
+                if (Sucess)
+                {
+                    Res = MessageBox.Show(this, "Suppression réussie !", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Load_SubFamilies();
+                }
+                else
+                {
+                    Res = MessageBox.Show(this, "Erreur lors de la suppression", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                
+            }
+          
         }
 
         /// <summary>
