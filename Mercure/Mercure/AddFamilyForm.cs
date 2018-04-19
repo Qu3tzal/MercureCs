@@ -10,15 +10,16 @@ using System.Windows.Forms;
 namespace Mercure
 {
     public partial class AddFamilyForm : Form
-    {
+    {      
         string Family;
         public AddFamilyForm(string Familly)
         {
+            InitializeComponent();
+
             this.Family = Familly;
             if (this.Family != null)
                 Auto_Fill();
 
-            InitializeComponent();
         }
 
         private void Auto_Fill()
@@ -48,7 +49,7 @@ namespace Mercure
                 }
                 else
                 {
-                    bool Sucess = DB.Update_Brand(DB.Get_Or_Create_Brand(this.Family), this.Family_Name_Text_Box.Text);
+                    bool Sucess = DB.Update_Familly(DB.Get_Or_Create_Familly(this.Family), this.Family_Name_Text_Box.Text);
                     if (Sucess)
                     {
                         MessageBox.Show(this, "La famille à bien été modifié !", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);

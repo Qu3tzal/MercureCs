@@ -39,13 +39,17 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.modifierLaFamilleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.supprimerLaFamilleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Add_Family_Menu_Stip = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // Family_List_View
             // 
+            this.Family_List_View.ContextMenuStrip = this.contextMenuStrip1;
             this.Family_List_View.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Family_List_View.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Family_List_View.FullRowSelect = true;
             this.Family_List_View.GridLines = true;
             this.Family_List_View.Location = new System.Drawing.Point(0, 24);
@@ -55,6 +59,8 @@
             this.Family_List_View.TabIndex = 0;
             this.Family_List_View.UseCompatibleStateImageBehavior = false;
             this.Family_List_View.View = System.Windows.Forms.View.Details;
+            this.Family_List_View.DoubleClick += new System.EventHandler(this.On_Double_Click);
+            this.Family_List_View.KeyUp += new System.Windows.Forms.KeyEventHandler(this.On_Key_Pressed);
             // 
             // menuStrip1
             // 
@@ -100,10 +106,13 @@
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.Add_Family_Menu_Stip,
+            this.toolStripSeparator2,
             this.modifierLaFamilleToolStripMenuItem,
             this.supprimerLaFamilleToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 48);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 98);
+            this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.On_Open_Menu_Strip);
             // 
             // modifierLaFamilleToolStripMenuItem
             // 
@@ -111,6 +120,7 @@
             this.modifierLaFamilleToolStripMenuItem.Name = "modifierLaFamilleToolStripMenuItem";
             this.modifierLaFamilleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.modifierLaFamilleToolStripMenuItem.Text = "Modifier la famille";
+            this.modifierLaFamilleToolStripMenuItem.Click += new System.EventHandler(this.On_Modify_Event);
             // 
             // supprimerLaFamilleToolStripMenuItem
             // 
@@ -118,6 +128,20 @@
             this.supprimerLaFamilleToolStripMenuItem.Name = "supprimerLaFamilleToolStripMenuItem";
             this.supprimerLaFamilleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.supprimerLaFamilleToolStripMenuItem.Text = "Supprimer la famille";
+            this.supprimerLaFamilleToolStripMenuItem.Click += new System.EventHandler(this.On_Delete_Event);
+            // 
+            // Add_Family_Menu_Stip
+            // 
+            this.Add_Family_Menu_Stip.Image = global::Mercure.Properties.Resources.tag__plus;
+            this.Add_Family_Menu_Stip.Name = "Add_Family_Menu_Stip";
+            this.Add_Family_Menu_Stip.Size = new System.Drawing.Size(180, 22);
+            this.Add_Family_Menu_Stip.Text = "Ajouter une famille";
+            this.Add_Family_Menu_Stip.Click += new System.EventHandler(this.ajouterUneFamilleToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
             // 
             // ListFamily
             // 
@@ -150,5 +174,7 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem modifierLaFamilleToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem supprimerLaFamilleToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem Add_Family_Menu_Stip;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
     }
 }

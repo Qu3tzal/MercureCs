@@ -39,6 +39,8 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.modifierLaSousfamilleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.supprimerLaSousfamilleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Add_Sub_Family_Menu_Strip = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -86,7 +88,9 @@
             // 
             // SubFamily_List_View
             // 
+            this.SubFamily_List_View.ContextMenuStrip = this.contextMenuStrip1;
             this.SubFamily_List_View.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SubFamily_List_View.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SubFamily_List_View.FullRowSelect = true;
             this.SubFamily_List_View.GridLines = true;
             this.SubFamily_List_View.Location = new System.Drawing.Point(0, 24);
@@ -96,26 +100,48 @@
             this.SubFamily_List_View.TabIndex = 1;
             this.SubFamily_List_View.UseCompatibleStateImageBehavior = false;
             this.SubFamily_List_View.View = System.Windows.Forms.View.Details;
+            this.SubFamily_List_View.DoubleClick += new System.EventHandler(this.On_Double_Click);
+            this.SubFamily_List_View.KeyUp += new System.Windows.Forms.KeyEventHandler(this.On_Key_Pressed);
             // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.Add_Sub_Family_Menu_Strip,
+            this.toolStripSeparator2,
             this.modifierLaSousfamilleToolStripMenuItem,
             this.supprimerLaSousfamilleToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(210, 48);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(210, 76);
+            this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.On_Open_Menu_Strip);
             // 
             // modifierLaSousfamilleToolStripMenuItem
             // 
+            this.modifierLaSousfamilleToolStripMenuItem.Image = global::Mercure.Properties.Resources.sitemap_application_blue;
             this.modifierLaSousfamilleToolStripMenuItem.Name = "modifierLaSousfamilleToolStripMenuItem";
             this.modifierLaSousfamilleToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
             this.modifierLaSousfamilleToolStripMenuItem.Text = "Modifier la sous-famille";
+            this.modifierLaSousfamilleToolStripMenuItem.Click += new System.EventHandler(this.On_Modify_Event);
             // 
             // supprimerLaSousfamilleToolStripMenuItem
             // 
+            this.supprimerLaSousfamilleToolStripMenuItem.Image = global::Mercure.Properties.Resources.sitemap_application_blue;
             this.supprimerLaSousfamilleToolStripMenuItem.Name = "supprimerLaSousfamilleToolStripMenuItem";
             this.supprimerLaSousfamilleToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
             this.supprimerLaSousfamilleToolStripMenuItem.Text = "Supprimer la sous-famille";
+            this.supprimerLaSousfamilleToolStripMenuItem.Click += new System.EventHandler(this.On_Delete_Event);
+            // 
+            // Add_Sub_Family_Menu_Strip
+            // 
+            this.Add_Sub_Family_Menu_Strip.Image = global::Mercure.Properties.Resources.sitemap_application_blue;
+            this.Add_Sub_Family_Menu_Strip.Name = "Add_Sub_Family_Menu_Strip";
+            this.Add_Sub_Family_Menu_Strip.Size = new System.Drawing.Size(209, 22);
+            this.Add_Sub_Family_Menu_Strip.Text = "Ajouter une sous famille";
+            this.Add_Sub_Family_Menu_Strip.Click += new System.EventHandler(this.ajouterUneSousfamilleToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(206, 6);
             // 
             // ListSubFamily
             // 
@@ -148,5 +174,7 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem modifierLaSousfamilleToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem supprimerLaSousfamilleToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripMenuItem Add_Sub_Family_Menu_Strip;
     }
 }

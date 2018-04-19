@@ -13,12 +13,13 @@ namespace Mercure
     {
         string Brand;
         public AddBrandForm(string Brand)
-        {
+        {   
+            InitializeComponent();
+
             this.Brand = Brand;
 
             if (this.Brand != null)
                 autoFill();
-            InitializeComponent();
         }
 
         public void autoFill()
