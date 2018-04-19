@@ -79,7 +79,11 @@ namespace Mercure
                 return 0;
         }
 
-        /** Getters. */
+        /// <summary>
+        /// Returns the family id from the family name
+        /// </summary>
+        /// <param name="Familly_Name"></param>
+        /// <returns>the family id</returns>
         public int Get_Familly_ID(string Familly_Name)
         {
             // TODO : check for typos
@@ -97,6 +101,11 @@ namespace Mercure
                 return -1;
         }
 
+        /// <summary>
+        /// Returns the sub-family id from the sub-familly name
+        /// </summary>
+        /// <param name="Sub_Familly_Name"></param>
+        /// <returns>the sub-familly id</returns>
         public int Get_Sub_Familly_ID(string Sub_Familly_Name)
         {
             // TODO : check for typos
@@ -114,6 +123,11 @@ namespace Mercure
                 return -1;
         }
 
+        /// <summary>
+        /// Returns the brand id from the brand name
+        /// </summary>
+        /// <param name="Brand_Name"></param>
+        /// <returns>the brand id</returns>
         public int Get_Brand_ID(string Brand_Name)
         {
             // TODO : check for typos
@@ -131,7 +145,11 @@ namespace Mercure
                 return -1;
         }
 
-        /** Creations. */
+        /// <summary>
+        /// Returns the id from the family name or create a new family if none found.
+        /// </summary>
+        /// <param name="Familly_Name"></param>
+        /// <returns>the family id</returns>
         public int Get_Or_Create_Familly(string Familly_Name)
         {
             int Id = Get_Familly_ID(Familly_Name);
@@ -161,6 +179,12 @@ namespace Mercure
                 return Id;
         }
 
+        /// <summary>
+        /// Returns the id from the sub-family name and family id or create a new sub-family if none found.
+        /// </summary>
+        /// <param name="Familly_ID"></param>
+        /// <param name="Sub_Familly_Name"></param>
+        /// <returns>the sub-family id</returns>
         public int Get_Or_Create_Sub_Familly(int Familly_ID, string Sub_Familly_Name)
         {
             // Check we have a valid familly ID.
@@ -199,6 +223,11 @@ namespace Mercure
                 return Id;
         }
 
+        /// <summary>
+        /// Returns the id from the brand name or create a new brand if none found.
+        /// </summary>
+        /// <param name="Brand_Name"></param>
+        /// <returns>the brand id</returns>
         public int Get_Or_Create_Brand(string Brand_Name)
         {
             // Check if the brand name is already in use.
@@ -230,6 +259,11 @@ namespace Mercure
                 return Id;
         }
 
+        /// <summary>
+        /// Returns the quantity from the article with the given id
+        /// </summary>
+        /// <param name="Article_Id"></param>
+        /// <returns>the quantity of the article</returns>
         public int Count_Articles_Id(string Article_Id)
         {
             // TODO : check for typos
@@ -247,6 +281,15 @@ namespace Mercure
                 return -1;
         }
 
+        /// <summary>
+        /// Creates an article
+        /// </summary>
+        /// <param name="Article_ID"></param>
+        /// <param name="Sub_Familly_ID"></param>
+        /// <param name="Brand_ID"></param>
+        /// <param name="Description"></param>
+        /// <param name="Prix"></param>
+        /// <returns>the id</returns>
         public bool Create_Article(string Article_ID, int Sub_Familly_ID, int Brand_ID, string Description, float Prix)
         {
             // Check values.
@@ -303,6 +346,16 @@ namespace Mercure
             }
         }
 
+        /// <summary>
+        /// Creates an article
+        /// </summary>
+        /// <param name="Article_ID"></param>
+        /// <param name="Sub_Familly_ID"></param>
+        /// <param name="Brand_ID"></param>
+        /// <param name="Description"></param>
+        /// <param name="Prix"></param>
+        /// <param name="Quantity"></param>
+        /// <returns>the id</returns>
         public bool Create_Article(string Article_ID, int Sub_Familly_ID, int Brand_ID, string Description, float Prix, int Quantity)
         {
             // Check values.
@@ -340,6 +393,10 @@ namespace Mercure
             return Nb == 1;
         }
 
+        /// <summary>
+        /// Returns the list of all the brands
+        /// </summary>
+        /// <returns>list of all the brands</returns>
         public List<Models.Brand> Get_Brands()
         {
             List<Models.Brand> Brands = new List<Models.Brand>();
@@ -359,6 +416,10 @@ namespace Mercure
             return Brands;
         }
 
+        /// <summary>
+        /// Returns the list of all the families
+        /// </summary>
+        /// <returns>list of all the families</returns>
         public List<Models.Family> Get_Families()
         {
             List<Models.Family> Famillies = new List<Models.Family>();
@@ -378,6 +439,10 @@ namespace Mercure
             return Famillies;
         }
 
+        /// <summary>
+        /// Returns the list of all the sub-families
+        /// </summary>
+        /// <returns>list of all the sub-families</returns>
         public List<Models.SubFamily> Get_Sub_Families()
         {
             List<Models.SubFamily> SubFamillies = new List<Models.SubFamily>();
@@ -398,6 +463,10 @@ namespace Mercure
             return SubFamillies;
         }
 
+        /// <summary>
+        /// Returns the list of all the articles
+        /// </summary>
+        /// <returns>list of all the articles</returns>
         public List<Models.Article> Get_Articles_List()
         {
             List<Models.Article> Articles = new List<Models.Article>();
@@ -431,6 +500,11 @@ namespace Mercure
             return Articles;
         }
 
+        /// <summary>
+        /// Returns the article from its reference
+        /// </summary>
+        /// <param name="refArticle"></param>
+        /// <returns>the article</returns>
         public Models.Article Get_Article(string refArticle)
         {
             Models.Article Article = new Models.Article();
@@ -467,6 +541,11 @@ namespace Mercure
             return Article;
         }
 
+        /// <summary>
+        /// Returns a sub-family from its name
+        /// </summary>
+        /// <param name="SubFamilly"></param>
+        /// <returns>the sub-family</returns>
         public Models.SubFamily Get_Sub_Family(string SubFamilly)
         {
             Models.SubFamily SubFamily = new Models.SubFamily();
@@ -490,6 +569,11 @@ namespace Mercure
             return SubFamily;
         }
 
+        /// <summary>
+        /// Returns the family from its id
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <returns>the family</returns>
         public Models.Family Get_Family_With_Id(int Id)
         {
             Models.Family Familly = new Models.Family();
@@ -512,7 +596,12 @@ namespace Mercure
             return Familly;
         }
 
-        /** Udpates. */
+        /// <summary>
+        /// Updates the family
+        /// </summary>
+        /// <param name="Familly_ID"></param>
+        /// <param name="Familly_Name"></param>
+        /// <returns>true if everything went fine</returns>
         public bool Update_Familly(int Familly_ID, string Familly_Name)
         {
             System.Data.SQLite.SQLiteCommand cmd = SQL_Connection.CreateCommand();
@@ -533,6 +622,13 @@ namespace Mercure
             return Nb == 1;
         }
 
+        /// <summary>
+        /// Updates the sub-family
+        /// </summary>
+        /// <param name="Sub_Familly_ID"></param>
+        /// <param name="Familly_ID"></param>
+        /// <param name="Sub_Familly_Name"></param>
+        /// <returns>true if everything went fine</returns>
         public bool Update_Sub_Familly(int Sub_Familly_ID, int Familly_ID, string Sub_Familly_Name)
         {
             System.Data.SQLite.SQLiteCommand cmd = SQL_Connection.CreateCommand();
@@ -556,6 +652,12 @@ namespace Mercure
             return Nb == 1;
         }
 
+        /// <summary>
+        /// Updates the brand
+        /// </summary>
+        /// <param name="Brand_ID"></param>
+        /// <param name="Brand_Name"></param>
+        /// <returns>true if everything went fine</returns>
         public bool Update_Brand(int Brand_ID, string Brand_Name)
         {
             System.Data.SQLite.SQLiteCommand cmd = SQL_Connection.CreateCommand();
@@ -576,6 +678,16 @@ namespace Mercure
             return Nb == 1;
         }
 
+        /// <summary>
+        /// Updates the article
+        /// </summary>
+        /// <param name="Description"></param>
+        /// <param name="Reference"></param>
+        /// <param name="Marque"></param>
+        /// <param name="SousFamille"></param>
+        /// <param name="PrixHT"></param>
+        /// <param name="Quantity"></param>
+        /// <returns>true if everything went fine<returns>
         public bool Update_Article(string Description, string Reference, int Marque, int SousFamille, float PrixHT, int Quantity)
         {
             if(Quantity == -1)
@@ -616,8 +728,11 @@ namespace Mercure
             return Nb == 1;
         }
 
-
-        /** Removals. */
+        /// <summary>
+        /// Deletes the family
+        /// </summary>
+        /// <param name="Familly_ID"></param>
+        /// <returns>true if everything went fine</returns>
         public bool Delete_Familly(int Familly_ID)
         {
             System.Data.SQLite.SQLiteCommand cmd = SQL_Connection.CreateCommand();
@@ -635,6 +750,11 @@ namespace Mercure
             return Nb == 1;
         }
 
+        /// <summary>
+        /// Deletes the sub-family
+        /// </summary>
+        /// <param name="Sub_Familly_ID"></param>
+        /// <returns>true if everything went fine</returns>
         public bool Delete_Sub_Familly(int Sub_Familly_ID)
         {
             System.Data.SQLite.SQLiteCommand cmd = SQL_Connection.CreateCommand();
@@ -651,6 +771,11 @@ namespace Mercure
             return Nb == 1;
         }
 
+        /// <summary>
+        /// Deletes the brand
+        /// </summary>
+        /// <param name="Brand_ID"></param>
+        /// <returns>true if everything went fine</returns>
         public bool Delete_Brand(int Brand_ID)
         {
             System.Data.SQLite.SQLiteCommand cmd = SQL_Connection.CreateCommand();
@@ -667,6 +792,11 @@ namespace Mercure
             return Nb == 1;
         }
 
+        /// <summary>
+        /// Deletes the article
+        /// </summary>
+        /// <param name="Article_ID"></param>
+        /// <returns>true if everything went fine</returns>
         public bool Delete_Article(string Article_ID)
         {
             System.Data.SQLite.SQLiteCommand cmd = SQL_Connection.CreateCommand();

@@ -392,13 +392,23 @@ namespace Mercure
             AddFamilyForm aff = new AddFamilyForm(null);
             aff.ShowDialog();
         }
-
+        
+        /// <summary>
+        /// Displays the add family form.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void On_Add_Sub_Family(object sender, EventArgs e)
         {
             AddSubFamilyForm Form = new AddSubFamilyForm(null);
             Form.ShowDialog();
         }
 
+        /// <summary>
+        /// Displays the modify brand form.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void On_Modify_Brand(object sender, EventArgs e)
         {
             // TODO refresh the line
@@ -409,6 +419,11 @@ namespace Mercure
                 Load_Articles();
         }
 
+        /// <summary>
+        /// Displays the modify sub-family form.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void On_Modify_Sub_Family(object sender, EventArgs e)
         {
             // TODO refresh the line
