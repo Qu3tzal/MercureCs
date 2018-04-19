@@ -59,6 +59,7 @@
             this.Brand_List_View.TabIndex = 0;
             this.Brand_List_View.UseCompatibleStateImageBehavior = false;
             this.Brand_List_View.View = System.Windows.Forms.View.Details;
+            this.Brand_List_View.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.On_Column_Click);
             this.Brand_List_View.DoubleClick += new System.EventHandler(this.On_Double_Click);
             this.Brand_List_View.KeyUp += new System.Windows.Forms.KeyEventHandler(this.On_Key_Pressed);
             // 
@@ -111,7 +112,7 @@
             this.modifierLaMarqueToolStripMenuItem,
             this.supprimerLaMarqueToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(186, 98);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(186, 76);
             this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.On_Open_Menu_Strip);
             // 
             // modifierLaMarqueToolStripMenuItem

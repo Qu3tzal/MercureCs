@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -139,5 +140,63 @@ namespace Mercure
             Delete_Family(Get_Selected_Item());
         }
 
+        private void On_Column_Click(object sender, ColumnClickEventArgs e)
+        {
+            this.Family_List_View.ListViewItemSorter = new BrandItemComparer(e.Column);
+        }
+
+    }
+    /// <summary>
+    /// The comparer class for the list View sort
+    /// </summary>
+    class FamilyItemComparer : IComparer
+    {
+        private int Col;
+        private static bool ascendent = true;
+        private static int lastSortedCol;
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="column"></param>
+        public FamilyItemComparer(int column)
+        {
+
+            if (lastSortedCol == column)
+                ascendent = !ascendent;
+            else
+                ascendent = true;
+
+            lastSortedCol = column;
+            Col = column;
+        }
+
+        /// <summary>
+        /// Compare string and numbers in asc or desc
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <returns></returns>
+        public int Compare(object x, object y)
+        {
+            int result = 0;
+
+            if (Col == 0)
+            {
+                int a = int.Parse(((ListViewItem)x).SubItems[Col].Text);
+                int b = int.Parse(((ListViewItem)y).SubItems[Col].Text);
+
+                if (a == b) result = 0;
+                else if (a < b) result = -1;
+                else result = 1;
+            }
+            else
+                result = String.Compare(((ListViewItem)x).SubItems[Col].Text, ((ListViewItem)y).SubItems[Col].Text);
+
+            if (!ascendent)
+                return -result;
+            return result;
+
+        }
     }
 }

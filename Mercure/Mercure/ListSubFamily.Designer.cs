@@ -100,6 +100,7 @@
             this.SubFamily_List_View.TabIndex = 1;
             this.SubFamily_List_View.UseCompatibleStateImageBehavior = false;
             this.SubFamily_List_View.View = System.Windows.Forms.View.Details;
+            this.SubFamily_List_View.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.On_Column_Click);
             this.SubFamily_List_View.DoubleClick += new System.EventHandler(this.On_Double_Click);
             this.SubFamily_List_View.KeyUp += new System.Windows.Forms.KeyEventHandler(this.On_Key_Pressed);
             // 

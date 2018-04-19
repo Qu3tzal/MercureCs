@@ -148,11 +148,9 @@ namespace Mercure
 
                 // Modify/delete brand.
                 contextMenuStrip1.Items[5].Visible = false;
-                contextMenuStrip1.Items[6].Visible = false;
-
+               
                 // Modify/delete sub-family.
-                contextMenuStrip1.Items[9].Visible = false;
-                contextMenuStrip1.Items[10].Visible = false;
+                contextMenuStrip1.Items[8].Visible = false;     
             }
             else
             {
@@ -162,11 +160,9 @@ namespace Mercure
 
                 // Modify/delete brand.
                 contextMenuStrip1.Items[5].Visible = true;
-                contextMenuStrip1.Items[6].Visible = true;
 
                 // Modify/delete sub-family.
-                contextMenuStrip1.Items[9].Visible = true;
-                contextMenuStrip1.Items[10].Visible = true;
+                contextMenuStrip1.Items[8].Visible = true;
             }
         }
 
@@ -182,6 +178,7 @@ namespace Mercure
 
             if(Result == DialogResult.OK)
                 // Refresh the view.
+                // Only add the row
                 Load_Articles();
         }
 
@@ -395,6 +392,33 @@ namespace Mercure
             AddFamilyForm aff = new AddFamilyForm(null);
             aff.ShowDialog();
         }
+
+        private void On_Add_Sub_Family(object sender, EventArgs e)
+        {
+            AddSubFamilyForm Form = new AddSubFamilyForm(null);
+            Form.ShowDialog();
+        }
+
+        private void On_Modify_Brand(object sender, EventArgs e)
+        {
+            // TODO refresh the line
+            AddBrandForm Form = new AddBrandForm(getSelectedArticle().Brand_Name);
+            DialogResult Result = Form.ShowDialog();
+            if(Result == DialogResult.OK)
+                // TODO refresh the line
+                Load_Articles();
+        }
+
+        private void On_Modify_Sub_Family(object sender, EventArgs e)
+        {
+            // TODO refresh the line
+            AddFamilyForm Form = new AddFamilyForm(getSelectedArticle().Sub_Familly_Name);
+            DialogResult Result = Form.ShowDialog();
+            if (Result == DialogResult.OK)
+                // TODO refresh the line
+                Load_Articles();
+        }
+
     }
 
     /// <summary>
