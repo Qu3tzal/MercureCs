@@ -342,6 +342,24 @@ namespace Mercure
 
             dbf.ShowDialog();
         }
+
+        private void listerLesMarquesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ListBrand lb = new ListBrand();
+            lb.ShowDialog();
+        }
+
+        private void listerLesFamillesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ListFamily lf = new ListFamily();
+            lf.ShowDialog();
+        }
+
+        private void listerLesSousfamillesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ListSubFamily lsf = new ListSubFamily();
+            lsf.ShowDialog();
+        }
     }
 
     /// <summary>
