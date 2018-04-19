@@ -120,6 +120,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AddFamilyForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Ajouter une famille";
             this.Main_Layout.ResumeLayout(false);
             this.Main_Layout.PerformLayout();
