@@ -235,7 +235,7 @@ namespace Mercure
                 if (Brand_Id == -1)
                     Print_To_Log("Error on Brand_Id");
 
-                if (DB.Update_Article(Description, Reference, Brand_Id, Familly_Id, Sub_Familly_Id, PrixHT))
+                if (DB.Update_Article(Description, Reference, Brand_Id, Sub_Familly_Id, PrixHT, -1))
                     return 2;
                 else
                     return 0;

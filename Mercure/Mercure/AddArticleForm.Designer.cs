@@ -51,13 +51,13 @@
             this.Quantity_Price_Group_Box = new System.Windows.Forms.GroupBox();
             this.Quantity_Layout = new System.Windows.Forms.FlowLayoutPanel();
             this.Quantity_Label = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.Quantity_upDown = new System.Windows.Forms.NumericUpDown();
             this.Price_Layout = new System.Windows.Forms.FlowLayoutPanel();
             this.Price_Label = new System.Windows.Forms.Label();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.Price_UpDown = new System.Windows.Forms.NumericUpDown();
             this.Command_Buttons_Group_Box = new System.Windows.Forms.FlowLayoutPanel();
-            this.Add_Button = new System.Windows.Forms.Button();
             this.Cancel_Button = new System.Windows.Forms.Button();
+            this.Add_Button = new System.Windows.Forms.Button();
             this.Main_Panel_Layout.SuspendLayout();
             this.Ref_Description_Group_Box.SuspendLayout();
             this.Ref_Description_Layout.SuspendLayout();
@@ -69,9 +69,9 @@
             this.Select_Brand_Layout.SuspendLayout();
             this.Quantity_Price_Group_Box.SuspendLayout();
             this.Quantity_Layout.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Quantity_upDown)).BeginInit();
             this.Price_Layout.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Price_UpDown)).BeginInit();
             this.Command_Buttons_Group_Box.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -181,7 +181,6 @@
             this.SubFamily_Label.Size = new System.Drawing.Size(140, 13);
             this.SubFamily_Label.TabIndex = 0;
             this.SubFamily_Label.Text = "Choisissez une sous-famille :";
-            this.SubFamily_Label.Click += new System.EventHandler(this.label1_Click);
             // 
             // Select_SubFamily_Layout
             // 
@@ -213,6 +212,7 @@
             this.Create_SubFamily_Button.Text = "Créer une sous-famille";
             this.Create_SubFamily_Button.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.Create_SubFamily_Button.UseVisualStyleBackColor = true;
+            this.Create_SubFamily_Button.Click += new System.EventHandler(this.Create_SubFamily_Button_Click);
             // 
             // Brand_Group_Box
             // 
@@ -277,6 +277,7 @@
             this.Create_Brand_Button.Text = "Créer une marque";
             this.Create_Brand_Button.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.Create_Brand_Button.UseVisualStyleBackColor = true;
+            this.Create_Brand_Button.Click += new System.EventHandler(this.Create_Brand_Button_Click);
             // 
             // Quantity_Price_Group_Box
             // 
@@ -295,7 +296,7 @@
             this.Quantity_Layout.AutoSize = true;
             this.Quantity_Layout.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Quantity_Layout.Controls.Add(this.Quantity_Label);
-            this.Quantity_Layout.Controls.Add(this.numericUpDown1);
+            this.Quantity_Layout.Controls.Add(this.Quantity_upDown);
             this.Quantity_Layout.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.Quantity_Layout.Location = new System.Drawing.Point(20, 19);
             this.Quantity_Layout.Name = "Quantity_Layout";
@@ -311,19 +312,24 @@
             this.Quantity_Label.TabIndex = 0;
             this.Quantity_Label.Text = "Quantité à créer :";
             // 
-            // numericUpDown1
+            // Quantity_upDown
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(3, 16);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(120, 20);
-            this.numericUpDown1.TabIndex = 1;
+            this.Quantity_upDown.Location = new System.Drawing.Point(3, 16);
+            this.Quantity_upDown.Maximum = new decimal(new int[] {
+            -1,
+            -1,
+            -1,
+            0});
+            this.Quantity_upDown.Name = "Quantity_upDown";
+            this.Quantity_upDown.Size = new System.Drawing.Size(120, 20);
+            this.Quantity_upDown.TabIndex = 1;
             // 
             // Price_Layout
             // 
             this.Price_Layout.AutoSize = true;
             this.Price_Layout.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Price_Layout.Controls.Add(this.Price_Label);
-            this.Price_Layout.Controls.Add(this.numericUpDown2);
+            this.Price_Layout.Controls.Add(this.Price_UpDown);
             this.Price_Layout.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.Price_Layout.Location = new System.Drawing.Point(162, 19);
             this.Price_Layout.Name = "Price_Layout";
@@ -339,12 +345,18 @@
             this.Price_Label.TabIndex = 0;
             this.Price_Label.Text = "Prix unitaire :";
             // 
-            // numericUpDown2
+            // Price_UpDown
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(3, 16);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(120, 20);
-            this.numericUpDown2.TabIndex = 1;
+            this.Price_UpDown.DecimalPlaces = 2;
+            this.Price_UpDown.Location = new System.Drawing.Point(3, 16);
+            this.Price_UpDown.Maximum = new decimal(new int[] {
+            -1,
+            -1,
+            -1,
+            0});
+            this.Price_UpDown.Name = "Price_UpDown";
+            this.Price_UpDown.Size = new System.Drawing.Size(120, 20);
+            this.Price_UpDown.TabIndex = 1;
             // 
             // Command_Buttons_Group_Box
             // 
@@ -359,18 +371,6 @@
             this.Command_Buttons_Group_Box.Size = new System.Drawing.Size(455, 29);
             this.Command_Buttons_Group_Box.TabIndex = 4;
             // 
-            // Add_Button
-            // 
-            this.Add_Button.Image = global::Mercure.Properties.Resources.tick;
-            this.Add_Button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Add_Button.Location = new System.Drawing.Point(296, 3);
-            this.Add_Button.Name = "Add_Button";
-            this.Add_Button.Size = new System.Drawing.Size(75, 23);
-            this.Add_Button.TabIndex = 0;
-            this.Add_Button.Text = "Ajouter";
-            this.Add_Button.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.Add_Button.UseVisualStyleBackColor = true;
-            // 
             // Cancel_Button
             // 
             this.Cancel_Button.Image = global::Mercure.Properties.Resources.cross;
@@ -382,6 +382,20 @@
             this.Cancel_Button.Text = "Annuler";
             this.Cancel_Button.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.Cancel_Button.UseVisualStyleBackColor = true;
+            this.Cancel_Button.Click += new System.EventHandler(this.Cancel_Button_Click);
+            // 
+            // Add_Button
+            // 
+            this.Add_Button.Image = global::Mercure.Properties.Resources.tick;
+            this.Add_Button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Add_Button.Location = new System.Drawing.Point(296, 3);
+            this.Add_Button.Name = "Add_Button";
+            this.Add_Button.Size = new System.Drawing.Size(75, 23);
+            this.Add_Button.TabIndex = 0;
+            this.Add_Button.Text = "Ajouter";
+            this.Add_Button.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Add_Button.UseVisualStyleBackColor = true;
+            this.Add_Button.Click += new System.EventHandler(this.Add_Button_Click);
             // 
             // AddArticleForm
             // 
@@ -419,10 +433,10 @@
             this.Quantity_Price_Group_Box.PerformLayout();
             this.Quantity_Layout.ResumeLayout(false);
             this.Quantity_Layout.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Quantity_upDown)).EndInit();
             this.Price_Layout.ResumeLayout(false);
             this.Price_Layout.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Price_UpDown)).EndInit();
             this.Command_Buttons_Group_Box.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -456,9 +470,9 @@
         private System.Windows.Forms.ComboBox Brand_Combo_Box;
         private System.Windows.Forms.Button Create_Brand_Button;
         private System.Windows.Forms.Label Quantity_Label;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown Quantity_upDown;
         private System.Windows.Forms.FlowLayoutPanel Price_Layout;
         private System.Windows.Forms.Label Price_Label;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
+        private System.Windows.Forms.NumericUpDown Price_UpDown;
     }
 }

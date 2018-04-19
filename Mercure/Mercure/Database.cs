@@ -324,6 +324,43 @@ namespace Mercure
             }
         }
 
+        public bool Create_Article(string Article_ID, int Sub_Familly_ID, int Brand_ID, string Description, float Prix, int Quantity)
+        {
+            // Check values.
+            if (Sub_Familly_ID == -1 || Brand_ID == -1)
+                return false;
+            int Number = Count_Articles_Id(Article_ID);
+            if (Number != -1) return false;
+
+            System.Data.SQLite.SQLiteCommand cmd = SQL_Connection.CreateCommand();
+            cmd.CommandText = "INSERT INTO Articles (RefArticle, Description, RefSousFamille, RefMarque, PrixHT, Quantite) VALUES (?, ?, ?, ?, ?, ?)";
+
+            System.Data.SQLite.SQLiteParameter Id_Parameter = new System.Data.SQLite.SQLiteParameter();
+            System.Data.SQLite.SQLiteParameter Description_Parameter = new System.Data.SQLite.SQLiteParameter();
+            System.Data.SQLite.SQLiteParameter Sub_Fammilly_Id_Parameter = new System.Data.SQLite.SQLiteParameter();
+            System.Data.SQLite.SQLiteParameter Brand_Id_Parameter = new System.Data.SQLite.SQLiteParameter();
+            System.Data.SQLite.SQLiteParameter Price_Parameter = new System.Data.SQLite.SQLiteParameter();
+            System.Data.SQLite.SQLiteParameter Quantity_Parameter = new System.Data.SQLite.SQLiteParameter();
+
+            Id_Parameter.Value = Article_ID;
+            Description_Parameter.Value = Description;
+            Sub_Fammilly_Id_Parameter.Value = Sub_Familly_ID;
+            Brand_Id_Parameter.Value = Brand_ID;
+            Price_Parameter.Value = Prix;
+            Quantity_Parameter.Value = Quantity;
+
+            cmd.Parameters.Add(Id_Parameter);
+            cmd.Parameters.Add(Description_Parameter);
+            cmd.Parameters.Add(Sub_Fammilly_Id_Parameter);
+            cmd.Parameters.Add(Brand_Id_Parameter);
+            cmd.Parameters.Add(Price_Parameter);
+            cmd.Parameters.Add(Quantity_Parameter);
+
+            int Nb = cmd.ExecuteNonQuery();
+
+            return Nb == 1;
+        }
+
         public List<string> getBrands()
         {
             List<string> Brands = new List<string>();
@@ -487,11 +524,12 @@ namespace Mercure
             return Nb == 1;
         }
 
-        public bool Update_Article(string Description, string Reference, int Marque, int Famille, int SousFamille, float PrixHT)
+        public bool Update_Article(string Description, string Reference, int Marque, int SousFamille, float PrixHT, int Quantity)
         {
-            int Quantite = Count_Articles_Id(Reference);
+            if(Quantity == -1)
+                Quantity = Count_Articles_Id(Reference);
 
-            if (Quantite == -1) return false;
+            if (Quantity == -1) return false;
 
             System.Data.SQLite.SQLiteCommand cmd = SQL_Connection.CreateCommand();
             cmd = SQL_Connection.CreateCommand();
@@ -510,7 +548,7 @@ namespace Mercure
             Sub_Fammilly_Id_Parameter.Value = SousFamille;
             Brand_Id_Parameter.Value = Marque;
             Price_Parameter.Value = PrixHT;
-            Quantity_Parameter.Value = Quantite;
+            Quantity_Parameter.Value = Quantity;
             Id_Parameter.Value = Reference;
 
             
