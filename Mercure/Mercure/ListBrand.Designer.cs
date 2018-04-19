@@ -78,6 +78,7 @@
             this.ajouterUneMarqueToolStripMenuItem.Name = "ajouterUneMarqueToolStripMenuItem";
             this.ajouterUneMarqueToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.ajouterUneMarqueToolStripMenuItem.Text = "Ajouter une marque";
+            this.ajouterUneMarqueToolStripMenuItem.Click += new System.EventHandler(this.ajouterUneMarqueToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 

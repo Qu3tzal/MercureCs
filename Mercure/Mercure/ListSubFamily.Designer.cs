@@ -69,6 +69,7 @@
             this.ajouterUneSousfamilleToolStripMenuItem.Name = "ajouterUneSousfamilleToolStripMenuItem";
             this.ajouterUneSousfamilleToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
             this.ajouterUneSousfamilleToolStripMenuItem.Text = "Ajouter une sous-famille";
+            this.ajouterUneSousfamilleToolStripMenuItem.Click += new System.EventHandler(this.ajouterUneSousfamilleToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 

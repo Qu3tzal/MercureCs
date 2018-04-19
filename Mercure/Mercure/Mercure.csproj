@@ -79,6 +79,7 @@
     <Compile Include="AddBrandForm.Designer.cs">
       <DependentUpon>AddBrandForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddFamilyForm.cs" />
     <Compile Include="AddSubFamilyForm.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -20,5 +20,11 @@ namespace Mercure
         {
             Close();
         }
+
+        private void ajouterUneSousfamilleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddSubFamilyForm asff = new AddSubFamilyForm();
+            asff.ShowDialog();
+        }
     }
 }
