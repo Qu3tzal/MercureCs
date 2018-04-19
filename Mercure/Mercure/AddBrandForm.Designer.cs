@@ -50,7 +50,7 @@
             this.Main_Layout_Panel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.Main_Layout_Panel.Location = new System.Drawing.Point(0, 0);
             this.Main_Layout_Panel.Name = "Main_Layout_Panel";
-            this.Main_Layout_Panel.Size = new System.Drawing.Size(800, 450);
+            this.Main_Layout_Panel.Size = new System.Drawing.Size(242, 77);
             this.Main_Layout_Panel.TabIndex = 0;
             // 
             // Brand_Label
@@ -112,10 +112,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(242, 77);
             this.Controls.Add(this.Main_Layout_Panel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddBrandForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Ajouter une marque";
             this.Main_Layout_Panel.ResumeLayout(false);
             this.Main_Layout_Panel.PerformLayout();

@@ -117,7 +117,7 @@ namespace Mercure
                 bool success = Database.GetInstance().Delete_Article(Article.Ref_Article);
                 if (success)
                 {
-                    Res = MessageBox.Show(this, "Suppression réussi !", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Res = MessageBox.Show(this, "Suppression réussie !", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     if (Res == DialogResult.OK)
                         Load_Articles();
                 }
@@ -302,6 +302,42 @@ namespace Mercure
             Console.WriteLine("Nettoyage en cours");
             Database.GetInstance().Clear_Database();
             Load_Articles();
+        }
+
+        private void ajouterUneMarqueToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            AddBrandForm abf = new AddBrandForm();
+            abf.ShowDialog();
+        }
+
+        private void supprimerUneMarqueToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DeleteBrandForm dbf  = new DeleteBrandForm(null);
+            dbf.ShowDialog();
+        }
+
+        private void ajouterUneMarqueToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddBrandForm abf = new AddBrandForm();
+            abf.ShowDialog();
+        }
+
+        private void modifierLaMarqueToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void supprimerLaMarqueToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DeleteBrandForm dbf;
+            Models.Article Article = getSelectedArticle();
+
+            if (Article != null)
+                dbf = new DeleteBrandForm(Article.Brand_Name);
+            else
+                dbf = new DeleteBrandForm(null);
+
+            dbf.ShowDialog();
         }
     }
 
