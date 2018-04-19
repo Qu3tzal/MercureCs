@@ -168,6 +168,11 @@ namespace Mercure
         {
             // Todo detect if connected to an article
             // Only load the affected row
+            Database db = Database.GetInstance();
+            if (db.SubFamily_Has_Articles_Associated(SubFamily.Id))
+                return;
+
+            Delete_SubFamily(SubFamily);
         }
 
         /// <summary>

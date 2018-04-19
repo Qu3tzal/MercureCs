@@ -597,6 +597,75 @@ namespace Mercure
         }
 
         /// <summary>
+        /// Returns true if the given brand has any articles associated to it
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <returns>true if articles are associated</returns>
+        public bool Brand_Has_Articles_Associated(int Id)
+        {
+            System.Data.SQLite.SQLiteCommand cmd = SQL_Connection.CreateCommand();
+            cmd.CommandText = "SELECT COUNT(*) FROM Articles WHERE RefMarque = ?";
+
+            System.Data.SQLite.SQLiteParameter Id_Parameter = new System.Data.SQLite.SQLiteParameter();
+            Id_Parameter.Value = Id;
+            cmd.Parameters.Add(Id_Parameter);
+
+            System.Data.SQLite.SQLiteDataReader Reader = cmd.ExecuteReader();
+
+            if (Reader.Read())
+            {
+                return int.Parse(Reader.GetString(0)) > 0;
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// Returns true if the given sub-family has any articles associated to it
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <returns>true if articles are associated</returns>
+        public bool SubFamily_Has_Articles_Associated(int Id)
+        {
+            System.Data.SQLite.SQLiteCommand cmd = SQL_Connection.CreateCommand();
+            cmd.CommandText = "SELECT COUNT(*) FROM Articles WHERE RefSousFamille = ?";
+
+            System.Data.SQLite.SQLiteParameter Id_Parameter = new System.Data.SQLite.SQLiteParameter();
+            Id_Parameter.Value = Id;
+            cmd.Parameters.Add(Id_Parameter);
+
+            System.Data.SQLite.SQLiteDataReader Reader = cmd.ExecuteReader();
+
+            if (Reader.Read())
+            {
+                return int.Parse(Reader.GetString(0)) > 0;
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// Returns true if the given family has any articles associated to it
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <returns>true if articles are associated</returns>
+        public bool Family_Has_Articles_Associated(int Id)
+        {
+            System.Data.SQLite.SQLiteCommand cmd = SQL_Connection.CreateCommand();
+            cmd.CommandText = "SELECT COUNT(*) FROM Articles INNER JOIN SousFamilles ON (Articles.RefSousFamille = SousFamilles.RefSousFamille) WHERE RefFamille = ?";
+
+            System.Data.SQLite.SQLiteParameter Id_Parameter = new System.Data.SQLite.SQLiteParameter();
+            Id_Parameter.Value = Id;
+            cmd.Parameters.Add(Id_Parameter);
+
+            System.Data.SQLite.SQLiteDataReader Reader = cmd.ExecuteReader();
+
+            if (Reader.Read())
+            {
+                return int.Parse(Reader.GetString(0)) > 0;
+            }
+            return false;
+        }
+
+        /// <summary>
         /// Updates the family
         /// </summary>
         /// <param name="Familly_ID"></param>
