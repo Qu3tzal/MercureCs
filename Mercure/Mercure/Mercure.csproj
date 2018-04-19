@@ -79,6 +79,12 @@
     <Compile Include="AddBrandForm.Designer.cs">
       <DependentUpon>AddBrandForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddSubFamilyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddSubFamilyForm.Designer.cs">
+      <DependentUpon>AddSubFamilyForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Database.cs" />
     <Compile Include="DataIntegrationForm.cs">
       <SubType>Form</SubType>
@@ -91,6 +97,24 @@
     </Compile>
     <Compile Include="DeleteBrandForm.Designer.cs">
       <DependentUpon>DeleteBrandForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ListBrand.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListBrand.Designer.cs">
+      <DependentUpon>ListBrand.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ListFamily.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListFamily.Designer.cs">
+      <DependentUpon>ListFamily.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ListSubFamily.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListSubFamily.Designer.cs">
+      <DependentUpon>ListSubFamily.cs</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.cs">
       <SubType>Form</SubType>
@@ -107,11 +131,23 @@
     <EmbeddedResource Include="AddBrandForm.resx">
       <DependentUpon>AddBrandForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AddSubFamilyForm.resx">
+      <DependentUpon>AddSubFamilyForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DataIntegrationForm.resx">
       <DependentUpon>DataIntegrationForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DeleteBrandForm.resx">
       <DependentUpon>DeleteBrandForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListBrand.resx">
+      <DependentUpon>ListBrand.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListFamily.resx">
+      <DependentUpon>ListFamily.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListSubFamily.resx">
+      <DependentUpon>ListSubFamily.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
@@ -161,6 +197,8 @@
     <None Include="res\icons-shadowless\tag--plus.png" />
     <None Include="res\icons-shadowless\database--minus.png" />
     <None Include="res\icons-shadowless\exclamation.png" />
+    <None Include="res\icons-shadowless\store.png" />
+    <None Include="res\icons-shadowless\tag.png" />
     <Content Include="res\Mercure.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
