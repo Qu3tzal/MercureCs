@@ -495,7 +495,7 @@ namespace Mercure
             Models.Family Familly = new Models.Family();
 
             System.Data.SQLite.SQLiteCommand cmd = SQL_Connection.CreateCommand();
-            cmd.CommandText = "SELECT * FROM Familles WHERE Id = ?";
+            cmd.CommandText = "SELECT * FROM Familles WHERE RefFamille = ?";
 
             System.Data.SQLite.SQLiteParameter Id_Parameter = new System.Data.SQLite.SQLiteParameter();
             Id_Parameter.Value = Id;
@@ -535,14 +535,32 @@ namespace Mercure
 
         public bool Update_Sub_Familly(int Sub_Familly_ID, int Familly_ID, string Sub_Familly_Name)
         {
-            return false;
+            System.Data.SQLite.SQLiteCommand cmd = SQL_Connection.CreateCommand();
+            cmd = SQL_Connection.CreateCommand();
+            cmd.CommandText = "UPDATE SousFamilles SET RefFamille = ?, Nom = ? WHERE RefSousFamille = ?";
+
+            System.Data.SQLite.SQLiteParameter Id_Family_Parameter = new System.Data.SQLite.SQLiteParameter();
+            System.Data.SQLite.SQLiteParameter Name_Parameter = new System.Data.SQLite.SQLiteParameter();
+            System.Data.SQLite.SQLiteParameter Id_Sub_Family_Parameter = new System.Data.SQLite.SQLiteParameter();
+
+            Id_Family_Parameter.Value = Familly_ID;
+            Name_Parameter.Value = Sub_Familly_Name;
+            Id_Sub_Family_Parameter.Value = Sub_Familly_ID;
+
+            cmd.Parameters.Add(Id_Family_Parameter);
+            cmd.Parameters.Add(Name_Parameter);
+            cmd.Parameters.Add(Id_Sub_Family_Parameter);
+
+            int Nb = cmd.ExecuteNonQuery();
+
+            return Nb == 1;
         }
 
         public bool Update_Brand(int Brand_ID, string Brand_Name)
         {
             System.Data.SQLite.SQLiteCommand cmd = SQL_Connection.CreateCommand();
             cmd = SQL_Connection.CreateCommand();
-            cmd.CommandText = "UPDATE Marque SET Nom = ? WHERE RefMarque = ?";
+            cmd.CommandText = "UPDATE Marques SET Nom = ? WHERE RefMarque = ?";
 
             System.Data.SQLite.SQLiteParameter Name_Parameter = new System.Data.SQLite.SQLiteParameter();
             System.Data.SQLite.SQLiteParameter Id_Parameter = new System.Data.SQLite.SQLiteParameter();

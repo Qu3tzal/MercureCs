@@ -39,13 +39,17 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.modifierLaMarqueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.supprimerLaMarqueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Add_Brand_Menu_Strip = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // Brand_List_View
             // 
+            this.Brand_List_View.ContextMenuStrip = this.contextMenuStrip1;
             this.Brand_List_View.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Brand_List_View.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Brand_List_View.FullRowSelect = true;
             this.Brand_List_View.GridLines = true;
             this.Brand_List_View.Location = new System.Drawing.Point(0, 24);
@@ -55,6 +59,9 @@
             this.Brand_List_View.TabIndex = 0;
             this.Brand_List_View.UseCompatibleStateImageBehavior = false;
             this.Brand_List_View.View = System.Windows.Forms.View.Details;
+            this.Brand_List_View.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.On_Column_Click);
+            this.Brand_List_View.DoubleClick += new System.EventHandler(this.On_Double_Click);
+            this.Brand_List_View.KeyUp += new System.Windows.Forms.KeyEventHandler(this.On_Key_Pressed);
             // 
             // menuStrip1
             // 
@@ -100,10 +107,13 @@
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.Add_Brand_Menu_Strip,
+            this.toolStripSeparator2,
             this.modifierLaMarqueToolStripMenuItem,
             this.supprimerLaMarqueToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(186, 48);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(186, 76);
+            this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.On_Open_Menu_Strip);
             // 
             // modifierLaMarqueToolStripMenuItem
             // 
@@ -111,6 +121,7 @@
             this.modifierLaMarqueToolStripMenuItem.Name = "modifierLaMarqueToolStripMenuItem";
             this.modifierLaMarqueToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
             this.modifierLaMarqueToolStripMenuItem.Text = "Modifier la marque";
+            this.modifierLaMarqueToolStripMenuItem.Click += new System.EventHandler(this.On_Modify_Event);
             // 
             // supprimerLaMarqueToolStripMenuItem
             // 
@@ -118,6 +129,20 @@
             this.supprimerLaMarqueToolStripMenuItem.Name = "supprimerLaMarqueToolStripMenuItem";
             this.supprimerLaMarqueToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
             this.supprimerLaMarqueToolStripMenuItem.Text = "Supprimer la marque";
+            this.supprimerLaMarqueToolStripMenuItem.Click += new System.EventHandler(this.On_Delete_Event);
+            // 
+            // Add_Brand_Menu_Strip
+            // 
+            this.Add_Brand_Menu_Strip.Image = global::Mercure.Properties.Resources.store__plus;
+            this.Add_Brand_Menu_Strip.Name = "Add_Brand_Menu_Strip";
+            this.Add_Brand_Menu_Strip.Size = new System.Drawing.Size(185, 22);
+            this.Add_Brand_Menu_Strip.Text = "Ajouter une marque";
+            this.Add_Brand_Menu_Strip.Click += new System.EventHandler(this.ajouterUneMarqueToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(182, 6);
             // 
             // ListBrand
             // 
@@ -150,5 +175,7 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem modifierLaMarqueToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem supprimerLaMarqueToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem Add_Brand_Menu_Strip;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
     }
 }
