@@ -31,24 +31,24 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddSubFamilyForm));
             this.Main_Layout = new System.Windows.Forms.FlowLayoutPanel();
             this.Family_Group_Box = new System.Windows.Forms.GroupBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.New_Family_Name = new System.Windows.Forms.TextBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.Select_Family_Radio_Button = new System.Windows.Forms.RadioButton();
-            this.Command_Control_Layout = new System.Windows.Forms.FlowLayoutPanel();
-            this.Cancel_Button = new System.Windows.Forms.Button();
-            this.Add_SubFamily = new System.Windows.Forms.Button();
+            this.Select_Family_Combo_Box = new System.Windows.Forms.ComboBox();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.New_Family_Name = new System.Windows.Forms.TextBox();
             this.SubFamily_Group_Box = new System.Windows.Forms.GroupBox();
             this.SubFamily_Layout = new System.Windows.Forms.FlowLayoutPanel();
             this.SubFamily_Name_Label = new System.Windows.Forms.Label();
             this.SubFamily_Name_Text_Box = new System.Windows.Forms.TextBox();
+            this.Command_Control_Layout = new System.Windows.Forms.FlowLayoutPanel();
+            this.Cancel_Button = new System.Windows.Forms.Button();
+            this.Add_SubFamily = new System.Windows.Forms.Button();
             this.Main_Layout.SuspendLayout();
             this.Family_Group_Box.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
-            this.Command_Control_Layout.SuspendLayout();
             this.SubFamily_Group_Box.SuspendLayout();
             this.SubFamily_Layout.SuspendLayout();
+            this.Command_Control_Layout.SuspendLayout();
             this.SuspendLayout();
             // 
             // Main_Layout
@@ -76,20 +76,12 @@
             this.Family_Group_Box.TabStop = false;
             this.Family_Group_Box.Text = "Famille associée";
             // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(3, 26);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(230, 21);
-            this.comboBox1.TabIndex = 1;
-            // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.AutoSize = true;
             this.flowLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.flowLayoutPanel1.Controls.Add(this.Select_Family_Radio_Button);
-            this.flowLayoutPanel1.Controls.Add(this.comboBox1);
+            this.flowLayoutPanel1.Controls.Add(this.Select_Family_Combo_Box);
             this.flowLayoutPanel1.Controls.Add(this.radioButton1);
             this.flowLayoutPanel1.Controls.Add(this.New_Family_Name);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -98,24 +90,6 @@
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(239, 101);
             this.flowLayoutPanel1.TabIndex = 0;
-            // 
-            // New_Family_Name
-            // 
-            this.New_Family_Name.Location = new System.Drawing.Point(3, 76);
-            this.New_Family_Name.Name = "New_Family_Name";
-            this.New_Family_Name.Size = new System.Drawing.Size(230, 20);
-            this.New_Family_Name.TabIndex = 3;
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(3, 53);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(152, 17);
-            this.radioButton1.TabIndex = 4;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Créer une nouvelle famille :";
-            this.radioButton1.UseVisualStyleBackColor = true;
             // 
             // Select_Family_Radio_Button
             // 
@@ -128,41 +102,31 @@
             this.Select_Family_Radio_Button.Text = "Sélectionner une famille existante :";
             this.Select_Family_Radio_Button.UseVisualStyleBackColor = true;
             // 
-            // Command_Control_Layout
+            // Select_Family_Combo_Box
             // 
-            this.Command_Control_Layout.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.Command_Control_Layout.Controls.Add(this.Cancel_Button);
-            this.Command_Control_Layout.Controls.Add(this.Add_SubFamily);
-            this.Command_Control_Layout.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Command_Control_Layout.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.Command_Control_Layout.Location = new System.Drawing.Point(3, 196);
-            this.Command_Control_Layout.Name = "Command_Control_Layout";
-            this.Command_Control_Layout.Size = new System.Drawing.Size(245, 30);
-            this.Command_Control_Layout.TabIndex = 1;
+            this.Select_Family_Combo_Box.FormattingEnabled = true;
+            this.Select_Family_Combo_Box.Location = new System.Drawing.Point(3, 26);
+            this.Select_Family_Combo_Box.Name = "Select_Family_Combo_Box";
+            this.Select_Family_Combo_Box.Size = new System.Drawing.Size(230, 21);
+            this.Select_Family_Combo_Box.TabIndex = 1;
             // 
-            // Cancel_Button
+            // radioButton1
             // 
-            this.Cancel_Button.Image = global::Mercure.Properties.Resources.cross;
-            this.Cancel_Button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Cancel_Button.Location = new System.Drawing.Point(167, 3);
-            this.Cancel_Button.Name = "Cancel_Button";
-            this.Cancel_Button.Size = new System.Drawing.Size(75, 23);
-            this.Cancel_Button.TabIndex = 0;
-            this.Cancel_Button.Text = "Annuler";
-            this.Cancel_Button.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.Cancel_Button.UseVisualStyleBackColor = true;
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(3, 53);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(152, 17);
+            this.radioButton1.TabIndex = 4;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Créer une nouvelle famille :";
+            this.radioButton1.UseVisualStyleBackColor = true;
             // 
-            // Add_SubFamily
+            // New_Family_Name
             // 
-            this.Add_SubFamily.Image = global::Mercure.Properties.Resources.tick;
-            this.Add_SubFamily.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Add_SubFamily.Location = new System.Drawing.Point(86, 3);
-            this.Add_SubFamily.Name = "Add_SubFamily";
-            this.Add_SubFamily.Size = new System.Drawing.Size(75, 23);
-            this.Add_SubFamily.TabIndex = 1;
-            this.Add_SubFamily.Text = "Ajouter";
-            this.Add_SubFamily.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.Add_SubFamily.UseVisualStyleBackColor = true;
+            this.New_Family_Name.Location = new System.Drawing.Point(3, 76);
+            this.New_Family_Name.Name = "New_Family_Name";
+            this.New_Family_Name.Size = new System.Drawing.Size(230, 20);
+            this.New_Family_Name.TabIndex = 3;
             // 
             // SubFamily_Group_Box
             // 
@@ -201,6 +165,42 @@
             this.SubFamily_Name_Text_Box.Size = new System.Drawing.Size(230, 20);
             this.SubFamily_Name_Text_Box.TabIndex = 1;
             // 
+            // Command_Control_Layout
+            // 
+            this.Command_Control_Layout.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.Command_Control_Layout.Controls.Add(this.Cancel_Button);
+            this.Command_Control_Layout.Controls.Add(this.Add_SubFamily);
+            this.Command_Control_Layout.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Command_Control_Layout.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.Command_Control_Layout.Location = new System.Drawing.Point(3, 196);
+            this.Command_Control_Layout.Name = "Command_Control_Layout";
+            this.Command_Control_Layout.Size = new System.Drawing.Size(245, 30);
+            this.Command_Control_Layout.TabIndex = 1;
+            // 
+            // Cancel_Button
+            // 
+            this.Cancel_Button.Image = global::Mercure.Properties.Resources.cross;
+            this.Cancel_Button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Cancel_Button.Location = new System.Drawing.Point(167, 3);
+            this.Cancel_Button.Name = "Cancel_Button";
+            this.Cancel_Button.Size = new System.Drawing.Size(75, 23);
+            this.Cancel_Button.TabIndex = 0;
+            this.Cancel_Button.Text = "Annuler";
+            this.Cancel_Button.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Cancel_Button.UseVisualStyleBackColor = true;
+            // 
+            // Add_SubFamily
+            // 
+            this.Add_SubFamily.Image = global::Mercure.Properties.Resources.tick;
+            this.Add_SubFamily.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Add_SubFamily.Location = new System.Drawing.Point(86, 3);
+            this.Add_SubFamily.Name = "Add_SubFamily";
+            this.Add_SubFamily.Size = new System.Drawing.Size(75, 23);
+            this.Add_SubFamily.TabIndex = 1;
+            this.Add_SubFamily.Text = "Ajouter";
+            this.Add_SubFamily.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Add_SubFamily.UseVisualStyleBackColor = true;
+            // 
             // AddSubFamilyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -220,10 +220,10 @@
             this.Family_Group_Box.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
-            this.Command_Control_Layout.ResumeLayout(false);
             this.SubFamily_Group_Box.ResumeLayout(false);
             this.SubFamily_Layout.ResumeLayout(false);
             this.SubFamily_Layout.PerformLayout();
+            this.Command_Control_Layout.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -233,7 +233,7 @@
 
         private System.Windows.Forms.FlowLayoutPanel Main_Layout;
         private System.Windows.Forms.GroupBox Family_Group_Box;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox Select_Family_Combo_Box;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.RadioButton Select_Family_Radio_Button;
         private System.Windows.Forms.RadioButton radioButton1;
