@@ -15,5 +15,10 @@ namespace Mercure
         {
             InitializeComponent();
         }
+
+        private void fermerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

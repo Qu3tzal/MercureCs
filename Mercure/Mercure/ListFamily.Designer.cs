@@ -33,9 +33,9 @@
             this.Family_List_View = new System.Windows.Forms.ListView();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.familleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.fermerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.ajouterUneFamilleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.fermerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.modifierLaFamilleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.supprimerLaFamilleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -72,24 +72,25 @@
             this.familleToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
             this.familleToolStripMenuItem.Text = "Famille";
             // 
-            // fermerToolStripMenuItem
-            // 
-            this.fermerToolStripMenuItem.Image = global::Mercure.Properties.Resources.control_power;
-            this.fermerToolStripMenuItem.Name = "fermerToolStripMenuItem";
-            this.fermerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.fermerToolStripMenuItem.Text = "Fermer";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
-            // 
             // ajouterUneFamilleToolStripMenuItem
             // 
             this.ajouterUneFamilleToolStripMenuItem.Image = global::Mercure.Properties.Resources.tag__plus;
             this.ajouterUneFamilleToolStripMenuItem.Name = "ajouterUneFamilleToolStripMenuItem";
             this.ajouterUneFamilleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.ajouterUneFamilleToolStripMenuItem.Text = "Ajouter une famille";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            // 
+            // fermerToolStripMenuItem
+            // 
+            this.fermerToolStripMenuItem.Image = global::Mercure.Properties.Resources.control_power;
+            this.fermerToolStripMenuItem.Name = "fermerToolStripMenuItem";
+            this.fermerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.fermerToolStripMenuItem.Text = "Fermer";
+            this.fermerToolStripMenuItem.Click += new System.EventHandler(this.fermerToolStripMenuItem_Click);
             // 
             // contextMenuStrip1
             // 

@@ -81,6 +81,7 @@
             this.fermerToolStripMenuItem1.Name = "fermerToolStripMenuItem1";
             this.fermerToolStripMenuItem1.Size = new System.Drawing.Size(204, 22);
             this.fermerToolStripMenuItem1.Text = "Fermer";
+            this.fermerToolStripMenuItem1.Click += new System.EventHandler(this.fermerToolStripMenuItem1_Click);
             // 
             // SubFamily_List_View
             // 

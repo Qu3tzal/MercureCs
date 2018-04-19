@@ -32,11 +32,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListBrand));
             this.Brand_List_View = new System.Windows.Forms.ListView();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.marqueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ajouterUneMarqueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.fermerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.fermerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.modifierLaMarqueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.supprimerLaMarqueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
@@ -62,14 +62,6 @@
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.modifierLaMarqueToolStripMenuItem,
-            this.supprimerLaMarqueToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(186, 48);
-            // 
             // marqueToolStripMenuItem
             // 
             this.marqueToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -87,17 +79,26 @@
             this.ajouterUneMarqueToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.ajouterUneMarqueToolStripMenuItem.Text = "Ajouter une marque";
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            // 
             // fermerToolStripMenuItem
             // 
             this.fermerToolStripMenuItem.Image = global::Mercure.Properties.Resources.control_power;
             this.fermerToolStripMenuItem.Name = "fermerToolStripMenuItem";
             this.fermerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.fermerToolStripMenuItem.Text = "Fermer";
+            this.fermerToolStripMenuItem.Click += new System.EventHandler(this.fermerToolStripMenuItem_Click);
             // 
-            // toolStripSeparator1
+            // contextMenuStrip1
             // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.modifierLaMarqueToolStripMenuItem,
+            this.supprimerLaMarqueToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(186, 48);
             // 
             // modifierLaMarqueToolStripMenuItem
             // 
