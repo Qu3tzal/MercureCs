@@ -195,6 +195,7 @@
             // 
             // SubFamily_Combo_Box
             // 
+            this.SubFamily_Combo_Box.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.SubFamily_Combo_Box.FormattingEnabled = true;
             this.SubFamily_Combo_Box.Location = new System.Drawing.Point(3, 3);
             this.SubFamily_Combo_Box.Name = "SubFamily_Combo_Box";
@@ -260,6 +261,7 @@
             // 
             // Brand_Combo_Box
             // 
+            this.Brand_Combo_Box.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Brand_Combo_Box.FormattingEnabled = true;
             this.Brand_Combo_Box.Location = new System.Drawing.Point(3, 3);
             this.Brand_Combo_Box.Name = "Brand_Combo_Box";
