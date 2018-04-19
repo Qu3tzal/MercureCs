@@ -172,7 +172,8 @@ namespace Mercure
             if (db.SubFamily_Has_Articles_Associated(SubFamily.Id))
                 return;
 
-            Delete_SubFamily(SubFamily);
+            db.Delete_Sub_Familly(SubFamily.Id);
+            Load_SubFamilies();
         }
 
         /// <summary>

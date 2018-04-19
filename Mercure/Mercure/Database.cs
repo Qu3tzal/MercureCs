@@ -614,7 +614,7 @@ namespace Mercure
 
             if (Reader.Read())
             {
-                return int.Parse(Reader.GetString(0)) > 0;
+                return Reader.GetInt32(0) > 0;
             }
             return false;
         }
@@ -637,7 +637,7 @@ namespace Mercure
 
             if (Reader.Read())
             {
-                return int.Parse(Reader.GetString(0)) > 0;
+                return Reader.GetInt32(0) > 0;
             }
             return false;
         }
@@ -650,7 +650,7 @@ namespace Mercure
         public bool Family_Has_Articles_Associated(int Id)
         {
             System.Data.SQLite.SQLiteCommand cmd = SQL_Connection.CreateCommand();
-            cmd.CommandText = "SELECT COUNT(*) FROM Articles INNER JOIN SousFamilles ON (Articles.RefSousFamille = SousFamilles.RefSousFamille) WHERE RefFamille = ?";
+            cmd.CommandText = "SELECT COUNT(*) FROM Articles INNER JOIN SousFamilles ON (Articles.RefSousFamille = So) WHERE RefFamille = ?";
 
             System.Data.SQLite.SQLiteParameter Id_Parameter = new System.Data.SQLite.SQLiteParameter();
             Id_Parameter.Value = Id;
@@ -660,7 +660,7 @@ namespace Mercure
 
             if (Reader.Read())
             {
-                return int.Parse(Reader.GetString(0)) > 0;
+                return Reader.GetInt32(0) > 0;
             }
             return false;
         }

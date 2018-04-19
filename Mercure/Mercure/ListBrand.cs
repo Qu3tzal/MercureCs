@@ -171,7 +171,8 @@ namespace Mercure
             if (db.Brand_Has_Articles_Associated(Brand.Id))
                 return;
 
-            Delete_Brand(Brand);
+            db.Delete_Brand(Brand.Id);
+            Load_Brands();
         }
 
         /// <summary>
