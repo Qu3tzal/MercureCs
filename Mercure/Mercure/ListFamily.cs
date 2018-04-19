@@ -142,7 +142,7 @@ namespace Mercure
 
         private void On_Column_Click(object sender, ColumnClickEventArgs e)
         {
-            this.Family_List_View.ListViewItemSorter = new BrandItemComparer(e.Column);
+            this.Family_List_View.ListViewItemSorter = new FamilyItemComparer(e.Column);
         }
 
     }

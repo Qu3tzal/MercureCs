@@ -145,7 +145,7 @@ namespace Mercure
 
         private void On_Column_Click(object sender, ColumnClickEventArgs e)
         {
-            this.SubFamily_List_View.ListViewItemSorter = new BrandItemComparer(e.Column);
+            this.SubFamily_List_View.ListViewItemSorter = new SubFamilyItemComparer(e.Column);
         }
     }
     /// <summary>
