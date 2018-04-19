@@ -10,8 +10,14 @@ using System.Windows.Forms;
 
 namespace Mercure
 {
+    /// <summary>
+    /// List view of the brands
+    /// </summary>
     public partial class ListBrand : Form
     {
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public ListBrand()
         {
             InitializeComponent();
@@ -19,6 +25,9 @@ namespace Mercure
             Load_Brands();
         }
 
+        /// <summary>
+        /// Loads the list view with the brands from the database
+        /// </summary>
         private void Load_Brands()
         {
             this.Brand_List_View.Clear();
@@ -40,16 +49,31 @@ namespace Mercure
             Brand_List_View.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
         }
 
+        /// <summary>
+        /// Event handler of the close window menu item
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void fermerToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Close();
         }
 
+        /// <summary>
+        /// Event handler of the add brand menu item
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ajouterUneMarqueToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Add_Brand();
         }
 
+        /// <summary>
+        /// Event handler of the context menu strip that checks if a row is selected
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void On_Open_Menu_Strip(object sender, CancelEventArgs e)
         {
             if (Get_Selected_Item() == null)
@@ -67,6 +91,10 @@ namespace Mercure
 
         }
 
+        /// <summary>
+        /// Returns the currently selected item or null if none
+        /// </summary>
+        /// <returns>the currently selected item or null if none</returns>
         private Models.Brand Get_Selected_Item()
         {
             if (this.Brand_List_View.SelectedItems.Count != 0)
@@ -81,6 +109,11 @@ namespace Mercure
             else return null;
         }
 
+        /// <summary>
+        /// Event handler for the F5, Enter & delete keys.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void On_Key_Pressed(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.F5)
@@ -99,6 +132,10 @@ namespace Mercure
             }
         }
 
+        /// <summary>
+        /// Displays the modify brand form
+        /// </summary>
+        /// <param name="Brand"></param>
         private void Modify_Brand(Models.Brand Brand)
         {
             AddBrandForm Form = new AddBrandForm(Brand.Name);
@@ -109,6 +146,9 @@ namespace Mercure
                 Load_Brands();
         }
 
+        /// <summary>
+        /// Displays the add brand form
+        /// </summary>
         private void Add_Brand()
         {
             AddBrandForm Form = new AddBrandForm(null);
@@ -119,28 +159,52 @@ namespace Mercure
                 Load_Brands();
         }
 
+        /// <summary>
+        /// Deletes the brand if no article is linked to it
+        /// </summary>
+        /// <param name="Brand"></param>
         private void Delete_Brand(Models.Brand Brand)
         {
             // Todo detect if connected to an article
             // Only load the affected row
         }
 
+        /// <summary>
+        /// Double click event handler
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void On_Double_Click(object sender, EventArgs e)
         {
             if (Get_Selected_Item() != null)
                 Modify_Brand(Get_Selected_Item());
         }
 
+        /// <summary>
+        /// Generic function to call to modify a brand
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void On_Modify_Event(object sender, EventArgs e)
         {
             Modify_Brand(Get_Selected_Item());
         }
 
+        /// <summary>
+        /// Generic function to call to delete a brand
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void On_Delete_Event(object sender, EventArgs e)
         {
             Delete_Brand(Get_Selected_Item());
         }
 
+        /// <summary>
+        /// Event handler to sort the columns
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void On_Column_Click(object sender, ColumnClickEventArgs e)
         {
             this.Brand_List_View.ListViewItemSorter = new BrandItemComparer(e.Column);

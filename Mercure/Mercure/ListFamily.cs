@@ -10,14 +10,23 @@ using System.Windows.Forms;
 
 namespace Mercure
 {
+    /// <summary>
+    /// List view of the families
+    /// </summary>
     public partial class ListFamily : Form
     {
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public ListFamily()
         {
             InitializeComponent();
             Load_Families();
         }
 
+        /// <summary>
+        /// Loads the list view with the families from the database
+        /// </summary>
         private void Load_Families()
         {
             this.Family_List_View.Clear();
@@ -39,16 +48,30 @@ namespace Mercure
             Family_List_View.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
         }
 
+        /// <summary>
+        /// Event handler of the close window menu item
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void fermerToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Close();
         }
 
+        /// <summary>
+        /// Event handler of the add family menu item
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ajouterUneFamilleToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Add_Family();
         }
 
+        /// <summary>
+        /// Returns the currently selected item or null if none
+        /// </summary>
+        /// <returns>the currently selected item or null if none</returns>
         private Models.Family Get_Selected_Item()
         {
             if (this.Family_List_View.SelectedItems.Count != 0)
@@ -64,6 +87,11 @@ namespace Mercure
             else return null;
         }
 
+        /// <summary>
+        /// Event handler of the context menu strip that checks if a row is selected
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void On_Open_Menu_Strip(object sender, CancelEventArgs e)
         {
             if (Get_Selected_Item() == null)
@@ -80,6 +108,11 @@ namespace Mercure
             }
         }
 
+        /// <summary>
+        /// Event handler for the F5, Enter & delete keys.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void On_Key_Pressed(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.F5)
@@ -98,6 +131,10 @@ namespace Mercure
             }
         }
 
+        /// <summary>
+        /// Displays the modify family form
+        /// </summary>
+        /// <param name="Family"></param>
         private void Modify_Family(Models.Family Family)
         {
             AddFamilyForm Form = new AddFamilyForm(Family.Name);
@@ -108,6 +145,9 @@ namespace Mercure
                 Load_Families();
         }
 
+        /// <summary>
+        /// Displays the add family form
+        /// </summary>
         private void Add_Family()
         {
             AddFamilyForm Form = new AddFamilyForm(null);
@@ -118,34 +158,58 @@ namespace Mercure
                 Load_Families();
         }
 
+        /// <summary>
+        /// Deletes the family if no article is linked to it
+        /// </summary>
+        /// <param name="Family"></param>
         private void Delete_Family(Models.Family Family)
         {
             // Todo detect if connected to an article
             // Only load the affected row
         }
 
+        /// <summary>
+        /// Double click event handler
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void On_Double_Click(object sender, EventArgs e)
         {
             if (Get_Selected_Item() != null)
                 Modify_Family(Get_Selected_Item());
         }
 
+        /// <summary>
+        /// Generic function to call to modify a family
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void On_Modify_Event(object sender, EventArgs e)
         {
             Modify_Family(Get_Selected_Item());
         }
 
+        /// <summary>
+        /// Generic function to call to delete a family
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void On_Delete_Event(object sender, EventArgs e)
         {
             Delete_Family(Get_Selected_Item());
         }
 
+        /// <summary>
+        /// Event handler to sort the columns
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void On_Column_Click(object sender, ColumnClickEventArgs e)
         {
             this.Family_List_View.ListViewItemSorter = new FamilyItemComparer(e.Column);
         }
-
     }
+
     /// <summary>
     /// The comparer class for the list View sort
     /// </summary>
