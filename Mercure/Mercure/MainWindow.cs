@@ -307,10 +307,15 @@ namespace Mercure
             Load_Articles();
         }
 
+        public void Add_Brand()
+        {
+            AddBrandForm abf = new AddBrandForm(null);
+            abf.ShowDialog();
+        }
+
         private void ajouterUneMarqueToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            AddBrandForm abf = new AddBrandForm();
-            abf.ShowDialog();
+            Add_Brand();
         }
 
         private void supprimerUneMarqueToolStripMenuItem_Click(object sender, EventArgs e)
@@ -321,8 +326,7 @@ namespace Mercure
 
         private void ajouterUneMarqueToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AddBrandForm abf = new AddBrandForm();
-            abf.ShowDialog();
+            Add_Brand();      
         }
 
         private void modifierLaMarqueToolStripMenuItem_Click(object sender, EventArgs e)

@@ -38,6 +38,7 @@ namespace Mercure
 
         private void Load_Brand()
         {
+            this.Brand_Combo_Box.Items.Clear();
             List<string> Brands = Database.GetInstance().getBrands();
             foreach (string S in Brands)
             {
@@ -49,6 +50,7 @@ namespace Mercure
 
         private void Load_Sub_Familly()
         {
+            this.SubFamily_Combo_Box.Items.Clear();
             List<string> Sub_Famillies = Database.GetInstance().getSubFamillies();
             foreach(string S in Sub_Famillies)
             {
@@ -132,7 +134,7 @@ namespace Mercure
 
         private void Create_Brand_Button_Click(object sender, EventArgs e)
         {
-            AddBrandForm Form = new AddBrandForm();
+            AddBrandForm Form = new AddBrandForm(null);
             DialogResult Result = Form.ShowDialog();
 
             if (Result == DialogResult.OK)

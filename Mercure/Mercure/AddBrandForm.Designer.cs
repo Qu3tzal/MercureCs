@@ -93,6 +93,7 @@
             this.Cancel_Button.Text = "Annuler";
             this.Cancel_Button.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.Cancel_Button.UseVisualStyleBackColor = true;
+            this.Cancel_Button.Click += new System.EventHandler(this.Cancel_Button_Click);
             // 
             // Add_Button
             // 
@@ -105,6 +106,7 @@
             this.Add_Button.Text = "Ajouter";
             this.Add_Button.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.Add_Button.UseVisualStyleBackColor = true;
+            this.Add_Button.Click += new System.EventHandler(this.Add_Button_Click);
             // 
             // AddBrandForm
             // 
