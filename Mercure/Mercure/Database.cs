@@ -79,27 +79,6 @@ namespace Mercure
                 return 0;
         }
 
-        /** Queries. */
-        /*private System.Data.SQLite.SQLiteDataReader Get_Query(string Table_Name, string ID)
-        {
-
-        }
-
-        private string Create_Query(string Table_Name, string[] Columns_Set, string[] Values)
-        {
-
-        }
-
-        private void Update_Query(string Table_Name, string ID, string[] Columns_Set, string[] Values)
-        {
-
-        }
-
-        private void Delete_Query(string Table_Name, string ID)
-        {
-
-        }*/
-
         /** Getters. */
         public int Get_Familly_ID(string Familly_Name)
         {

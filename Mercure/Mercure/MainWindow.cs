@@ -318,12 +318,6 @@ namespace Mercure
             Add_Brand();
         }
 
-        private void supprimerUneMarqueToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            DeleteBrandForm dbf  = new DeleteBrandForm(null);
-            dbf.ShowDialog();
-        }
-
         private void ajouterUneMarqueToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Add_Brand();      
@@ -336,15 +330,7 @@ namespace Mercure
 
         private void supprimerLaMarqueToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DeleteBrandForm dbf;
-            Models.Article Article = getSelectedArticle();
-
-            if (Article != null)
-                dbf = new DeleteBrandForm(Article.Brand_Name);
-            else
-                dbf = new DeleteBrandForm(null);
-
-            dbf.ShowDialog();
+            
         }
 
         private void listerLesMarquesToolStripMenuItem_Click(object sender, EventArgs e)
