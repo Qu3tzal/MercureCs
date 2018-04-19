@@ -123,6 +123,9 @@
       <DependentUpon>MainWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Article.cs" />
+    <Compile Include="Models\Family.cs" />
+    <Compile Include="Models\Brand.cs" />
+    <Compile Include="Models\SubFamily.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AddArticleForm.resx">
