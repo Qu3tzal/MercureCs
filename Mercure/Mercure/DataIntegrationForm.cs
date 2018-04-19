@@ -9,15 +9,28 @@ using System.Windows.Forms;
 
 namespace Mercure
 {
+    /// <summary>
+    /// Data integration form. Allows the user to integrate or update the database from files.
+    /// </summary>
     public partial class DataIntegrationForm : Form
     {
         private MainWindow Parent_Form;
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="M">The parent window</param>
         public DataIntegrationForm(MainWindow M)
         {
             this.Parent_Form = M;
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Function called when the user clicks on the File selection button.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void File_Select_Click(object sender, EventArgs e)
         {
             OpenFileDialog Dialog = new OpenFileDialog();
@@ -30,11 +43,21 @@ namespace Mercure
             Console.WriteLine("Selected file : " + Dialog.FileName);
         }
 
+        /// <summary>
+        /// Event handler for the drag & drop.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void File_Path_DragEnter(object sender, DragEventArgs e)
         {
             e.Effect = DragDropEffects.All;
         }
 
+        /// <summary>
+        /// Handles the event when the user drops a file in the file selection bar.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void File_Path_DragDrop(object sender, DragEventArgs e)
         {
             string[] file = (string[])e.Data.GetData(DataFormats.FileDrop);
@@ -43,6 +66,10 @@ namespace Mercure
                 this.File_Name_Input.Text = file[0];
         }
 
+        /// <summary>
+        /// Updates the progress bar and the progress label.
+        /// </summary>
+        /// <param name="progress">The absolute progress</param>
         private void Update_Progress_Bar(int progress)
         {
             this.progressBar1.Value = progress;
@@ -51,12 +78,21 @@ namespace Mercure
             this.label1.Refresh();
         }
 
+        /// <summary>
+        /// Prints a message to the log box.
+        /// </summary>
+        /// <param name="s"></param>
         private void Print_To_Log(string s)
         {
             this.textBox1.AppendText(s + "\r\n");
             this.textBox1.Refresh();
         }
 
+        /// <summary>
+        /// Integrates the data from the file. Cleans the database before.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void New_Data_Integration(object sender, System.EventArgs e)
         {
             // Try to open the file.
@@ -124,6 +160,11 @@ namespace Mercure
             Parent_Form.Load_Articles();
         }
 
+        /// <summary>
+        /// Integrates the data from the file.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Update_Data_Integration(object sender, System.EventArgs e)
         {
             // Try to open the file.
@@ -193,6 +234,16 @@ namespace Mercure
             Parent_Form.Load_Articles();
         }
 
+        /// <summary>
+        /// Loads an article into the database.
+        /// </summary>
+        /// <param name="Description"></param>
+        /// <param name="Reference"></param>
+        /// <param name="Marque"></param>
+        /// <param name="Famille"></param>
+        /// <param name="SousFamille"></param>
+        /// <param name="PrixHT"></param>
+        /// <returns>true if the article was loaded without errors, false otherwise</returns>
         private bool Load_Article(string Description, string Reference, string Marque, string Famille, string SousFamille, float PrixHT)
         {
             Database DB = Database.GetInstance();
@@ -213,6 +264,16 @@ namespace Mercure
             return DB.Create_Article(Reference, Sub_Familly_Id, Brand_Id, Description, PrixHT);
         }
 
+        /// <summary>
+        /// Updates an article data. Insert it if it does not exist yet.
+        /// </summary>
+        /// <param name="Description"></param>
+        /// <param name="Reference"></param>
+        /// <param name="Marque"></param>
+        /// <param name="Famille"></param>
+        /// <param name="SousFamille"></param>
+        /// <param name="PrixHT"></param>
+        /// <returns>true if the article was updated without errors, false otherwise</returns>
         private int Update_Article(string Description, string Reference, string Marque, string Famille, string SousFamille, float PrixHT)
         {
             Database DB = Database.GetInstance();
@@ -245,7 +306,5 @@ namespace Mercure
                     return 0;
             }
         }
-
-
     }
 }
