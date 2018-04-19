@@ -9,10 +9,17 @@ using System.Windows.Forms;
 
 namespace Mercure
 {
+    /// <summary>
+    /// Allows the user to create or modify an article.
+    /// </summary>
     public partial class AddArticleForm : Form
     {
         private Models.Article Article;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="Article">null for a creation or the article to modify one</param>
         public AddArticleForm(Models.Article Article)
         {
             InitializeComponent();
@@ -25,6 +32,9 @@ namespace Mercure
                 Auto_Fill();
         }
 
+        /// <summary>
+        /// Fills the form if this is a modification
+        /// </summary>
         private void Auto_Fill()
         {
             this.Ref_Text_Box.Text = Article.Ref_Article;
@@ -36,6 +46,9 @@ namespace Mercure
             this.Text = "Modification de l'article : " + Article.Ref_Article;
         }
 
+        /// <summary>
+        /// Fills the brands combo box
+        /// </summary>
         private void Load_Brand()
         {
             this.Brand_Combo_Box.Items.Clear();
@@ -48,6 +61,9 @@ namespace Mercure
             }
         }
 
+        /// <summary>
+        /// Fills the sub-family combo box
+        /// </summary>
         private void Load_Sub_Familly()
         {
             this.SubFamily_Combo_Box.Items.Clear();
@@ -60,6 +76,11 @@ namespace Mercure
             }
         }
 
+        /// <summary>
+        /// Event handler of the Add button. Validates the data then act on the database.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Add_Button_Click(object sender, EventArgs e)
         {
                 string Reference = this.Ref_Text_Box.Text;
@@ -74,7 +95,7 @@ namespace Mercure
                 if (this.Brand_Combo_Box.SelectedItem != null)
                     Brand = this.Brand_Combo_Box.SelectedItem.ToString();
 
-                // VAlidator
+                // Validator
                 if (Reference != "" && Description != "" && Quantity != 0 && Price != 0 && Sub_Familly != "" && Brand != "")
                 {
 
@@ -117,11 +138,21 @@ namespace Mercure
                 }
         }
 
+        /// <summary>
+        /// Event handler when the form is canceled
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Cancel_Button_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
         }
 
+        /// <summary>
+        /// Event handler when the create sub-family button is cliked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Create_SubFamily_Button_Click(object sender, EventArgs e)
         {
             AddSubFamilyForm Form = new AddSubFamilyForm(null);
@@ -132,6 +163,11 @@ namespace Mercure
 
         }
 
+        /// <summary>
+        /// Event handler when the create brand button is cliked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Create_Brand_Button_Click(object sender, EventArgs e)
         {
             AddBrandForm Form = new AddBrandForm(null);
