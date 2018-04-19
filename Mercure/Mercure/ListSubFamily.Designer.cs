@@ -31,12 +31,11 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListSubFamily));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.SubFamily_List_View = new System.Windows.Forms.ListView();
             this.sousfamilleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ajouterUneSousfamilleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.fermerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.fermerToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.SubFamily_List_View = new System.Windows.Forms.ListView();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.modifierLaSousfamilleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.supprimerLaSousfamilleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -54,21 +53,11 @@
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // SubFamily_List_View
-            // 
-            this.SubFamily_List_View.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SubFamily_List_View.Location = new System.Drawing.Point(0, 24);
-            this.SubFamily_List_View.Name = "SubFamily_List_View";
-            this.SubFamily_List_View.Size = new System.Drawing.Size(800, 426);
-            this.SubFamily_List_View.TabIndex = 1;
-            this.SubFamily_List_View.UseCompatibleStateImageBehavior = false;
-            // 
             // sousfamilleToolStripMenuItem
             // 
             this.sousfamilleToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ajouterUneSousfamilleToolStripMenuItem,
             this.toolStripSeparator1,
-            this.fermerToolStripMenuItem,
             this.fermerToolStripMenuItem1});
             this.sousfamilleToolStripMenuItem.Name = "sousfamilleToolStripMenuItem";
             this.sousfamilleToolStripMenuItem.Size = new System.Drawing.Size(85, 20);
@@ -80,12 +69,6 @@
             this.ajouterUneSousfamilleToolStripMenuItem.Name = "ajouterUneSousfamilleToolStripMenuItem";
             this.ajouterUneSousfamilleToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
             this.ajouterUneSousfamilleToolStripMenuItem.Text = "Ajouter une sous-famille";
-            // 
-            // fermerToolStripMenuItem
-            // 
-            this.fermerToolStripMenuItem.Name = "fermerToolStripMenuItem";
-            this.fermerToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
-            this.fermerToolStripMenuItem.Text = "Fermer";
             // 
             // toolStripSeparator1
             // 
@@ -99,13 +82,22 @@
             this.fermerToolStripMenuItem1.Size = new System.Drawing.Size(204, 22);
             this.fermerToolStripMenuItem1.Text = "Fermer";
             // 
+            // SubFamily_List_View
+            // 
+            this.SubFamily_List_View.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SubFamily_List_View.Location = new System.Drawing.Point(0, 24);
+            this.SubFamily_List_View.Name = "SubFamily_List_View";
+            this.SubFamily_List_View.Size = new System.Drawing.Size(800, 426);
+            this.SubFamily_List_View.TabIndex = 1;
+            this.SubFamily_List_View.UseCompatibleStateImageBehavior = false;
+            // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.modifierLaSousfamilleToolStripMenuItem,
             this.supprimerLaSousfamilleToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(210, 70);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(210, 48);
             // 
             // modifierLaSousfamilleToolStripMenuItem
             // 
@@ -144,7 +136,6 @@
         private System.Windows.Forms.ToolStripMenuItem sousfamilleToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ajouterUneSousfamilleToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripMenuItem fermerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fermerToolStripMenuItem1;
         private System.Windows.Forms.ListView SubFamily_List_View;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
