@@ -12,6 +12,9 @@ namespace Mercure
 {
     public partial class MainWindow : Form
     {
+        /// <summary>
+        /// Constructor of the main window
+        /// </summary>
         public MainWindow()
         {
             InitializeComponent();
@@ -61,7 +64,7 @@ namespace Mercure
         /// <summary>
         /// Returns the selected item in the listView
         /// </summary>
-        /// <returns></returns>
+        /// <returns>A model object of the selected article</returns>
         public Models.Article getSelectedArticle()
         {
             Models.Article Article = new Models.Article();
@@ -228,6 +231,9 @@ namespace Mercure
             Load_Articles();          
         }
 
+        /// <summary>
+        /// Initializates the list view.
+        /// </summary>
         private void Init_List()
         {
             listView1.Columns.Add("RefArticle", -2, HorizontalAlignment.Left);
@@ -295,11 +301,21 @@ namespace Mercure
             this.CenterToScreen();
         }
 
+        /// <summary>
+        /// Event called when the user clicks the quit action.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void quitterToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Close();
         }
 
+        /// <summary>
+        /// Event called when the user clicks the clear the database action.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void nettoyerLaBaseDeDonnéeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Console.WriteLine("Nettoyage en cours");
@@ -307,50 +323,73 @@ namespace Mercure
             Load_Articles();
         }
 
+        /// <summary>
+        /// Launches the add brand form.
+        /// </summary>
         public void Add_Brand()
         {
             AddBrandForm abf = new AddBrandForm(null);
             abf.ShowDialog();
         }
 
+        /// <summary>
+        /// Add brand menu item event handler.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ajouterUneMarqueToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             Add_Brand();
         }
 
+        /// <summary>
+        /// Add brand menu item event handler.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ajouterUneMarqueToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Add_Brand();      
         }
 
-        private void modifierLaMarqueToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void supprimerLaMarqueToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            
-        }
-
+        /// <summary>
+        /// List brands menu item event handler.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void listerLesMarquesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ListBrand lb = new ListBrand();
             lb.ShowDialog();
         }
 
+        /// <summary>
+        /// List families menu item event handler.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void listerLesFamillesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ListFamily lf = new ListFamily();
             lf.ShowDialog();
         }
 
+        /// <summary>
+        /// List sub-families menu item event handler.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void listerLesSousfamillesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ListSubFamily lsf = new ListSubFamily();
             lsf.ShowDialog();
         }
 
+        /// <summary>
+        /// Add family menu item event handler.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ajouterUneFamilleToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddFamilyForm aff = new AddFamilyForm(null);
@@ -359,7 +398,7 @@ namespace Mercure
     }
 
     /// <summary>
-    /// The comparer class for the list View tri
+    /// The comparer class for the list View sort
     /// </summary>
     class ListViewItemComparer : IComparer
     {
