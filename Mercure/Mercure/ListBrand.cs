@@ -165,8 +165,13 @@ namespace Mercure
         /// <param name="Brand"></param>
         private void Delete_Brand(Models.Brand Brand)
         {
-            // Todo detect if connected to an article
+            // Detect if connected to an article
             // Only load the affected row
+            Database db = Database.GetInstance();
+            if (db.Brand_Has_Articles_Associated(Brand.Id))
+                return;
+
+            Delete_Brand(Brand);
         }
 
         /// <summary>
