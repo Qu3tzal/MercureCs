@@ -70,6 +70,8 @@ namespace Mercure
                 catch (System.Exception exception)
                 {
                     Print_To_Log(exception.Message);
+                    MessageBox.Show(this, "Le chemin spécifié est invalide ou le fichier ne peut pas être lu.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
             }
             else
@@ -135,6 +137,8 @@ namespace Mercure
                 catch (System.Exception exception)
                 {
                     Print_To_Log(exception.Message);
+                    MessageBox.Show(this, "Le chemin spécifié est invalide ou le fichier ne peut pas être lu.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
             }
             else

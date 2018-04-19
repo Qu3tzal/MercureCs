@@ -23,7 +23,7 @@ namespace Mercure
 
         private void ajouterUneMarqueToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AddBrandForm abf = new AddBrandForm();
+            AddBrandForm abf = new AddBrandForm(null);
             abf.ShowDialog();
         }
     }
