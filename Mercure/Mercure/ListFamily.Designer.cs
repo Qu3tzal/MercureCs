@@ -46,6 +46,8 @@
             // Family_List_View
             // 
             this.Family_List_View.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Family_List_View.FullRowSelect = true;
+            this.Family_List_View.GridLines = true;
             this.Family_List_View.Location = new System.Drawing.Point(0, 24);
             this.Family_List_View.MultiSelect = false;
             this.Family_List_View.Name = "Family_List_View";

@@ -87,6 +87,8 @@
             // SubFamily_List_View
             // 
             this.SubFamily_List_View.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SubFamily_List_View.FullRowSelect = true;
+            this.SubFamily_List_View.GridLines = true;
             this.SubFamily_List_View.Location = new System.Drawing.Point(0, 24);
             this.SubFamily_List_View.MultiSelect = false;
             this.SubFamily_List_View.Name = "SubFamily_List_View";
