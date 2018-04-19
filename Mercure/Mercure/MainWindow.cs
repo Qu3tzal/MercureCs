@@ -360,6 +360,12 @@ namespace Mercure
             ListSubFamily lsf = new ListSubFamily();
             lsf.ShowDialog();
         }
+
+        private void ajouterUneFamilleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddFamilyForm aff = new AddFamilyForm();
+            aff.ShowDialog();
+        }
     }
 
     /// <summary>

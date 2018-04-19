@@ -79,7 +79,12 @@
     <Compile Include="AddBrandForm.Designer.cs">
       <DependentUpon>AddBrandForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddFamilyForm.cs" />
+    <Compile Include="AddFamilyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddFamilyForm.Designer.cs">
+      <DependentUpon>AddFamilyForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddSubFamilyForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -131,6 +136,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddBrandForm.resx">
       <DependentUpon>AddBrandForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddFamilyForm.resx">
+      <DependentUpon>AddFamilyForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddSubFamilyForm.resx">
       <DependentUpon>AddSubFamilyForm.cs</DependentUpon>
