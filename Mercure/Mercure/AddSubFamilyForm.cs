@@ -9,11 +9,18 @@ using System.Windows.Forms;
 
 namespace Mercure
 {
+    /// <summary>
+    /// Allows the user to create or modify a sub-family.
+    /// </summary>
     public partial class AddSubFamilyForm : Form
     {
         string SubFamily;
         string Family;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="Familly">null for a creation or the sub-family to modify one</param>
         public AddSubFamilyForm(string SubFamilly)
         {
             InitializeComponent();
@@ -33,12 +40,18 @@ namespace Mercure
             Load_Famillies(); 
         }
 
+        /// <summary>
+        /// Fills the form when the form is used for modification
+        /// </summary>
         private void Auto_Fill()
         {
             this.Text = "Modification : " + SubFamily;
             this.SubFamily_Name_Text_Box.Text = SubFamily;
         }
 
+        /// <summary>
+        /// Fills the families combo box
+        /// </summary>
         private void Load_Famillies()
         {
             this.Select_Family_Combo_Box.Items.Clear();
@@ -51,6 +64,11 @@ namespace Mercure
             }
         }
 
+        /// <summary>
+        /// Event handler when the radio button selection changes
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void On_Checked(object sender, EventArgs e)
         {
 
@@ -60,6 +78,10 @@ namespace Mercure
 
         }
 
+        /// <summary>
+        /// Enable/disable the family name text box
+        /// </summary>
+        /// <param name="Checked"></param>
         private void On_Familly_Checked(bool Checked)
         {
             if (Checked)
@@ -73,6 +95,10 @@ namespace Mercure
 
         }
 
+        /// <summary>
+        /// Enable/disable the select family combo box
+        /// </summary>
+        /// <param name="Checked"></param>
         private void On_Create_Checked(bool Checked)
         {
             if (Checked)
@@ -85,6 +111,11 @@ namespace Mercure
             }
         }
 
+        /// <summary>
+        /// Event handler of the Add button. Validates the data then act on the database.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Add_SubFamily_Click(object sender, EventArgs e)
         {
             if (this.Select_Family_Radio_Button.Checked)
@@ -173,10 +204,14 @@ namespace Mercure
             }
         }
 
+        /// <summary>
+        /// Event handler when the form is canceled
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Cancel_Button_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
         }
-
     }
 }

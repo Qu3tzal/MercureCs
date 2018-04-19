@@ -9,9 +9,17 @@ using System.Windows.Forms;
 
 namespace Mercure
 {
+    /// <summary>
+    /// Allows the user to create or modify a family.
+    /// </summary>
     public partial class AddFamilyForm : Form
     {      
         string Family;
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="Familly">null for a creation or the family to modify one</param>
         public AddFamilyForm(string Familly)
         {
             InitializeComponent();
@@ -22,12 +30,20 @@ namespace Mercure
 
         }
 
+        /// <summary>
+        /// Fills the form when the form is used for modification
+        /// </summary>
         private void Auto_Fill()
         {
             this.Text = "Modification de la famille : " + Family;
             this.Family_Name_Text_Box.Text = Family;
         }
 
+        /// <summary>
+        /// Event handler of the Add button. Validates the data then act on the database.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Add_Button_Click(object sender, EventArgs e)
         {
             // Validator
@@ -67,6 +83,11 @@ namespace Mercure
             }
         }
 
+        /// <summary>
+        /// Event handler when the form is canceled
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Cancel_Button_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
