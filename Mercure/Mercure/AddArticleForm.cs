@@ -39,7 +39,7 @@ namespace Mercure
         private void Load_Brand()
         {
             this.Brand_Combo_Box.Items.Clear();
-            List<string> Brands = Database.GetInstance().getBrands();
+            List<string> Brands = Database.GetInstance().Get_Brands();
             foreach (string S in Brands)
             {
                 this.Brand_Combo_Box.Items.Add(S);
@@ -51,7 +51,7 @@ namespace Mercure
         private void Load_Sub_Familly()
         {
             this.SubFamily_Combo_Box.Items.Clear();
-            List<string> Sub_Famillies = Database.GetInstance().getSubFamillies();
+            List<string> Sub_Famillies = Database.GetInstance().Get_Sub_Families();
             foreach(string S in Sub_Famillies)
             {
                 this.SubFamily_Combo_Box.Items.Add(S);

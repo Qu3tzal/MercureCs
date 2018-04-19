@@ -340,7 +340,7 @@ namespace Mercure
             return Nb == 1;
         }
 
-        public List<string> getBrands()
+        public List<string> Get_Brands()
         {
             List<string> Brands = new List<string>();
             System.Data.SQLite.SQLiteCommand cmd = SQL_Connection.CreateCommand();
@@ -356,7 +356,7 @@ namespace Mercure
             return Brands;
         }
 
-        public List<string> getFamillies()
+        public List<string> Get_Families()
         {
             List<string> Famillies = new List<string>();
             System.Data.SQLite.SQLiteCommand cmd = SQL_Connection.CreateCommand();
@@ -372,7 +372,7 @@ namespace Mercure
             return Famillies;
         }
 
-        public List<string> getSubFamillies()
+        public List<string> Get_Sub_Families()
         {
             List<string> SubFamillies = new List<string>();
             System.Data.SQLite.SQLiteCommand cmd = SQL_Connection.CreateCommand();
@@ -388,7 +388,7 @@ namespace Mercure
             return SubFamillies;
         }
 
-        public List<Models.Article> getArticles()
+        public List<Models.Article> Get_Articles_List()
         {
             List<Models.Article> Articles = new List<Models.Article>();
             System.Data.SQLite.SQLiteCommand cmd = SQL_Connection.CreateCommand();
@@ -421,7 +421,7 @@ namespace Mercure
             return Articles;
         }
 
-        public Models.Article getArticle(string refArticle)
+        public Models.Article Get_Article(string refArticle)
         {
             Models.Article Article = new Models.Article();
             System.Data.SQLite.SQLiteCommand cmd = SQL_Connection.CreateCommand();

@@ -69,7 +69,7 @@ namespace Mercure
             if (listView1.SelectedItems.Count == 0) return null;
             
             ListViewItem Item = listView1.SelectedItems[0];
-            Models.Article A =  Database.GetInstance().getArticle(Item.SubItems[0].Text);
+            Models.Article A =  Database.GetInstance().Get_Article(Item.SubItems[0].Text);
             return A;
         }
 
@@ -260,7 +260,7 @@ namespace Mercure
             this.listView1.Clear();
             this.listView1.Groups.Clear();
 
-            List<Models.Article> Articles = Database.GetInstance().getArticles();
+            List<Models.Article> Articles = Database.GetInstance().Get_Articles_List();
             if (Articles.Count == 0) 
             {
                 return;
