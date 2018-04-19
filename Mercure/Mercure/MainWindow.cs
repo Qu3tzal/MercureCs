@@ -24,10 +24,12 @@ namespace Mercure
         public void Open_Modify_Article(Models.Article Article)
         {
             AddArticleForm Aaf = new AddArticleForm(Article);
-            Aaf.ShowDialog();
+            DialogResult Result = Aaf.ShowDialog();
 
             // Refresh the view.
-            Load_Articles();
+            if (Result == DialogResult.OK)
+                // Refresh only the article
+                Load_Articles();
         }
 
         /// <summary>
@@ -173,10 +175,11 @@ namespace Mercure
         private void On_Create_Article_Event(object sender, EventArgs e)
         {
             AddArticleForm Aaf = new AddArticleForm(null);
-            Aaf.ShowDialog();
+            DialogResult Result = Aaf.ShowDialog();
 
-            // Refresh the view.
-            Load_Articles();
+            if(Result == DialogResult.OK)
+                // Refresh the view.
+                Load_Articles();
         }
 
         /// <summary>
