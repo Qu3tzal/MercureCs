@@ -340,49 +340,59 @@ namespace Mercure
             return Nb == 1;
         }
 
-        public List<string> Get_Brands()
+        public List<Models.Brand> Get_Brands()
         {
-            List<string> Brands = new List<string>();
+            List<Models.Brand> Brands = new List<Models.Brand>();
             System.Data.SQLite.SQLiteCommand cmd = SQL_Connection.CreateCommand();
-            cmd.CommandText = "SELECT Nom FROM Marques";
+            cmd.CommandText = "SELECT * FROM Marques";
 
             System.Data.SQLite.SQLiteDataReader Brands_Reader = cmd.ExecuteReader();
 
             while (Brands_Reader.Read())
             {
-                Brands.Add(Brands_Reader.GetString(0));
+                Models.Brand b = new Models.Brand();
+                b.Id = int.Parse(Brands_Reader.GetString(0));
+                b.Name = Brands_Reader.GetString(1);
+                Brands.Add(b);
             }
 
             return Brands;
         }
 
-        public List<string> Get_Families()
+        public List<Models.Family> Get_Families()
         {
-            List<string> Famillies = new List<string>();
+            List<Models.Family> Famillies = new List<Models.Family>();
             System.Data.SQLite.SQLiteCommand cmd = SQL_Connection.CreateCommand();
-            cmd.CommandText = "SELECT Nom FROM Familles";
+            cmd.CommandText = "SELECT * FROM Familles";
 
             System.Data.SQLite.SQLiteDataReader Famillies_Reader = cmd.ExecuteReader();
 
             while (Famillies_Reader.Read())
             {
-                Famillies.Add(Famillies_Reader.GetString(0));
+                Models.Family f = new Models.Family();
+                f.Id = int.Parse(Famillies_Reader.GetString(0));
+                f.Name = Famillies_Reader.GetString(1);
+                Famillies.Add(f);
             }
 
             return Famillies;
         }
 
-        public List<string> Get_Sub_Families()
+        public List<Models.SubFamily> Get_Sub_Families()
         {
-            List<string> SubFamillies = new List<string>();
+            List<Models.SubFamily> SubFamillies = new List<Models.SubFamily>();
             System.Data.SQLite.SQLiteCommand cmd = SQL_Connection.CreateCommand();
-            cmd.CommandText = "SELECT Nom FROM SousFamilles";
+            cmd.CommandText = "SELECT * FROM SousFamilles";
 
             System.Data.SQLite.SQLiteDataReader SubFamillies_Reader = cmd.ExecuteReader();
 
             while (SubFamillies_Reader.Read())
             {
-                SubFamillies.Add(SubFamillies_Reader.GetString(0));
+                Models.SubFamily sf = new Models.SubFamily();
+                sf.Id = int.Parse(SubFamillies_Reader.GetString(0));
+                sf.Family_Id = int.Parse(SubFamillies_Reader.GetString(1));
+                sf.Name = SubFamillies_Reader.GetString(2);
+                SubFamillies.Add(sf);
             }
 
             return SubFamillies;
