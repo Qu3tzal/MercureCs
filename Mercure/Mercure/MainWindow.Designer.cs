@@ -96,7 +96,7 @@ namespace Mercure
             // 
             // Data_Integration_Menu_Item
             // 
-            this.Data_Integration_Menu_Item.Image = global::Mercure.Properties.Resources.database_import;
+            this.Data_Integration_Menu_Item.Image = global::Mercure.Properties.Resources.databaseimport;
             this.Data_Integration_Menu_Item.Name = "Data_Integration_Menu_Item";
             this.Data_Integration_Menu_Item.Size = new System.Drawing.Size(218, 22);
             this.Data_Integration_Menu_Item.Text = "Intégrer les données";
@@ -104,7 +104,7 @@ namespace Mercure
             // 
             // nettoyerLaBaseDeDonnéeToolStripMenuItem
             // 
-            this.nettoyerLaBaseDeDonnéeToolStripMenuItem.Image = global::Mercure.Properties.Resources.database__minus;
+            this.nettoyerLaBaseDeDonnéeToolStripMenuItem.Image = global::Mercure.Properties.Resources.databaseminus;
             this.nettoyerLaBaseDeDonnéeToolStripMenuItem.Name = "nettoyerLaBaseDeDonnéeToolStripMenuItem";
             this.nettoyerLaBaseDeDonnéeToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
             this.nettoyerLaBaseDeDonnéeToolStripMenuItem.Text = "Nettoyer la base de donnée";
@@ -117,7 +117,7 @@ namespace Mercure
             // 
             // quitterToolStripMenuItem
             // 
-            this.quitterToolStripMenuItem.Image = global::Mercure.Properties.Resources.control_power;
+            this.quitterToolStripMenuItem.Image = global::Mercure.Properties.Resources.controlpower;
             this.quitterToolStripMenuItem.Name = "quitterToolStripMenuItem";
             this.quitterToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
             this.quitterToolStripMenuItem.Text = "Quitter";
@@ -133,7 +133,7 @@ namespace Mercure
             // 
             // ajouterUnArticleToolStripMenuItem1
             // 
-            this.ajouterUnArticleToolStripMenuItem1.Image = global::Mercure.Properties.Resources.box__plus;
+            this.ajouterUnArticleToolStripMenuItem1.Image = global::Mercure.Properties.Resources.boxplus;
             this.ajouterUnArticleToolStripMenuItem1.Name = "ajouterUnArticleToolStripMenuItem1";
             this.ajouterUnArticleToolStripMenuItem1.Size = new System.Drawing.Size(165, 22);
             this.ajouterUnArticleToolStripMenuItem1.Text = "Ajouter un article";
@@ -150,7 +150,7 @@ namespace Mercure
             // 
             // ajouterUneMarqueToolStripMenuItem1
             // 
-            this.ajouterUneMarqueToolStripMenuItem1.Image = global::Mercure.Properties.Resources.store__plus;
+            this.ajouterUneMarqueToolStripMenuItem1.Image = global::Mercure.Properties.Resources.storeplus;
             this.ajouterUneMarqueToolStripMenuItem1.Name = "ajouterUneMarqueToolStripMenuItem1";
             this.ajouterUneMarqueToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.ajouterUneMarqueToolStripMenuItem1.Text = "Ajouter une marque";
@@ -175,7 +175,7 @@ namespace Mercure
             // 
             // ajouterUneFamilleToolStripMenuItem
             // 
-            this.ajouterUneFamilleToolStripMenuItem.Image = global::Mercure.Properties.Resources.tag__plus;
+            this.ajouterUneFamilleToolStripMenuItem.Image = global::Mercure.Properties.Resources.tagplus;
             this.ajouterUneFamilleToolStripMenuItem.Name = "ajouterUneFamilleToolStripMenuItem";
             this.ajouterUneFamilleToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
             this.ajouterUneFamilleToolStripMenuItem.Text = "Ajouter une famille";
@@ -207,7 +207,7 @@ namespace Mercure
             // 
             // listerLesSousfamillesToolStripMenuItem
             // 
-            this.listerLesSousfamillesToolStripMenuItem.Image = global::Mercure.Properties.Resources.sitemap_application_blue;
+            this.listerLesSousfamillesToolStripMenuItem.Image = global::Mercure.Properties.Resources.sitemapapplicationblue;
             this.listerLesSousfamillesToolStripMenuItem.Name = "listerLesSousfamillesToolStripMenuItem";
             this.listerLesSousfamillesToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
             this.listerLesSousfamillesToolStripMenuItem.Text = "Lister les sous-familles";
@@ -265,7 +265,7 @@ namespace Mercure
             // 
             // ajouterUnArticleToolStripMenuItem
             // 
-            this.ajouterUnArticleToolStripMenuItem.Image = global::Mercure.Properties.Resources.box__plus;
+            this.ajouterUnArticleToolStripMenuItem.Image = global::Mercure.Properties.Resources.boxplus;
             this.ajouterUnArticleToolStripMenuItem.Name = "ajouterUnArticleToolStripMenuItem";
             this.ajouterUnArticleToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
             this.ajouterUnArticleToolStripMenuItem.Text = "Ajouter un article";
@@ -273,7 +273,7 @@ namespace Mercure
             // 
             // modifierLarticleToolStripMenuItem
             // 
-            this.modifierLarticleToolStripMenuItem.Image = global::Mercure.Properties.Resources.box__pencil;
+            this.modifierLarticleToolStripMenuItem.Image = global::Mercure.Properties.Resources.boxpencil;
             this.modifierLarticleToolStripMenuItem.Name = "modifierLarticleToolStripMenuItem";
             this.modifierLarticleToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
             this.modifierLarticleToolStripMenuItem.Text = "Modifier l\'article";
@@ -281,7 +281,7 @@ namespace Mercure
             // 
             // supprimerLarticleToolStripMenuItem
             // 
-            this.supprimerLarticleToolStripMenuItem.Image = global::Mercure.Properties.Resources.box__minus;
+            this.supprimerLarticleToolStripMenuItem.Image = global::Mercure.Properties.Resources.boxminus;
             this.supprimerLarticleToolStripMenuItem.Name = "supprimerLarticleToolStripMenuItem";
             this.supprimerLarticleToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
             this.supprimerLarticleToolStripMenuItem.Text = "Supprimer l\'article";
@@ -294,7 +294,7 @@ namespace Mercure
             // 
             // ajouterUneMarqueToolStripMenuItem
             // 
-            this.ajouterUneMarqueToolStripMenuItem.Image = global::Mercure.Properties.Resources.store__plus;
+            this.ajouterUneMarqueToolStripMenuItem.Image = global::Mercure.Properties.Resources.storeplus;
             this.ajouterUneMarqueToolStripMenuItem.Name = "ajouterUneMarqueToolStripMenuItem";
             this.ajouterUneMarqueToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
             this.ajouterUneMarqueToolStripMenuItem.Text = "Ajouter une marque";
@@ -302,7 +302,7 @@ namespace Mercure
             // 
             // modifierLaMarqueToolStripMenuItem
             // 
-            this.modifierLaMarqueToolStripMenuItem.Image = global::Mercure.Properties.Resources.store__pencil;
+            this.modifierLaMarqueToolStripMenuItem.Image = global::Mercure.Properties.Resources.storepencil;
             this.modifierLaMarqueToolStripMenuItem.Name = "modifierLaMarqueToolStripMenuItem";
             this.modifierLaMarqueToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
             this.modifierLaMarqueToolStripMenuItem.Text = "Modifier la marque";
@@ -315,7 +315,7 @@ namespace Mercure
             // 
             // ajouterUneSousfamilleToolStripMenuItem
             // 
-            this.ajouterUneSousfamilleToolStripMenuItem.Image = global::Mercure.Properties.Resources.sitemap_application_blue;
+            this.ajouterUneSousfamilleToolStripMenuItem.Image = global::Mercure.Properties.Resources.sitemapapplicationblue;
             this.ajouterUneSousfamilleToolStripMenuItem.Name = "ajouterUneSousfamilleToolStripMenuItem";
             this.ajouterUneSousfamilleToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
             this.ajouterUneSousfamilleToolStripMenuItem.Text = "Ajouter une sous-famille";

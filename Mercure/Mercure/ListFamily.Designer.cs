@@ -85,7 +85,7 @@
             // 
             // ajouterUneFamilleToolStripMenuItem
             // 
-            this.ajouterUneFamilleToolStripMenuItem.Image = global::Mercure.Properties.Resources.tag__plus;
+            this.ajouterUneFamilleToolStripMenuItem.Image = global::Mercure.Properties.Resources.tagplus;
             this.ajouterUneFamilleToolStripMenuItem.Name = "ajouterUneFamilleToolStripMenuItem";
             this.ajouterUneFamilleToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
             this.ajouterUneFamilleToolStripMenuItem.Text = "Ajouter une famille";
@@ -98,7 +98,7 @@
             // 
             // fermerToolStripMenuItem
             // 
-            this.fermerToolStripMenuItem.Image = global::Mercure.Properties.Resources.control_power;
+            this.fermerToolStripMenuItem.Image = global::Mercure.Properties.Resources.controlpower;
             this.fermerToolStripMenuItem.Name = "fermerToolStripMenuItem";
             this.fermerToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
             this.fermerToolStripMenuItem.Text = "Fermer";
@@ -117,7 +117,7 @@
             // 
             // modifierLaFamilleToolStripMenuItem
             // 
-            this.modifierLaFamilleToolStripMenuItem.Image = global::Mercure.Properties.Resources.tag__pencil;
+            this.modifierLaFamilleToolStripMenuItem.Image = global::Mercure.Properties.Resources.tagpencil;
             this.modifierLaFamilleToolStripMenuItem.Name = "modifierLaFamilleToolStripMenuItem";
             this.modifierLaFamilleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.modifierLaFamilleToolStripMenuItem.Text = "Modifier la famille";
@@ -125,7 +125,7 @@
             // 
             // supprimerLaFamilleToolStripMenuItem
             // 
-            this.supprimerLaFamilleToolStripMenuItem.Image = global::Mercure.Properties.Resources.tag__minus;
+            this.supprimerLaFamilleToolStripMenuItem.Image = global::Mercure.Properties.Resources.tagminus;
             this.supprimerLaFamilleToolStripMenuItem.Name = "supprimerLaFamilleToolStripMenuItem";
             this.supprimerLaFamilleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.supprimerLaFamilleToolStripMenuItem.Text = "Supprimer la famille";
@@ -133,7 +133,7 @@
             // 
             // Add_Family_Menu_Stip
             // 
-            this.Add_Family_Menu_Stip.Image = global::Mercure.Properties.Resources.tag__plus;
+            this.Add_Family_Menu_Stip.Image = global::Mercure.Properties.Resources.tagplus;
             this.Add_Family_Menu_Stip.Name = "Add_Family_Menu_Stip";
             this.Add_Family_Menu_Stip.Size = new System.Drawing.Size(180, 22);
             this.Add_Family_Menu_Stip.Text = "Ajouter une famille";

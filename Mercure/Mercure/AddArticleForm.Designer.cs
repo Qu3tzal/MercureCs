@@ -204,7 +204,7 @@
             // 
             // Create_SubFamily_Button
             // 
-            this.Create_SubFamily_Button.Image = global::Mercure.Properties.Resources.sitemap_application_blue;
+            this.Create_SubFamily_Button.Image = global::Mercure.Properties.Resources.sitemapapplicationblue;
             this.Create_SubFamily_Button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Create_SubFamily_Button.Location = new System.Drawing.Point(305, 3);
             this.Create_SubFamily_Button.Name = "Create_SubFamily_Button";
@@ -270,7 +270,7 @@
             // 
             // Create_Brand_Button
             // 
-            this.Create_Brand_Button.Image = global::Mercure.Properties.Resources.store__plus;
+            this.Create_Brand_Button.Image = global::Mercure.Properties.Resources.storeplus;
             this.Create_Brand_Button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Create_Brand_Button.Location = new System.Drawing.Point(305, 3);
             this.Create_Brand_Button.Name = "Create_Brand_Button";

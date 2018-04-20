@@ -126,7 +126,7 @@
             this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.button2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button2.Image = global::Mercure.Properties.Resources.database__plus;
+            this.button2.Image = global::Mercure.Properties.Resources.databaseplus;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button2.Location = new System.Drawing.Point(3, 3);
             this.button2.Name = "button2";
@@ -142,7 +142,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.button3.AutoEllipsis = true;
             this.button3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button3.Image = global::Mercure.Properties.Resources.database__pencil;
+            this.button3.Image = global::Mercure.Properties.Resources.databasepencil;
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button3.Location = new System.Drawing.Point(316, 3);
             this.button3.Name = "button3";
@@ -185,7 +185,7 @@
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button1.Image = global::Mercure.Properties.Resources.script_import;
+            this.button1.Image = global::Mercure.Properties.Resources.scriptimport;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button1.Location = new System.Drawing.Point(414, 3);
             this.button1.Name = "button1";

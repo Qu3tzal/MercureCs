@@ -67,7 +67,7 @@
             // 
             // ajouterUneSousfamilleToolStripMenuItem
             // 
-            this.ajouterUneSousfamilleToolStripMenuItem.Image = global::Mercure.Properties.Resources.sitemap_application_blue;
+            this.ajouterUneSousfamilleToolStripMenuItem.Image = global::Mercure.Properties.Resources.sitemapapplicationblue;
             this.ajouterUneSousfamilleToolStripMenuItem.Name = "ajouterUneSousfamilleToolStripMenuItem";
             this.ajouterUneSousfamilleToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
             this.ajouterUneSousfamilleToolStripMenuItem.Text = "Ajouter une sous-famille";
@@ -80,7 +80,7 @@
             // 
             // fermerToolStripMenuItem1
             // 
-            this.fermerToolStripMenuItem1.Image = global::Mercure.Properties.Resources.control_power;
+            this.fermerToolStripMenuItem1.Image = global::Mercure.Properties.Resources.controlpower;
             this.fermerToolStripMenuItem1.Name = "fermerToolStripMenuItem1";
             this.fermerToolStripMenuItem1.Size = new System.Drawing.Size(204, 22);
             this.fermerToolStripMenuItem1.Text = "Fermer";
@@ -117,7 +117,7 @@
             // 
             // modifierLaSousfamilleToolStripMenuItem
             // 
-            this.modifierLaSousfamilleToolStripMenuItem.Image = global::Mercure.Properties.Resources.sitemap_application_blue;
+            this.modifierLaSousfamilleToolStripMenuItem.Image = global::Mercure.Properties.Resources.sitemapapplicationblue;
             this.modifierLaSousfamilleToolStripMenuItem.Name = "modifierLaSousfamilleToolStripMenuItem";
             this.modifierLaSousfamilleToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
             this.modifierLaSousfamilleToolStripMenuItem.Text = "Modifier la sous-famille";
@@ -125,7 +125,7 @@
             // 
             // supprimerLaSousfamilleToolStripMenuItem
             // 
-            this.supprimerLaSousfamilleToolStripMenuItem.Image = global::Mercure.Properties.Resources.sitemap_application_blue;
+            this.supprimerLaSousfamilleToolStripMenuItem.Image = global::Mercure.Properties.Resources.sitemapapplicationblue;
             this.supprimerLaSousfamilleToolStripMenuItem.Name = "supprimerLaSousfamilleToolStripMenuItem";
             this.supprimerLaSousfamilleToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
             this.supprimerLaSousfamilleToolStripMenuItem.Text = "Supprimer la sous-famille";
@@ -133,7 +133,7 @@
             // 
             // Add_Sub_Family_Menu_Strip
             // 
-            this.Add_Sub_Family_Menu_Strip.Image = global::Mercure.Properties.Resources.sitemap_application_blue;
+            this.Add_Sub_Family_Menu_Strip.Image = global::Mercure.Properties.Resources.sitemapapplicationblue;
             this.Add_Sub_Family_Menu_Strip.Name = "Add_Sub_Family_Menu_Strip";
             this.Add_Sub_Family_Menu_Strip.Size = new System.Drawing.Size(209, 22);
             this.Add_Sub_Family_Menu_Strip.Text = "Ajouter une sous famille";

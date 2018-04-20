@@ -85,7 +85,7 @@
             // 
             // ajouterUneMarqueToolStripMenuItem
             // 
-            this.ajouterUneMarqueToolStripMenuItem.Image = global::Mercure.Properties.Resources.store__plus;
+            this.ajouterUneMarqueToolStripMenuItem.Image = global::Mercure.Properties.Resources.storeplus;
             this.ajouterUneMarqueToolStripMenuItem.Name = "ajouterUneMarqueToolStripMenuItem";
             this.ajouterUneMarqueToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.ajouterUneMarqueToolStripMenuItem.Text = "Ajouter une marque";
@@ -98,7 +98,7 @@
             // 
             // fermerToolStripMenuItem
             // 
-            this.fermerToolStripMenuItem.Image = global::Mercure.Properties.Resources.control_power;
+            this.fermerToolStripMenuItem.Image = global::Mercure.Properties.Resources.controlpower;
             this.fermerToolStripMenuItem.Name = "fermerToolStripMenuItem";
             this.fermerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.fermerToolStripMenuItem.Text = "Fermer";
@@ -117,7 +117,7 @@
             // 
             // modifierLaMarqueToolStripMenuItem
             // 
-            this.modifierLaMarqueToolStripMenuItem.Image = global::Mercure.Properties.Resources.store__pencil;
+            this.modifierLaMarqueToolStripMenuItem.Image = global::Mercure.Properties.Resources.storepencil;
             this.modifierLaMarqueToolStripMenuItem.Name = "modifierLaMarqueToolStripMenuItem";
             this.modifierLaMarqueToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
             this.modifierLaMarqueToolStripMenuItem.Text = "Modifier la marque";
@@ -125,7 +125,7 @@
             // 
             // supprimerLaMarqueToolStripMenuItem
             // 
-            this.supprimerLaMarqueToolStripMenuItem.Image = global::Mercure.Properties.Resources.store__minus;
+            this.supprimerLaMarqueToolStripMenuItem.Image = global::Mercure.Properties.Resources.storeminus;
             this.supprimerLaMarqueToolStripMenuItem.Name = "supprimerLaMarqueToolStripMenuItem";
             this.supprimerLaMarqueToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
             this.supprimerLaMarqueToolStripMenuItem.Text = "Supprimer la marque";
@@ -133,7 +133,7 @@
             // 
             // Add_Brand_Menu_Strip
             // 
-            this.Add_Brand_Menu_Strip.Image = global::Mercure.Properties.Resources.store__plus;
+            this.Add_Brand_Menu_Strip.Image = global::Mercure.Properties.Resources.storeplus;
             this.Add_Brand_Menu_Strip.Name = "Add_Brand_Menu_Strip";
             this.Add_Brand_Menu_Strip.Size = new System.Drawing.Size(185, 22);
             this.Add_Brand_Menu_Strip.Text = "Ajouter une marque";

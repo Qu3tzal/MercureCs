@@ -63,9 +63,9 @@ namespace Mercure.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap box__minus {
+        internal static System.Drawing.Bitmap boxminus {
             get {
-                object obj = ResourceManager.GetObject("box--minus", resourceCulture);
+                object obj = ResourceManager.GetObject("boxminus", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace Mercure.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap box__pencil {
+        internal static System.Drawing.Bitmap boxpencil {
             get {
-                object obj = ResourceManager.GetObject("box--pencil", resourceCulture);
+                object obj = ResourceManager.GetObject("boxpencil", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +83,9 @@ namespace Mercure.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap box__plus {
+        internal static System.Drawing.Bitmap boxplus {
             get {
-                object obj = ResourceManager.GetObject("box--plus", resourceCulture);
+                object obj = ResourceManager.GetObject("boxplus", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +93,9 @@ namespace Mercure.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap control_power {
+        internal static System.Drawing.Bitmap controlpower {
             get {
-                object obj = ResourceManager.GetObject("control-power", resourceCulture);
+                object obj = ResourceManager.GetObject("controlpower", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -113,9 +113,9 @@ namespace Mercure.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap database__minus {
+        internal static System.Drawing.Bitmap databaseimport {
             get {
-                object obj = ResourceManager.GetObject("database--minus", resourceCulture);
+                object obj = ResourceManager.GetObject("databaseimport", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -123,9 +123,9 @@ namespace Mercure.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap database__pencil {
+        internal static System.Drawing.Bitmap databaseminus {
             get {
-                object obj = ResourceManager.GetObject("database--pencil", resourceCulture);
+                object obj = ResourceManager.GetObject("databaseminus", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -133,9 +133,9 @@ namespace Mercure.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap database__plus {
+        internal static System.Drawing.Bitmap databasepencil {
             get {
-                object obj = ResourceManager.GetObject("database--plus", resourceCulture);
+                object obj = ResourceManager.GetObject("databasepencil", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -143,9 +143,9 @@ namespace Mercure.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap database_import {
+        internal static System.Drawing.Bitmap databaseplus {
             get {
-                object obj = ResourceManager.GetObject("database-import", resourceCulture);
+                object obj = ResourceManager.GetObject("databaseplus", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -163,9 +163,9 @@ namespace Mercure.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap script_import {
+        internal static System.Drawing.Bitmap scriptimport {
             get {
-                object obj = ResourceManager.GetObject("script-import", resourceCulture);
+                object obj = ResourceManager.GetObject("scriptimport", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -173,9 +173,9 @@ namespace Mercure.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap sitemap_application_blue {
+        internal static System.Drawing.Bitmap sitemapapplicationblue {
             get {
-                object obj = ResourceManager.GetObject("sitemap-application-blue", resourceCulture);
+                object obj = ResourceManager.GetObject("sitemapapplicationblue", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -193,9 +193,9 @@ namespace Mercure.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap store__minus {
+        internal static System.Drawing.Bitmap storeminus {
             get {
-                object obj = ResourceManager.GetObject("store--minus", resourceCulture);
+                object obj = ResourceManager.GetObject("storeminus", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -203,9 +203,9 @@ namespace Mercure.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap store__pencil {
+        internal static System.Drawing.Bitmap storepencil {
             get {
-                object obj = ResourceManager.GetObject("store--pencil", resourceCulture);
+                object obj = ResourceManager.GetObject("storepencil", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -213,9 +213,9 @@ namespace Mercure.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap store__plus {
+        internal static System.Drawing.Bitmap storeplus {
             get {
-                object obj = ResourceManager.GetObject("store--plus", resourceCulture);
+                object obj = ResourceManager.GetObject("storeplus", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -233,9 +233,9 @@ namespace Mercure.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap tag__minus {
+        internal static System.Drawing.Bitmap tagminus {
             get {
-                object obj = ResourceManager.GetObject("tag--minus", resourceCulture);
+                object obj = ResourceManager.GetObject("tagminus", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -243,9 +243,9 @@ namespace Mercure.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap tag__pencil {
+        internal static System.Drawing.Bitmap tagpencil {
             get {
-                object obj = ResourceManager.GetObject("tag--pencil", resourceCulture);
+                object obj = ResourceManager.GetObject("tagpencil", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -253,9 +253,9 @@ namespace Mercure.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap tag__plus {
+        internal static System.Drawing.Bitmap tagplus {
             get {
-                object obj = ResourceManager.GetObject("tag--plus", resourceCulture);
+                object obj = ResourceManager.GetObject("tagplus", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
