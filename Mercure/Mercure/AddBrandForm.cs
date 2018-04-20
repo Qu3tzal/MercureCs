@@ -17,6 +17,11 @@ namespace Mercure
         string Brand;
 
         /// <summary>
+        /// Inserted id
+        /// </summary>
+        public int Inserted_Id { get; set; }
+
+        /// <summary>
         /// Constructor
         /// </summary>
         /// <param name="Brand">null for a creation or the brand to modify one</param>
@@ -55,6 +60,7 @@ namespace Mercure
                     int id = DB.Get_Or_Create_Brand(this.Brand_Name_Text_Box.Text);
                     if (id != -1)
                     {
+                        Inserted_Id = id;
                         MessageBox.Show(this, "La marque à bien été crée !", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.DialogResult = DialogResult.OK;
                     }

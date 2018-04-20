@@ -13,8 +13,13 @@ namespace Mercure
     /// Allows the user to create or modify a family.
     /// </summary>
     public partial class AddFamilyForm : Form
-    {      
+    {
         string Family;
+
+        /// <summary>
+        /// Inserted id
+        /// </summary>
+        public int Inserted_Id {get;set;}
 
         /// <summary>
         /// Constructor
@@ -55,6 +60,7 @@ namespace Mercure
                     int id = DB.Get_Or_Create_Familly(this.Family_Name_Text_Box.Text);
                     if (id != -1)
                     {
+                        Inserted_Id = id;
                         MessageBox.Show(this, "La famille à bien été crée !", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.DialogResult = DialogResult.OK;
                     }

@@ -142,8 +142,15 @@ namespace Mercure
             DialogResult Result = Form.ShowDialog();
 
             if (Result == DialogResult.OK)
-                // TODO Only refresh affected article
-                Load_Brands();
+            {
+                // Get the new value.
+                Database db = Database.GetInstance();
+                Models.Brand Modified_Brand = db.Get_Brand_With_Id(Brand.Id);
+
+                ListViewItem Lvi = Brand_List_View.SelectedItems[0];
+                Lvi.SubItems[0].Text = Modified_Brand.Id.ToString();
+                Lvi.SubItems[1].Text = Modified_Brand.Name;
+            }
         }
 
         /// <summary>
@@ -155,8 +162,15 @@ namespace Mercure
             DialogResult Result = Form.ShowDialog();
 
             if (Result == DialogResult.OK)
-                // TODO Only refresh affected article
-                Load_Brands();
+            {
+                // Get the new value.
+                Database db = Database.GetInstance();
+                Models.Brand Modified_Brand = db.Get_Brand_With_Id(Form.Inserted_Id);
+
+                String[] row = { "" + Modified_Brand.Id, Modified_Brand.Name };
+                ListViewItem lvi = new ListViewItem(row);
+                Brand_List_View.Items.Add(lvi);
+            }
         }
 
         /// <summary>
@@ -182,7 +196,7 @@ namespace Mercure
                 if (Sucess)
                 {
                     Res = MessageBox.Show(this, "Suppression réussie !", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    Load_Brands();
+                    Brand_List_View.Items.Remove(Brand_List_View.SelectedItems[0]);
                 }
                 else
                 {

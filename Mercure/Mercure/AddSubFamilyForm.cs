@@ -18,6 +18,11 @@ namespace Mercure
         string Family;
 
         /// <summary>
+        /// Inserted id
+        /// </summary>
+        public int Inserted_Id { get; set; }
+
+        /// <summary>
         /// Constructor
         /// </summary>
         /// <param name="Familly">null for a creation or the sub-family to modify one</param>
@@ -134,6 +139,7 @@ namespace Mercure
                         int Id = DB.Get_Or_Create_Sub_Familly(DB.Get_Familly_ID(Family), this.SubFamily_Name_Text_Box.Text);
                         if (Id != -1)
                         {
+                            Inserted_Id = Id;
                             MessageBox.Show(this, "La Sous Famille a bien été crée !", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             this.DialogResult = DialogResult.OK;
                         }
@@ -174,6 +180,7 @@ namespace Mercure
                         Id = DB.Get_Or_Create_Sub_Familly(Id, this.SubFamily_Name_Text_Box.Text);
                         if (Id != -1)
                         {
+                            Inserted_Id = Id;
                             MessageBox.Show(this, "La Sous Famille et la Famille ont bien été crée !", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             this.DialogResult = DialogResult.OK;
                         }

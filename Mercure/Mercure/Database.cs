@@ -597,6 +597,33 @@ namespace Mercure
         }
 
         /// <summary>
+        /// Returns the brand from its id
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <returns>the brand</returns>
+        public Models.Brand Get_Brand_With_Id(int Id)
+        {
+            Models.Brand Brand = new Models.Brand();
+
+            System.Data.SQLite.SQLiteCommand cmd = SQL_Connection.CreateCommand();
+            cmd.CommandText = "SELECT * FROM Marques WHERE RefMarque = ?";
+
+            System.Data.SQLite.SQLiteParameter Id_Parameter = new System.Data.SQLite.SQLiteParameter();
+            Id_Parameter.Value = Id;
+            cmd.Parameters.Add(Id_Parameter);
+
+            System.Data.SQLite.SQLiteDataReader Brand_Reader = cmd.ExecuteReader();
+
+            if (Brand_Reader.Read())
+            {
+                Brand.Id = Brand_Reader.GetInt32(0);
+                Brand.Name = Brand_Reader.GetString(1);
+            }
+
+            return Brand;
+        }
+
+        /// <summary>
         /// Returns true if the given brand has any articles associated to it
         /// </summary>
         /// <param name="Id"></param>
