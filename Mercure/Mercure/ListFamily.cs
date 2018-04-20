@@ -141,8 +141,15 @@ namespace Mercure
             DialogResult Result = Form.ShowDialog();
 
             if (Result == DialogResult.OK)
-                // TODO Only refresh affected article
-                Load_Families();
+            {
+                // Get the new value.
+                Database db = Database.GetInstance();
+                Models.Family Modified_Family = db.Get_Family_With_Id(Family.Id);
+
+                ListViewItem Lvi = Family_List_View.SelectedItems[0];
+                Lvi.SubItems[0].Text = Modified_Family.Id.ToString();
+                Lvi.SubItems[1].Text = Modified_Family.Name;
+            }
         }
 
         /// <summary>
@@ -154,8 +161,15 @@ namespace Mercure
             DialogResult Result = Form.ShowDialog();
 
             if (Result == DialogResult.OK)
-                // TODO Only refresh affected article
-                Load_Families();
+            {
+                // Get the new value.
+                Database db = Database.GetInstance();
+                Models.Family Modified_Family = db.Get_Family_With_Id(Form.Inserted_Id);
+
+                String[] row = { "" + Modified_Family.Id, Modified_Family.Name };
+                ListViewItem lvi = new ListViewItem(row);
+                Family_List_View.Items.Add(lvi);
+            }
         }
 
         /// <summary>
@@ -182,7 +196,7 @@ namespace Mercure
                 if (Sucess)
                 {
                     Res = MessageBox.Show(this, "Suppression réussie !", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    Load_Families();
+                    Family_List_View.Items.Remove(Family_List_View.SelectedItems[0]);
                 }
                 else
                 {

@@ -143,8 +143,16 @@ namespace Mercure
             DialogResult Result = Form.ShowDialog();
 
             if (Result == DialogResult.OK)
-                // TODO Only refresh affected article
-                Load_SubFamilies();
+            {
+                // Get the new value.
+                Database db = Database.GetInstance();
+                Models.SubFamily Modified_SubFamily = db.Get_SubFamily_With_Id(Family.Id);
+
+                ListViewItem Lvi = SubFamily_List_View.SelectedItems[0];
+                Lvi.SubItems[0].Text = Modified_SubFamily.Id.ToString();
+                Lvi.SubItems[1].Text = Modified_SubFamily.Family_Id.ToString();
+                Lvi.SubItems[2].Text = Modified_SubFamily.Name;
+            }
         }
 
         /// <summary>
@@ -156,8 +164,15 @@ namespace Mercure
             DialogResult Result = Form.ShowDialog();
 
             if (Result == DialogResult.OK)
-                // TODO Only refresh affected article
-                Load_SubFamilies();
+            {
+                // Get the new value.
+                Database db = Database.GetInstance();
+                Models.SubFamily Modified_SubFamily = db.Get_Sub_Family_With_Id(Form.Inserted_Id);
+
+                String[] row = { "" + Modified_SubFamily.Id, "" + Modified_SubFamily.Family_Id, Modified_SubFamily.Name };
+                ListViewItem lvi = new ListViewItem(row);
+                SubFamily_List_View.Items.Add(lvi);
+            }
         }
 
         /// <summary>
@@ -183,7 +198,7 @@ namespace Mercure
                 if (Sucess)
                 {
                     Res = MessageBox.Show(this, "Suppression réussie !", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    Load_SubFamilies();
+                    SubFamily_List_View.Items.Remove(SubFamily_List_View.SelectedItems[0]);
                 }
                 else
                 {

@@ -597,6 +597,34 @@ namespace Mercure
         }
 
         /// <summary>
+        /// Returns the subfamily from its id
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <returns>the subfamily</returns>
+        public Models.SubFamily Get_SubFamily_With_Id(int Id)
+        {
+            Models.SubFamily SubFamilly = new Models.SubFamily();
+
+            System.Data.SQLite.SQLiteCommand cmd = SQL_Connection.CreateCommand();
+            cmd.CommandText = "SELECT * FROM SousFamilles WHERE RefSousFamille = ?";
+
+            System.Data.SQLite.SQLiteParameter Id_Parameter = new System.Data.SQLite.SQLiteParameter();
+            Id_Parameter.Value = Id;
+            cmd.Parameters.Add(Id_Parameter);
+
+            System.Data.SQLite.SQLiteDataReader SubFamilly_Reader = cmd.ExecuteReader();
+
+            if (SubFamilly_Reader.Read())
+            {
+                SubFamilly.Id = SubFamilly_Reader.GetInt32(0);
+                SubFamilly.Family_Id = SubFamilly_Reader.GetInt32(1);
+                SubFamilly.Name = SubFamilly_Reader.GetString(2);
+            }
+
+            return SubFamilly;
+        }
+
+        /// <summary>
         /// Returns the brand from its id
         /// </summary>
         /// <param name="Id"></param>
