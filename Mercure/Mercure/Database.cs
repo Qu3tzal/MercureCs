@@ -601,7 +601,7 @@ namespace Mercure
         /// </summary>
         /// <param name="Id"></param>
         /// <returns>the subfamily</returns>
-        public Models.SubFamily Get_SubFamily_With_Id(int Id)
+        public Models.SubFamily Get_Sub_Family_With_Id(int Id)
         {
             Models.SubFamily SubFamilly = new Models.SubFamily();
 

@@ -146,7 +146,7 @@ namespace Mercure
             {
                 // Get the new value.
                 Database db = Database.GetInstance();
-                Models.SubFamily Modified_SubFamily = db.Get_SubFamily_With_Id(Family.Id);
+                Models.SubFamily Modified_SubFamily = db.Get_Sub_Family_With_Id(SubFamily.Id);
 
                 ListViewItem Lvi = SubFamily_List_View.SelectedItems[0];
                 Lvi.SubItems[0].Text = Modified_SubFamily.Id.ToString();
