@@ -5,6 +5,9 @@ using System.Text;
 
 namespace Mercure.Models
 {
+    /// <summary>
+    /// Model class of a brand
+    /// </summary>
     class Brand
     {
         public int Id { get; set; }

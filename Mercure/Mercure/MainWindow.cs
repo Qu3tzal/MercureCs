@@ -33,10 +33,10 @@ namespace Mercure
             if (Result == DialogResult.OK)
             {
                 // Get the new value.
-                Database db = Database.GetInstance();
-                Models.Article Modified_Article = db.Get_Article(Article.Ref_Article);
+                Database DB = Database.GetInstance();
+                Models.Article Modified_Article = DB.Get_Article(Article.Ref_Article);
 
-                ListViewItem Lvi = listView1.SelectedItems[0];
+                ListViewItem Lvi = Article_List_View.SelectedItems[0];
                 Lvi.SubItems[0].Text = Modified_Article.Ref_Article;
                 Lvi.SubItems[1].Text = Modified_Article.Description;
                 Lvi.SubItems[2].Text = Modified_Article.Sub_Familly_Name;
@@ -53,23 +53,24 @@ namespace Mercure
         /// <param name="e"></param>
         private void On_Column_Clicked(object sender, ColumnClickEventArgs e)
         {
-            this.listView1.ListViewItemSorter = new ListViewItemComparer(e.Column);
+            this.Article_List_View.ListViewItemSorter = new ListViewItemComparer(e.Column);
             if (e.Column == 2 || e.Column == 3 || e.Column == 5)
             {
                 string current = "";
-                for (int i = 0; i < listView1.Items.Count; i++)
+                for (int i = 0; i < Article_List_View.Items.Count; i++)
                 {
-                    if (!current.Equals(listView1.Items[i].SubItems[e.Column].Text))
+                    if (!current.Equals(Article_List_View.Items[i].SubItems[e.Column].Text))
                     {
-                        listView1.Groups.Add(new ListViewGroup(listView1.Items[i].SubItems[e.Column].Text, HorizontalAlignment.Left));
-                        current = listView1.Items[i].SubItems[e.Column].Text;
+                        Article_List_View.Groups.Add(new ListViewGroup(Article_List_View.Items[i].SubItems[e.Column].Text, HorizontalAlignment.Left));
+                        current = Article_List_View.Items[i].SubItems[e.Column].Text;
                     }
 
-                    listView1.Groups[listView1.Groups.Count - 1].Items.Add(listView1.Items[i]);
+                    Article_List_View.Groups[Article_List_View.Groups.Count - 1].Items.Add(Article_List_View.Items[i]);
                 }
             }
             else
-                listView1.Groups.Clear();
+                Article_List_View.Groups.Clear();
+            this.Status_Label.Text = "Colonne " + e.Column + " triée !";
         }
 
         /// <summary>
@@ -80,9 +81,9 @@ namespace Mercure
         {
             Models.Article Article = new Models.Article();
 
-            if (listView1.SelectedItems.Count == 0) return null;
+            if (Article_List_View.SelectedItems.Count == 0) return null;
             
-            ListViewItem Item = listView1.SelectedItems[0];
+            ListViewItem Item = Article_List_View.SelectedItems[0];
             Models.Article A =  Database.GetInstance().Get_Article(Item.SubItems[0].Text);
             return A;
         }
@@ -135,11 +136,13 @@ namespace Mercure
                 {
                     Res = MessageBox.Show(this, "Suppression réussie !", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     if (Res == DialogResult.OK)
-                        listView1.Items.Remove(listView1.SelectedItems[0]);
+                        Article_List_View.Items.Remove(Article_List_View.SelectedItems[0]);
+                    this.Status_Label.Text = "Suppréssion réussi !";
                 }
                 else
                 {
                     Res = MessageBox.Show(this, "Erreur lors de la supression", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.Status_Label.Text = "Echec de la suppréssion réussi !";
                 }
             }
         }
@@ -154,26 +157,26 @@ namespace Mercure
             if (getSelectedArticle() == null)
             {
                 // Modify/delete article.
-                contextMenuStrip1.Items[1].Visible = false;
-                contextMenuStrip1.Items[2].Visible = false;
+                Context_Menu_Strip.Items[1].Visible = false;
+                Context_Menu_Strip.Items[2].Visible = false;
 
                 // Modify/delete brand.
-                contextMenuStrip1.Items[5].Visible = false;
+                Context_Menu_Strip.Items[5].Visible = false;
                
                 // Modify/delete sub-family.
-                contextMenuStrip1.Items[8].Visible = false;     
+                Context_Menu_Strip.Items[8].Visible = false;     
             }
             else
             {
                 // Modify/delete article.
-                contextMenuStrip1.Items[1].Visible = true;
-                contextMenuStrip1.Items[2].Visible = true;
+                Context_Menu_Strip.Items[1].Visible = true;
+                Context_Menu_Strip.Items[2].Visible = true;
 
                 // Modify/delete brand.
-                contextMenuStrip1.Items[5].Visible = true;
+                Context_Menu_Strip.Items[5].Visible = true;
 
                 // Modify/delete sub-family.
-                contextMenuStrip1.Items[8].Visible = true;
+                Context_Menu_Strip.Items[8].Visible = true;
             }
         }
 
@@ -190,12 +193,13 @@ namespace Mercure
             if (Result == DialogResult.OK)
             {
                 // Get the new value.
-                Database db = Database.GetInstance();
-                Models.Article A = db.Get_Article(Aaf.Inserted_Id);
+                Database DB = Database.GetInstance();
+                Models.Article A = DB.Get_Article(Aaf.Inserted_Id);
 
                 String[] Row = { A.Ref_Article, A.Description, A.Sub_Familly_Name, A.Brand_Name, "" + A.Price_HT, "" + A.Quantity };
                 ListViewItem Item = new ListViewItem(Row);
-                this.listView1.Items.Add(Item);
+                this.Article_List_View.Items.Add(Item);
+                this.Status_Label.Text = "Article : " + A.Ref_Article + " ajouté !";
             }
         }
 
@@ -250,19 +254,20 @@ namespace Mercure
         /// </summary>
         private void Init_List()
         {
-            listView1.Columns.Add("RefArticle", -2, HorizontalAlignment.Left);
-            listView1.Columns.Add("Description", -2, HorizontalAlignment.Left);
-            listView1.Columns.Add("Sous Famille", -2, HorizontalAlignment.Left);
-            listView1.Columns.Add("Marque", -2, HorizontalAlignment.Left);
-            listView1.Columns.Add("Prix HT", -2, HorizontalAlignment.Left);
-            listView1.Columns.Add("Quantité", -2, HorizontalAlignment.Left);
+            Article_List_View.Columns.Add("RefArticle", -2, HorizontalAlignment.Left);
+            Article_List_View.Columns.Add("Description", -2, HorizontalAlignment.Left);
+            Article_List_View.Columns.Add("Sous Famille", -2, HorizontalAlignment.Left);
+            Article_List_View.Columns.Add("Marque", -2, HorizontalAlignment.Left);
+            Article_List_View.Columns.Add("Prix HT", -2, HorizontalAlignment.Left);
+            Article_List_View.Columns.Add("Quantité", -2, HorizontalAlignment.Left);
 
-            listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
-            listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+            Article_List_View.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+            Article_List_View.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+
             int Width = 0;
-            for (int i = 0; i < listView1.Columns.Count; i++)
+            for (int i = 0; i < Article_List_View.Columns.Count; i++)
             {
-                Width += listView1.Columns[i].Width;
+                Width += Article_List_View.Columns[i].Width;
             }
 
             this.Width = Width + 25;
@@ -277,8 +282,8 @@ namespace Mercure
         /// </summary>
         public void Load_Articles()
         {
-            this.listView1.Clear();
-            this.listView1.Groups.Clear();
+            this.Article_List_View.Clear();
+            this.Article_List_View.Groups.Clear();
 
             List<Models.Article> Articles = Database.GetInstance().Get_Articles_List();
             if (Articles.Count == 0) 
@@ -286,33 +291,36 @@ namespace Mercure
                 return;
             }
 
-            listView1.Columns.Add("RefArticle", -2, HorizontalAlignment.Left);
-            listView1.Columns.Add("Description", -2, HorizontalAlignment.Left);
-            listView1.Columns.Add("Sous Famille", -2, HorizontalAlignment.Left);
-            listView1.Columns.Add("Marque", -2, HorizontalAlignment.Left);
-            listView1.Columns.Add("Prix HT", -2, HorizontalAlignment.Left);
-            listView1.Columns.Add("Quantité", -2, HorizontalAlignment.Left);
+            Article_List_View.Columns.Add("RefArticle", -2, HorizontalAlignment.Left);
+            Article_List_View.Columns.Add("Description", -2, HorizontalAlignment.Left);
+            Article_List_View.Columns.Add("Sous Famille", -2, HorizontalAlignment.Left);
+            Article_List_View.Columns.Add("Marque", -2, HorizontalAlignment.Left);
+            Article_List_View.Columns.Add("Prix HT", -2, HorizontalAlignment.Left);
+            Article_List_View.Columns.Add("Quantité", -2, HorizontalAlignment.Left);
             
             foreach (Models.Article A in Articles)
             {
                 String[] Row = { A.Ref_Article, A.Description, A.Sub_Familly_Name, A.Brand_Name, "" + A.Price_HT, "" + A.Quantity };
                 ListViewItem Item = new ListViewItem(Row);
-                this.listView1.Items.Add(Item);
+                this.Article_List_View.Items.Add(Item);
             }
 
-            listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
-            listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
-            listView1.Columns[5].Width = 80;
+            Article_List_View.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+            Article_List_View.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+            Article_List_View.Columns[5].Width = 80;
 
             int Width = 0;
-            for (int i = 0; i < listView1.Columns.Count; i++)
+            for (int i = 0; i < Article_List_View.Columns.Count; i++)
             {
-                Width += listView1.Columns[i].Width;
+                Width += Article_List_View.Columns[i].Width;
             }
             this.Width = Width + 37;
+
+            // auto 16/9 with the list view size
             this.Height = (int)(this.Width * (9 / 16.0f));
 
             this.CenterToScreen();
+            this.Status_Label.Text = "Chargement via la base de données réussi !";
         }
 
         /// <summary>
@@ -320,7 +328,7 @@ namespace Mercure
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void quitterToolStripMenuItem_Click(object sender, EventArgs e)
+        private void QuitterToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Close();
         }
@@ -330,7 +338,7 @@ namespace Mercure
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void nettoyerLaBaseDeDonnéeToolStripMenuItem_Click(object sender, EventArgs e)
+        private void NettoyerLaBaseDeDonnéeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Console.WriteLine("Nettoyage en cours");
             Database.GetInstance().Clear_Database();
@@ -351,7 +359,7 @@ namespace Mercure
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ajouterUneMarqueToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void AjouterUneMarqueToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             Add_Brand();
         }
@@ -361,7 +369,7 @@ namespace Mercure
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ajouterUneMarqueToolStripMenuItem_Click(object sender, EventArgs e)
+        private void AjouterUneMarqueToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Add_Brand();      
         }
@@ -371,7 +379,7 @@ namespace Mercure
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void listerLesMarquesToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ListerLesMarquesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ListBrand lb = new ListBrand();
             lb.ShowDialog();
@@ -382,7 +390,7 @@ namespace Mercure
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void listerLesFamillesToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ListerLesFamillesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ListFamily lf = new ListFamily();
             lf.ShowDialog();
@@ -393,7 +401,7 @@ namespace Mercure
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void listerLesSousfamillesToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ListerLesSousfamillesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ListSubFamily lsf = new ListSubFamily();
             lsf.ShowDialog();
@@ -404,7 +412,7 @@ namespace Mercure
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ajouterUneFamilleToolStripMenuItem_Click(object sender, EventArgs e)
+        private void AjouterUneFamilleToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddFamilyForm aff = new AddFamilyForm(null);
             aff.ShowDialog();
@@ -428,7 +436,6 @@ namespace Mercure
         /// <param name="e"></param>
         private void On_Modify_Brand(object sender, EventArgs e)
         {
-            // TODO refresh the line
             AddBrandForm Form = new AddBrandForm(getSelectedArticle().Brand_Name);
             DialogResult Result = Form.ShowDialog();
             if(Result == DialogResult.OK)
@@ -444,7 +451,6 @@ namespace Mercure
         /// <param name="e"></param>
         private void On_Modify_Sub_Family(object sender, EventArgs e)
         {
-            // TODO refresh the line
             AddSubFamilyForm Form = new AddSubFamilyForm(getSelectedArticle().Sub_Familly_Name);
             DialogResult Result = Form.ShowDialog();
             if (Result == DialogResult.OK)

@@ -72,10 +72,10 @@ namespace Mercure
         /// <param name="progress">The absolute progress</param>
         private void Update_Progress_Bar(int progress)
         {
-            this.progressBar1.Value = progress;
-            this.progressBar1.Refresh();
-            this.label1.Text = progress + "%";
-            this.label1.Refresh();
+            this.Progress_Bar.Value = progress;
+            this.Progress_Bar.Refresh();
+            this.Label_Percent.Text = progress + "%";
+            this.Label_Percent.Refresh();
         }
 
         /// <summary>
@@ -84,8 +84,8 @@ namespace Mercure
         /// <param name="s"></param>
         private void Print_To_Log(string s)
         {
-            this.textBox1.AppendText(s + "\r\n");
-            this.textBox1.Refresh();
+            this.Output_Text_Box.AppendText(s + "\r\n");
+            this.Output_Text_Box.Refresh();
         }
 
         /// <summary>

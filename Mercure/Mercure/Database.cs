@@ -24,6 +24,7 @@ namespace Mercure
         {
             SQL_Connection = new System.Data.SQLite.SQLiteConnection("Data Source=res/Mercure.SQLite;");
             SQL_Connection.Open();
+            
         }
 
         /// <summary>

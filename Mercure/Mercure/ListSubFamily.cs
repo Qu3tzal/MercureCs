@@ -98,15 +98,15 @@ namespace Mercure
         {
             if (Get_Selected_Item() == null)
             {
-                this.contextMenuStrip1.Items[1].Visible = false;
-                this.contextMenuStrip1.Items[2].Visible = false;
-                this.contextMenuStrip1.Items[3].Visible = false;
+                this.Context_Menu_Strip.Items[1].Visible = false;
+                this.Context_Menu_Strip.Items[2].Visible = false;
+                this.Context_Menu_Strip.Items[3].Visible = false;
             }
             else
             {
-                this.contextMenuStrip1.Items[1].Visible = true;
-                this.contextMenuStrip1.Items[2].Visible = true;
-                this.contextMenuStrip1.Items[3].Visible = true;
+                this.Context_Menu_Strip.Items[1].Visible = true;
+                this.Context_Menu_Strip.Items[2].Visible = true;
+                this.Context_Menu_Strip.Items[3].Visible = true;
             }
         }
 
