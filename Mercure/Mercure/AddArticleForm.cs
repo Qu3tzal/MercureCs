@@ -17,6 +17,11 @@ namespace Mercure
         private Models.Article Article;
 
         /// <summary>
+        /// Inserted id
+        /// </summary>
+        public string Inserted_Id { get; set; }
+
+        /// <summary>
         /// Constructor
         /// </summary>
         /// <param name="Article">null for a creation or the article to modify one</param>
@@ -123,6 +128,7 @@ namespace Mercure
 
                         if (Result)
                         {
+                            Inserted_Id = Reference;
                             MessageBox.Show(this, "L'article à bien été crée !", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             this.DialogResult = DialogResult.OK;
                         }

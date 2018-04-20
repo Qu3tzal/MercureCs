@@ -31,8 +31,19 @@ namespace Mercure
 
             // Refresh the view.
             if (Result == DialogResult.OK)
-                // Refresh only the article
-                Load_Articles();
+            {
+                // Get the new value.
+                Database db = Database.GetInstance();
+                Models.Article Modified_Article = db.Get_Article(Article.Ref_Article);
+
+                ListViewItem Lvi = listView1.SelectedItems[0];
+                Lvi.SubItems[0].Text = Modified_Article.Ref_Article;
+                Lvi.SubItems[1].Text = Modified_Article.Description;
+                Lvi.SubItems[2].Text = Modified_Article.Sub_Familly_Name;
+                Lvi.SubItems[3].Text = Modified_Article.Brand_Name;
+                Lvi.SubItems[4].Text = "" + Modified_Article.Price_HT;
+                Lvi.SubItems[5].Text = "" + Modified_Article.Quantity;
+            }
         }
 
         /// <summary>
@@ -124,7 +135,7 @@ namespace Mercure
                 {
                     Res = MessageBox.Show(this, "Suppression réussie !", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     if (Res == DialogResult.OK)
-                        Load_Articles();
+                        listView1.Items.Remove(listView1.SelectedItems[0]);
                 }
                 else
                 {
@@ -176,10 +187,16 @@ namespace Mercure
             AddArticleForm Aaf = new AddArticleForm(null);
             DialogResult Result = Aaf.ShowDialog();
 
-            if(Result == DialogResult.OK)
-                // Refresh the view.
-                // Only add the row
-                Load_Articles();
+            if (Result == DialogResult.OK)
+            {
+                // Get the new value.
+                Database db = Database.GetInstance();
+                Models.Article A = db.Get_Article(Aaf.Inserted_Id);
+
+                String[] Row = { A.Ref_Article, A.Description, A.Sub_Familly_Name, A.Brand_Name, "" + A.Price_HT, "" + A.Quantity };
+                ListViewItem Item = new ListViewItem(Row);
+                this.listView1.Items.Add(Item);
+            }
         }
 
         /// <summary>
@@ -415,8 +432,9 @@ namespace Mercure
             AddBrandForm Form = new AddBrandForm(getSelectedArticle().Brand_Name);
             DialogResult Result = Form.ShowDialog();
             if(Result == DialogResult.OK)
-                // TODO refresh the line
+            {
                 Load_Articles();
+            }
         }
 
         /// <summary>
@@ -427,11 +445,12 @@ namespace Mercure
         private void On_Modify_Sub_Family(object sender, EventArgs e)
         {
             // TODO refresh the line
-            AddFamilyForm Form = new AddFamilyForm(getSelectedArticle().Sub_Familly_Name);
+            AddSubFamilyForm Form = new AddSubFamilyForm(getSelectedArticle().Sub_Familly_Name);
             DialogResult Result = Form.ShowDialog();
             if (Result == DialogResult.OK)
-                // TODO refresh the line
+            {
                 Load_Articles();
+            }
         }
 
     }
